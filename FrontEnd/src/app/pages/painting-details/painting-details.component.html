@@ -1,0 +1,56 @@
+@if(this.painting$ | async; as painting) {
+    <div class="column p-1">
+        @if(painting.image) {
+            <div class="row fx-center">
+                <img mat-card-image [src]="painting.image.base64" [alt]="painting.name"/>
+            </div>
+        }        
+        <div class="row fx-center">
+            <h3>{{ painting.name }}</h3>
+        </div>
+        <div class="row fx-center">
+            <div class="column w-50">
+                <em>{{ painting.description }}</em>
+            </div>            
+        </div>       
+        <div class="row fx-center">
+            <div class="column">
+                <p class="align-center"><strong>Artist</strong></p>
+                {{ painting.artist ? painting.artist.name : 'Unknown' }}
+            </div>
+            <div class="column ms-2">
+                <p class="align-center"><strong>Year</strong></p>
+                {{ painting.year }}
+            </div>
+            <div class="column ms-2">
+                <p class="align-center"><strong>Style</strong></p>
+                {{ painting.style ? painting.style.name : 'Unknown' }}
+            </div>
+        </div>
+        @if(painting.artist) {
+            <div class="row fx-center">
+                @if(painting.artist.yearOfBirth && painting.artist.yearOfDeath) {
+                    <h3>{{`About ${painting.artist.name} (${painting.artist.yearOfBirth} - ${painting.artist.yearOfDeath})`}}</h3>
+                } @else {
+                    <h3>{{`About ${painting.artist.name} (${painting.artist.yearOfBirth})`}}</h3>                    
+                }            
+            </div>
+            <div class="row fx-center">
+                <div class="column w-50">
+                    <em>{{ painting.artist.description }}</em>
+                </div>            
+            </div>  
+        }   
+        @if(painting.style) {
+            <div class="row fx-center">
+                <h3>{{`About ${painting.style.name}`}}</h3>
+            </div>
+            <div class="row fx-center mb-2">
+                <div class="column w-50">
+                    <em>{{ painting.style.description }}</em>
+                </div>            
+            </div>  
+        }              
+    </div>
+}
+<app-scroll-to-top></app-scroll-to-top>

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  postgresql_db_art_gallery:
+    image: postgres:16.4
+    container_name: postgresql_db_art_gallery
+    restart: unless-stopped
+    environment:      
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Test2025!
+      - POSTGRES_DB=ArtGallery
+    ports: 
+      - "5432:5432"

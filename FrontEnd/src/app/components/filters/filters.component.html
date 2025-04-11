@@ -1,0 +1,54 @@
+<div class="row p-0">
+    <form [formGroup]="this.filterForm">
+        <div class="row w-100 p-0 ms-1">
+            <div class="column">
+                <mat-form-field>
+                    <mat-label>Style</mat-label>
+                    <mat-select [multiple]="true" formControlName="styles">
+                        @for(style of this.filterStyles(); track $index) {
+                            <mat-option [value]="style.value">{{style.label}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column ms-1">
+                <mat-form-field>
+                    <mat-label>Artist</mat-label>
+                    <mat-select [multiple]="true" formControlName="artists">
+                        @for(artist of this.filterArtists(); track $index) {
+                            <mat-option [value]="artist.value">{{artist.label}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="column ms-1">
+                <mat-form-field>
+                    <mat-label>Years</mat-label>
+                    <mat-select [multiple]="true" formControlName="years">
+                        @for(year of this.filterYears(); track $index) {
+                            <mat-option [value]="year.value">{{year.label}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            @if(this.isFilterOn()) {
+                <div class="column ms-1">
+                    <button type="button" mat-raised-button color="warn" class="mt-half" (click)="reset()">
+                        <mat-icon>cancel</mat-icon>
+                        <span>Reset</span>
+                    </button>
+                </div>
+            }
+        </div>
+    </form>
+</div>
+@if(this.isFilterOn()) {
+    <div class="row p-0 ms-1">
+        @for(item of this.getActiveFilters(); track $index) {
+            <button type="button" mat-stroked-button color="accent" (click)="removeFilter(item.controlname ?? '', item.value)" class="ms-1">
+                 <span>{{ `${item.category }: ${item.label}` }}</span>
+                 <mat-icon>cancel</mat-icon>
+            </button>
+         }
+    </div>
+}

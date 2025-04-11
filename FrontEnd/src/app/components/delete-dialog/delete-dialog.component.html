@@ -1,0 +1,19 @@
+<div class="custom-button-theme p-1 pb-1">
+    <h2 class="margin-1rem" mat-dialog-title>{{ this.data.title }}</h2>
+    <div mat-dialog-content class="margin-l-and-r-1rem pb-1">
+        <p class="w800">{{ this.data.message }}</p>
+        @if(this.data.additionalData !== '') {
+            <p class="value-name">"{{this.data.additionalData}}"</p>
+        }
+    </div>
+    <div class="button-container margin-top-bottom-1rem pb-1">
+        <button class="button-accent width-button" type="button" color="accent" mat-raised-button (click)="this.onCancel()">
+            <mat-icon>cancel</mat-icon>
+            <span>Annuleren</span>
+        </button>
+        <button class="button-warn" type="button" color="warn" mat-raised-button (click)="this.onDelete()">
+            <mat-icon>delete</mat-icon>
+            <span>Verwijderen</span>
+        </button>
+    </div>
+</div>

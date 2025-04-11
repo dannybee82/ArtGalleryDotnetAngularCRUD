@@ -1,0 +1,35 @@
+<nav class="container-flex-row ">    
+    <ul>
+        <li>
+            <button type="button" mat-raised-button color="primary" [routerLink]="['/']">
+                <mat-icon>palette</mat-icon>
+                <span>All paintings</span>
+            </button>
+        </li>
+        <li>
+            <button type="button" mat-raised-button color="primary" [routerLink]="['/upload-images']">
+                <mat-icon>upload</mat-icon>
+                <span>Upload Image</span>
+            </button>
+        </li>
+        <li>
+            <button type="button" mat-raised-button color="primary" [routerLink]="['/create-or-update-painting']">
+                <mat-icon>add</mat-icon>
+                <span>Add Painting</span>
+            </button>
+        </li>
+        <li>
+            <button type="button" mat-raised-button color="primary" [routerLink]="['/all-artists']">
+                <mat-icon>person</mat-icon>
+                <span>All Artists</span>
+            </button>
+        </li>
+        <li>
+            <button type="button" mat-raised-button color="primary" [routerLink]="['/all-styles']">
+                <mat-icon>brush</mat-icon>
+                <span>All Styles</span>
+            </button>
+        </li>
+    </ul>
+</nav>
+<router-outlet></router-outlet>

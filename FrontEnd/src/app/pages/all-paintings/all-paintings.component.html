@@ -1,0 +1,32 @@
+<app-filters (filterValues)="filterData($event)"></app-filters>
+<h3 class="p-1">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
+<div class="card-grid">
+    @if(this.allPaintings$ | async; as allPaintings) {
+        @for(painting of allPaintings; track $index) {
+            <mat-card appearance="outlined">
+                <div class="thumbnail-container">
+                    <img class="image-thumbnail" mat-card-image [src]="painting.thumbnail?.base64" [alt]="painting.name" [routerLink]="['/painting-details', painting.id ?? 0]"/>
+                </div>                
+                <mat-card-header>
+                    <mat-card-title [class]="'card-title-max-height'">{{ painting.name }}</mat-card-title>
+                    <mat-card-subtitle><strong>Painter:</strong> {{ painting.artist ? painting.artist.name : 'Unknown'}}</mat-card-subtitle>                 
+                </mat-card-header>
+                <mat-card-content>
+                    <p><strong>Style:</strong> {{ painting.style ? painting.style.name : 'Unknown' }}</p>
+                    <p><strong>Year:</strong> {{ painting.year }}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="bottom-row">
+                        <button type="button" mat-icon-button color="accent" matTooltip="Show details" [routerLink]="['/painting-details', painting.id ?? 0]">
+                            <mat-icon>visibility</mat-icon>                        
+                        </button>
+                        <button type="button" mat-icon-button color="accent" matTooltip="Edit Painting" [routerLink]="['/create-or-update-painting', painting.id ?? 0]">
+                            <mat-icon>edit</mat-icon>                        
+                        </button>
+                    </div>                    
+                </mat-card-actions>
+            </mat-card>
+        }
+    }
+</div>
+<app-scroll-to-top></app-scroll-to-top>

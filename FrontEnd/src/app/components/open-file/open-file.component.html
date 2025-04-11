@@ -1,0 +1,20 @@
+<button 
+    class="openfile-button" 
+    type="button" 
+    mat-raised-button 
+    color="primary" 
+    for="formFile" 
+    (click)="openFile.value = '';openFile.click();" 
+    matTooltip="{{this.buttonText()}}" 
+    [disabled]="this.isDisabled()">
+        <mat-icon>{{this.matIcon()}}</mat-icon>
+        <span>{{this.buttonText()}}</span>
+</button>
+<input 
+    type="file" 
+    id="formFile" 
+    [accept]="this.fileExtensions()"
+    (change)="onFileSelected($event)" 
+    [multiple]="this.allowMultipleSelection()" 
+    #openFile
+/>

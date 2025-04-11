@@ -1,0 +1,44 @@
+<div class="column p-1">
+    <form [formGroup]="artistForm" (ngSubmit)="submit()">
+	    <div class="row">
+            <mat-form-field>
+                <mat-label>Artist Name</mat-label>
+                <input type="text" matInput formControlName="name">
+            </mat-form-field>                        
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description" [rows]="5" [cols]="30"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Year of Birth</mat-label>
+                <input type="number" matInput formControlName="yearOfBirth" [min]="1200" [max]="20250">
+            </mat-form-field>                        
+        </div>
+        <div class="row">
+            <mat-form-field>
+                <mat-label>Year of Death</mat-label>
+                <input type="number" matInput formControlName="yearOfDeath" [min]="1200" [max]="20250">
+            </mat-form-field>          
+        </div>
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="me-1">
+                <mat-icon>save</mat-icon>
+                <span>{{ this.isUpdateMode() ? 'Update' : 'Create' }}</span>
+            </button>
+            <button type="button" mat-raised-button color="accent" [routerLink]="['/all-artists']">
+                <mat-icon>cancel</mat-icon>
+                <span>Cancel</span>
+            </button>
+        </div>
+        <div class="row">
+            <button type="button" mat-raised-button color="warn" class="mt-1" matTooltip="Delete Artist" (click)="deleteArtist()">
+                <mat-icon>delete</mat-icon>
+                <span>Delete Artist</span>
+            </button>
+        </div>
+    </form>
+</div>

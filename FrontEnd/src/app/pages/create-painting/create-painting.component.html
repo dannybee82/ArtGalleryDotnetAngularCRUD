@@ -1,0 +1,117 @@
+@if(this.isLoaded()) {
+    <div class="column p-1">
+        <div class="row">
+            <div class="column me-1 w-15">
+                <form [formGroup]="paintingForm">
+                    <div class="row">
+                        <mat-form-field>
+                            <mat-label>Painting Name</mat-label>
+                            <input type="text" matInput formControlName="name">
+                        </mat-form-field>                    
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <mat-label>Painting Description</mat-label>
+                            <textarea  matInput formControlName="description" [cols]="30" [rows]="5"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field>
+                            <mat-label>Painting Year</mat-label>
+                            <input type="number" matInput formControlName="year">
+                        </mat-form-field>                    
+                    </div>
+                </form>
+            </div>
+            <div class="column me-1 w-25">
+                <div class="row">
+                    <form [formGroup]="thumbnailForm">
+                        <mat-form-field>
+                            <mat-label>Image & Thumbnail</mat-label>
+                            <mat-select formControlName="selectedThumbnail" [compareWith]="compareObj">
+                                @for(thumbnail of this.allUnusedThumbnails(); track thumbnail.id; let index = $index) {
+                                    <mat-option [value]="thumbnail">{{ index + 1 }}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </form>
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Thumbnails/images" (click)="this.refreshData(1)">
+                        <mat-icon>refresh</mat-icon>
+                    </button>
+                </div>
+                <div class="row">
+                    @if(this.selectedThumbnail()) {
+                        <div class="thumbnail-container">
+                            <img class="image-thumbnail" mat-card-image [src]="this.selectedThumbnail()!.base64" alt="Thumbnail" />
+                        </div> 
+                    }
+                </div>
+            </div>
+            <div class="column me-1 w-25">
+                <div class="row">
+                    <form [formGroup]="artistForm">
+                        <mat-form-field>
+                            <mat-label>Artist</mat-label>    
+                            <mat-select formControlName="selectedArtist" [compareWith]="compareObj">
+                                @for(artist of this.allArtists(); track artist.id) {
+                                    <mat-option [value]="artist">{{ artist.name }}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </form>
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Artists" (click)="this.refreshData(2)">
+                        <mat-icon>refresh</mat-icon>
+                    </button>
+                </div>
+                <div class="column">
+                    @if(this.selectedArtist()) {
+                        <p><strong>{{ this.selectedArtist()?.name }}</strong></p>
+                        <p>{{ this.selectedArtist()?.description }}</p>
+                        <p>{{ this.selectedArtist()?.yearOfBirth }} - {{ this.selectedArtist()?.yearOfDeath ? this.selectedArtist()?.yearOfDeath : '' }}</p>
+                    }
+                </div>
+            </div>
+            <div class="column w-25">
+                <div class="row">
+                    <form [formGroup]="styleForm">
+                        <mat-form-field>
+                            <mat-label>Style</mat-label>
+                            <mat-select formControlName="selectedStyle" [compareWith]="compareObj">
+                                @for(style of this.allStyles(); track style.id) {
+                                    <mat-option [value]="style">{{ style.name }}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+                    </form>
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Styles" (click)="this.refreshData(3)">
+                        <mat-icon>refresh</mat-icon>
+                    </button>
+                </div>
+                <div class="column">
+                    @if(this.selectedStyle()) {
+                        <p><strong>{{ this.selectedStyle()?.name }}</strong></p>
+                        <p>{{ this.selectedStyle()?.description }}</p>                        
+                    }
+                </div>
+            </div>
+        </div>        
+        <div class="row">
+            <button type="submit" mat-raised-button color="primary" class="me-1" (click)="submit()">
+                <mat-icon>save</mat-icon>
+                <span>{{ this.isUpdateMode() ? 'Update' : 'Create' }}</span>
+            </button>
+            <button type="button" mat-raised-button color="accent" [routerLink]="['/']">
+                <mat-icon>cancel</mat-icon>
+                <span>Cancel</span>
+            </button>
+        </div>
+        @if(this.isUpdateMode()) {
+            <div class="row mt-2">
+                <button type="button" mat-raised-button color="warn" (click)="deletePainting()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete Painting</span>
+                </button>
+            </div>
+        }        
+    </div>
+}

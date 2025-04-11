@@ -1,0 +1,19 @@
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.value-name {
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;    
+}
+
+.p-1 {
+    padding: 16px;
+}

@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/rose-red.css";
+@import "../node_modules/ngx-toastr/toastr.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.fx-center {
+    justify-content: center;
+}
+
+.fx-space-between {
+    justify-content: space-between;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-15 {
+    width: 15%;
+}
+
+.p-0 {
+    padding: 0px;
+}
+
+.p-1 {
+    padding: 16px;
+}
+
+.mt-half {
+    margin-top: 8px;
+}
+
+.mt-1 {
+    margin-top: 16px;
+}
+
+.mt-2 {
+    margin-top: 32px;
+}
+
+.ms-1 {
+    margin-left: 16px;
+}
+
+.ms-2 {
+    margin-left: 32px;
+}
+
+.mb-1 {
+    margin-bottom: 16px;
+}
+
+.mb-2 {
+    margin-bottom: 32px;
+}
+
+.me-1 {
+    margin-right: 16px;
+}
+
+.align-center {
+    align-self: center;
+}

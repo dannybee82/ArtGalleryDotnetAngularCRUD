@@ -1,0 +1,30 @@
+<div class="container column p-1">
+    <div class="row mb-1 w-100">
+        <app-open-file 
+            [buttonText]="'Open image file'"
+            [fileExtensions]="'.jpg,.png,.jpeg,.gif'"
+            [matIcon]="'image'"
+            [allowMultipleSelection]="false"
+            (selectedFile)="loadFile($event)">
+        </app-open-file>
+    </div>    
+        @if(this.isFileValid() && this.imagePreview() !== '') {
+            <div class="row mb-1 w-100">
+                <img class="preview-image" [src]="this.imagePreview()" alt="Preview" title="Preview">
+            </div>
+            <div class="row mb-1 w-100">
+                <div class="column">
+                    <button type="button" mat-stroked-button color="warn" matTooltip="Remove image" (click)="removeFile()">
+                        <mat-icon>delete</mat-icon>
+                        <span>Remove File</span>
+                    </button>
+                </div>
+                <div class="column">
+                    <button type="button" mat-raised-button color="primary" matTooltip="Upload file" (click)="uploadFile()">
+                        <mat-icon>upload</mat-icon>
+                        <span>Upload File</span>
+                    </button>
+                </div>
+            </div>
+        }    
+</div>

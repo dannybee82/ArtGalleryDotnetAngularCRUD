@@ -1,0 +1,36 @@
+<div class="row w-100 p-1">
+  <button type="button" mat-raised-button color="primary" [routerLink]="['/create-or-update-artist']">
+    <mat-icon>add</mat-icon>
+    <span>Add Artist</span>
+  </button>
+</div>
+<div class="container w-100 p-1">
+  <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let artist">{{ artist.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="years">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Years</th>
+          <td mat-cell *matCellDef="let artist">{{ artist.yearOfBirth }} - {{ artist.yearOfDeath }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let artist">
+              <button mat-icon-button color="primary" matTooltip="Edit Artist" [routerLink]="['/create-or-update-artist', artist.id]">
+                  <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+        </ng-container>      
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>     
+  </table>
+  <mat-paginator [length]="this.total()"
+                [pageSize]="this.pageSize()"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                (page)="this.updatePagination($event)">
+  </mat-paginator>
+</div>
