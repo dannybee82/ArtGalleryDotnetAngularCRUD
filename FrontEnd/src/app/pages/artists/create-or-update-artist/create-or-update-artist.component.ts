@@ -27,7 +27,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CreateOrUpdateArtistComponent implements OnInit {
 
-  isUpdateMode: WritableSignal<boolean> = signal(false);
+  protected isUpdateMode: WritableSignal<boolean> = signal(false);
   private _updateArtist: WritableSignal<Artist | undefined> = signal(undefined);
 
   artistForm: UntypedFormGroup = new FormGroup({});

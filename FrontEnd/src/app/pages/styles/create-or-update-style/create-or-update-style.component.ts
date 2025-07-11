@@ -26,7 +26,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CreateOrUpdateStyleComponent implements OnInit {
 
-  isUpdateMode: WritableSignal<boolean> = signal(false);
+  protected isUpdateMode: WritableSignal<boolean> = signal(false);
   private _updateStyle: WritableSignal<Style | undefined> = signal(undefined);
 
   StyleForm: UntypedFormGroup = new FormGroup({});

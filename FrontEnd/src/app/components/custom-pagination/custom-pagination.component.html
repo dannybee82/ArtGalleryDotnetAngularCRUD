@@ -1,0 +1,25 @@
+<div class="custom-paginator">
+    <mat-paginator [length]="this.pagination().totalCount" 
+        [pageSizeOptions]="[5, 10, 15, 20, 25, 50]"
+        [pageSize]="this.pageSize()"
+        aria-label="Select page of Paintings"   
+                      (page)="this.updatePagination($event)"                      
+                      [showFirstLastButtons]="false"
+                      [class]="'hide-nav-buttons'">          
+        </mat-paginator>
+        <div>
+          {{ `${this.pagination().from} - ${this.pagination().to} of ${this.pagination().totalCount}` }}
+        </div>
+        <button mat-icon-button (click)="firstPage()" [disabled]="this.disableFirstButton()">
+          <mat-icon>first_page</mat-icon>
+        </button>
+        <button mat-icon-button (click)="previousPage()" [disabled]="this.disablePreviousButton()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="nextPage()" [disabled]="this.disableNextButton()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button mat-icon-button (click)="lastPage()" [disabled]="this.disableLastButton()">
+          <mat-icon>last_page</mat-icon>
+        </button>
+</div>

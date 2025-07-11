@@ -19,8 +19,9 @@ import { SharedComponent } from '../../../shared_methods/shared.component';
 })
 export class ArtistsOverviewComponent extends SharedComponent<Artist> implements OnInit {
 
-  displayedColumns: string[] = ['name', 'years', 'actions'];
-
+  protected isLoaded: WritableSignal<boolean> = signal(false);
+  protected displayedColumns: WritableSignal<string[]> = signal(['name', 'years', 'actions']);
+  
   private artistsService = inject(ArtistsService);
 
   constructor() {
@@ -36,6 +37,9 @@ export class ArtistsOverviewComponent extends SharedComponent<Artist> implements
       },
       error: () => {
         this.toastr.error('Can\'t fetch all Artists.');
+      },
+      complete: () => {
+        this.isLoaded.set(true);
       }
     });
   }

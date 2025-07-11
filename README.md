@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 19.2 application that demonstrates the regular HttpClient with Observables.  
+An Angular 20 application that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -46,3 +46,29 @@ _ng serve --open_
 or shorter:
 
 _ng s --o_
+
+### **Changelog:**
+
+_July 2025_
+
+**Backend changes:**
+
+\- Added new works of Art. New migration for Database.
+
+\- Added an Endpoint, Service and Repository that returns a paged list.
+
+**Frontend changes:** 
+
+\- Upgrade to Angular 20.
+
+\- Using the keyword **readonly** for properties initialized by Angular (input(), output(), model()).
+
+\- Using the keyword **protected** for properties that are only accessible in the template.
+
+\- Removed unnecessary package _@angular/platform-browser-dynamic_.
+
+\- Changed to _Zoneless_ (no Zone.js).
+
+\- Using _smooth_ scrolling for scroll to top.
+
+\- Added Pager and Pagination.

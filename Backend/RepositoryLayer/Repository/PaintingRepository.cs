@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Entity;
+using RepositoryLayer.PagingSorting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace RepositoryLayer.Repository
     public class PaintingRepository : IPaintingRepository
     {
         private readonly MainDbContext _dbContext;
+        private const int PageSize = 25;
 
         public PaintingRepository(MainDbContext dbContext)
         {
@@ -57,6 +59,18 @@ namespace RepositoryLayer.Repository
                 .ConfigureAwait(false);
         }
 
+        public async Task<PaginatedList<Painting>> GetList(int? pageNumber, int? pageSize)
+        {
+            IQueryable<Painting> query = _dbContext.Paintings
+                .AsNoTracking()
+               .OrderByDescending(x => x.Id)
+               .Include(x => x.Artist)
+               .Include(x => x.Style)
+               .Include(x => x.Thumbnail);
+
+            return await PaginatedList<Painting>.CreateAsync(query, pageNumber ?? 1, pageSize ?? PageSize);
+        }
+
         public IQueryable<Painting> GetQueryable()
         {
             return _dbContext.Paintings
@@ -74,6 +88,10 @@ namespace RepositoryLayer.Repository
             }
         }
 
+        public async Task<PaginatedList<Painting>> GetList(IQueryable<Painting> query, int? pageNumber, int? pageSize)
+        {
+            return await PaginatedList<Painting>.CreateAsync(query, pageNumber ?? 1, pageSize ?? PageSize);
+        }
     }
 
 }

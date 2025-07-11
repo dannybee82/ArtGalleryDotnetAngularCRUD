@@ -43,6 +43,12 @@ namespace RepositoryLayer.DummyData
                     Id = 5,
                     Name = "Pixel Art",
                     Description = "Pixel art is a form of digital art drawn with graphical software where images are built using pixels as the only building block. It is widely associated with the low-resolution graphics."
+                },
+                new Style()
+                {
+                    Id = 6,
+                    Name = "Old School Revivalism",
+                    Description = "Art critics often give names to art movements. This is also the case with \"Old School Revivalism\". During an exhibition, art critic John Ruskin III Junior noted that the art was not new, outdated, had been seen before, and was reminiscent of the 'old masters' and thus claiming that it was \"Old School Revivalism.\" The artists themselves could not come up with a name for their art, but adopted this name from Ruskin Junior. The paintings and other works of art are often without any meaning."
                 }
             };
         }

@@ -19,15 +19,15 @@ import { AllMatModules } from '../../all-mat-modules.module';
 })
 export class FiltersComponent implements OnInit {
 
-  filterStyles: WritableSignal<FilterItem[]> = signal([]);
-  filterArtists: WritableSignal<FilterItem[]> = signal([]);
-  filterYears: WritableSignal<FilterItem[]> = signal([]);
-  currentFilters: WritableSignal<FilterData> = signal({});
-  isFilterOn: WritableSignal<boolean> = signal(false);
+  protected filterStyles: WritableSignal<FilterItem[]> = signal([]);
+  protected filterArtists: WritableSignal<FilterItem[]> = signal([]);
+  protected filterYears: WritableSignal<FilterItem[]> = signal([]);
+  protected currentFilters: WritableSignal<FilterData> = signal({});
+  protected isFilterOn: WritableSignal<boolean> = signal(false);
 
   filterForm: UntypedFormGroup = new FormGroup({});
 
-  filterValues: OutputEmitterRef<FilterData | undefined> = output<FilterData | undefined>();
+  readonly filterValues: OutputEmitterRef<FilterData | undefined> = output<FilterData | undefined>();
 
   private availableFilterService = inject(AvailableFilterService);
   private toastr = inject(ToastrService);

@@ -1,4 +1,5 @@
 ﻿using RepositoryLayer.Entity;
+using RepositoryLayer.PagingSorting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace RepositoryLayer.Repository
         IQueryable<Painting> GetQueryable();
 
         Task<List<Painting>> GetAll();
+
+        Task<PaginatedList<Painting>> GetList(int? pageNumber, int? pageSize);
+
+        Task<PaginatedList<Painting>> GetList(IQueryable<Painting> query, int? pageNumber, int? pageSize);
 
         Task<Painting?> GetById(int id);
 

@@ -11,14 +11,14 @@ import { AllMatModules } from '../../all-mat-modules.module';
 })
 export class OpenFileComponent {
 
-  buttonText: InputSignal<string> = input<string>('');
-  fileExtensions: InputSignal<string> = input<string>('*');
-  allowMultipleSelection: InputSignal<boolean> = input<boolean>(false);
-  isDisabled: InputSignal<boolean> = input<boolean>(false);
-  matIcon: InputSignal<string> = input<string>('');
+  readonly buttonText: InputSignal<string> = input<string>('');
+  readonly fileExtensions: InputSignal<string> = input<string>('*');
+  readonly allowMultipleSelection: InputSignal<boolean> = input<boolean>(false);
+  readonly isDisabled: InputSignal<boolean> = input<boolean>(false);
+  readonly matIcon: InputSignal<string> = input<string>('');
 
-  selectedFile: OutputEmitterRef<File> = output<File>()
-  selectedFiles: OutputEmitterRef<File[]> = output<File[]>()
+  readonly selectedFile: OutputEmitterRef<File> = output<File>()
+  readonly selectedFiles: OutputEmitterRef<File[]> = output<File[]>()
 
   onFileSelected(event: Event) {
     if (event) {

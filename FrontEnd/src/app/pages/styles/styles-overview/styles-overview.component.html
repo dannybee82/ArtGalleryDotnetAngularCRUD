@@ -1,10 +1,10 @@
-<div class="row w-100 p-1">
+<div class="row p-1">
     <button type="button" mat-raised-button color="primary" [routerLink]="['/create-or-update-style']">
       <mat-icon>add</mat-icon>
       <span>Add Style</span>
     </button>
   </div>
-  <div class="container w-100 p-1">
+  <div class="container p-1">
     <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -20,8 +20,8 @@
               </td>
           </ng-container>      
   
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>     
+          <tr mat-header-row *matHeaderRowDef="this.displayedColumns()"></tr>
+          <tr mat-row *matRowDef="let row; columns: this.displayedColumns();"></tr>     
     </table>
     <mat-paginator [length]="this.total()"
                   [pageSize]="this.pageSize()"

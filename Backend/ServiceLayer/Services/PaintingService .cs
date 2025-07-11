@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RepositoryLayer.Entity;
+using RepositoryLayer.PagingSorting;
 using RepositoryLayer.Repository;
 using ServiceLayer.DataTransferObjects;
 using ServiceLayer.Mappers;
@@ -76,7 +77,7 @@ namespace ServiceLayer.Services
             }
         }
 
-        public async Task<List<PaintingDto>> FilterPaintings(FilterDataDto filter)
+        public async Task<PaginatedList<PaintingDto>> FilterPaintings(int? pageNumber, int? pageSize, FilterDataDto filter)
         {
             try
             {
@@ -110,8 +111,18 @@ namespace ServiceLayer.Services
                     }
                 }
 
-                var records = await query.ToListAsync().ConfigureAwait(false);
-                return records.Count() > 0 ? records.Select(record => PaintingMapper.ToDto(record)).ToList() : new List<PaintingDto>();
+                PaginatedList<Painting> result = await _paintingRepository.GetList(query, pageNumber, pageSize);
+
+                return new PaginatedList<PaintingDto>
+                {
+                    CurrentPage = result.CurrentPage,
+                    From = result.From,
+                    PageSize = result.PageSize,
+                    To = result.To,
+                    TotalCount = result.TotalCount,
+                    TotalPages = result.TotalPages,
+                    Items = result.Items.Select(x => PaintingMapper.ToDto(x)).ToList()
+                };
             }
             catch (Exception ex)
             {
@@ -130,6 +141,22 @@ namespace ServiceLayer.Services
             {
                 throw new Exception("Something went wrong: " + ex.Message + " - " + ex.InnerException);
             }
+        }
+
+        public async Task<PaginatedList<PaintingDto>> GetList(int? pageNumber, int? pageSize)
+        {
+            PaginatedList<Painting> result = await _paintingRepository.GetList(pageNumber, pageSize);
+
+            return new PaginatedList<PaintingDto>
+            {
+                CurrentPage = result.CurrentPage,
+                From = result.From,
+                PageSize = result.PageSize,
+                To = result.To,
+                TotalCount = result.TotalCount,
+                TotalPages = result.TotalPages,
+                Items = result.Items.Select(x => PaintingMapper.ToDto(x)).ToList()
+            };
         }
 
         public async Task<PaintingDto?> GetPaintingById(int id, bool getThumbnail)

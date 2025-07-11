@@ -33,17 +33,17 @@ import { DeleteDialogComponent } from '../../components/delete-dialog/delete-dia
 })
 export class CreatePaintingComponent implements OnInit {
 
-  isUpdateMode: WritableSignal<boolean> = signal(false);
-  isLoaded: WritableSignal<boolean> = signal(false);
+  protected isUpdateMode: WritableSignal<boolean> = signal(false);
+  protected isLoaded: WritableSignal<boolean> = signal(false);
   
-  allArtists: WritableSignal<Artist[]> = signal([]);
-  allStyles: WritableSignal<Style[]> = signal([]);
-  allUnusedThumbnails: WritableSignal<Thumbnail[]> = signal([]);
+  protected allArtists: WritableSignal<Artist[]> = signal([]);
+  protected allStyles: WritableSignal<Style[]> = signal([]);
+  protected allUnusedThumbnails: WritableSignal<Thumbnail[]> = signal([]);
   private _updatePainting: WritableSignal<Painting | undefined> = signal(undefined);
 
-  selectedArtist: WritableSignal<Artist | undefined> = signal(undefined);
-  selectedStyle: WritableSignal<Style | undefined>= signal(undefined);
-  selectedThumbnail: WritableSignal<Thumbnail | undefined> = signal(undefined);
+  protected selectedArtist: WritableSignal<Artist | undefined> = signal(undefined);
+  protected selectedStyle: WritableSignal<Style | undefined>= signal(undefined);
+  protected selectedThumbnail: WritableSignal<Thumbnail | undefined> = signal(undefined);
 
   paintingForm: UntypedFormGroup = new FormGroup({});
   artistForm: UntypedFormGroup = new FormGroup({});

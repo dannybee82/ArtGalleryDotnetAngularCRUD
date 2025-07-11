@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ServiceLayer.DataTransferObjects;
 using ServiceLayer.Services;
 
@@ -25,6 +26,20 @@ namespace ArtGalleryWebApi.Controllers
                 return Ok(items);
             }
             catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetPagedList")]
+        public async Task<IActionResult> GetPagedList(int? pageNumber, int? pageSize)
+        {
+            try
+            {
+                var list = await _paintingService.GetList(pageNumber, pageSize);
+                return Ok(list);
+            }
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -59,11 +74,11 @@ namespace ArtGalleryWebApi.Controllers
         }
 
         [HttpGet("Filter")]
-        public async Task<IActionResult> Filter([FromQuery] FilterDataDto filter)
+        public async Task<IActionResult> Filter(int? pageNumber, int? pageSize, [FromQuery] FilterDataDto filter)
         {
             try
             {
-                var items = await _paintingService.FilterPaintings(filter);
+                var items = await _paintingService.FilterPaintings(pageNumber, pageSize, filter);
                 return Ok(items);
             }
             catch (Exception ex)

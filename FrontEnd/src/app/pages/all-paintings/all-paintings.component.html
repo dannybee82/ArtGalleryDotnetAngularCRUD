@@ -1,7 +1,17 @@
-<app-filters (filterValues)="filterData($event)"></app-filters>
+<div class="row">
+    <div class="column">
+        <app-filters (filterValues)="filterData($event)"></app-filters>
+    </div>
+    <div class="column w-100">
+            <app-custom-pagination
+                [data]="this.paginationData"
+                (emitUpdatePagination)="updatePagination($event)">
+            </app-custom-pagination>
+    </div>
+</div>
 <h3 class="p-1">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
 <div class="card-grid">
-    @if(this.allPaintings$ | async; as allPaintings) {
+    @if(this.allPaintings$ | async; as allPaintings) {        
         @for(painting of allPaintings; track $index) {
             <mat-card appearance="outlined">
                 <div class="thumbnail-container">

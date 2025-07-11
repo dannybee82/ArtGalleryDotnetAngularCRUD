@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, WritableSignal, signal } from '@angular/core';
 import { AllMatModules } from '../../../all-mat-modules.module';
 import { RouterLink } from '@angular/router';
 import { Style } from '../../../models/style/style.interface';
@@ -16,7 +16,7 @@ import { SharedComponent } from '../../../shared_methods/shared.component';
 })
 export class StylesOverviewComponent extends SharedComponent<Style> implements OnInit {
 
-  displayedColumns: string[] = ['name', 'actions'];
+  protected displayedColumns: WritableSignal<string[]> = signal(['name', 'actions']);
 
   private stylesService = inject(StylesService);
 

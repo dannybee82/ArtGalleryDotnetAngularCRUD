@@ -1,4 +1,6 @@
-﻿using ServiceLayer.DataTransferObjects;
+﻿using RepositoryLayer.Entity;
+using RepositoryLayer.PagingSorting;
+using ServiceLayer.DataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +19,11 @@ namespace ServiceLayer.Services
 
         Task<List<PaintingDto>> GetAllPaintings();
 
-        Task<List<PaintingDto>> FilterPaintings(FilterDataDto filter);
+        Task<PaginatedList<PaintingDto>> FilterPaintings(int? pageNumber, int? pageSize, FilterDataDto filter);
 
         Task<PaintingDto?> GetPaintingById(int id, bool getThumbnail);
+
+        Task<PaginatedList<PaintingDto>> GetList(int? pageNumber, int? pageSize);
     }
 
 }

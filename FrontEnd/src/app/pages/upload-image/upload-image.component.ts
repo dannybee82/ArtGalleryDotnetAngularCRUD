@@ -16,8 +16,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UploadImageComponent {
 
-  isFileValid: WritableSignal<boolean> = signal(false);
-  imagePreview: WritableSignal<string> = signal('');
+  protected isFileValid: WritableSignal<boolean> = signal(false);
+  protected imagePreview: WritableSignal<string> = signal('');
 
   private _uploadFile: File | undefined;
 

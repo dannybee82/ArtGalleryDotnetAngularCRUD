@@ -82,3 +82,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .align-center {
     align-self: center;
 }
+
+//Hide default pagination buttons.
+.mat-mdc-paginator-navigation-previous,
+.mat-mdc-paginator-navigation-next {
+  display: none !important;
+}
+
+.mat-mdc-paginator-range-label {
+  display: none;
+}

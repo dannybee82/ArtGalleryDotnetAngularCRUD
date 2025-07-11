@@ -8,13 +8,13 @@ import { ToastrService } from "ngx-toastr";
 })
 export class SharedComponent<T> implements AfterViewInit {
     
-    dataSource: MatTableDataSource<T> = new MatTableDataSource<T>([]);
-    paginator: Signal<MatPaginator> = viewChild.required<MatPaginator>(MatPaginator);
+  dataSource: MatTableDataSource<T> = new MatTableDataSource<T>([]);
+  protected paginator: Signal<MatPaginator> = viewChild.required<MatPaginator>(MatPaginator);
 
-    total: WritableSignal<number> = signal(0);
-    pageSize: WritableSignal<number> = signal(10);
+  protected total: WritableSignal<number> = signal(0);
+  protected pageSize: WritableSignal<number> = signal(10);
     
-    protected toastr = inject(ToastrService);
+  protected toastr = inject(ToastrService);
     
   ngAfterViewInit() {
     if(this.paginator()) {

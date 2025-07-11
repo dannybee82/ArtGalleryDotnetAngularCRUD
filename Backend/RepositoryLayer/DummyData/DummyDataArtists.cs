@@ -78,6 +78,38 @@ namespace RepositoryLayer.DummyData
                     YearOfBirth = 1994,
                     YearOfDeath = null
                 },
+                new Artist()
+                {
+                    Id = 9,
+                    Name = "Édouard Marceau",
+                    Description = "Édouard Marceau is an ardent reader of fantasy books, and he uses this passion in his paintings. His paintings are captivating and striking, featuring impossible scenes placed within a real-world setting. Recurring themes include: beaches, seals, and extraordinary figures.",
+                    YearOfBirth = 1995,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 10,
+                    Name = "Lucien Delacroix",
+                    Description = "Lucien Delacroix has been trained as a draftsman. After working as a desktop publisher for a few years, he grew bored. He recently rediscovered his passion for black-and-white drawing. His drawings are striking and explore diverse themes.",
+                    YearOfBirth = 1995,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 11,
+                    Name = "Cédric Fournier",
+                    Description = "One of Cédric Fournier's hobbies is birdwatching. Not surprisingly, his paintings depict birds, but these are drawn from the realm of fantasy. His artwork appeals primarily to other birdwatchers and bird enthusiasts.",
+                    YearOfBirth = 1995,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 12,
+                    Name = "Mario Dufresne",
+                    Description = "Mario Dufresne's artworks initially appear to address worldly themes. However, upon closer inspection, viewers discover impossible scenes. Mario Dufresne was the artist who saw fit to adopt the term \"Old School Revivalism\" from art critic John Ruskin III Junior.",
+                    YearOfBirth = 1996,
+                    YearOfDeath = null
+                },
             };
         }
 

@@ -289,6 +289,61 @@ namespace RepositoryLayer.DummyData
                     ImageId = 25,
                     ThumbnailId = 25
                 },
+                new Painting()
+                {
+                    Id = 26,
+                    Name = "The Seals on the Beach",
+                    Description = "This painting depicts a beach scene with three seals on the beach. But the viewer's eye is drawn to a woman in a purple dress with a long train floating in the air. The seal on the right seems to notice this female figure. The art critic John Ruskin III Junior noted that \"a meaning is lacking\" and that \"fantasy scenes have been painted before.\" His final judgment is that there is nothing new within the \"Old School Revivalism\" movement.",
+                    Year = 2016,
+                    ArtistId = 9,
+                    StyleId = 6,
+                    ImageId = 26,
+                    ThumbnailId = 26
+                },
+                new Painting()
+                {
+                    Id = 27,
+                    Name = "Angel hugging a Baby Seal",
+                    Description = "The painting is dominated by a crouching angel figure. She holds a cute small fluffy baby seal in her arms. The smile on the angel's face leaves the viewer guessing. Will the angel put the baby seal back on the ice or take it upwards into heaven? The art critic John Ruskin III Junior, considered this a \"naive depiction\" and that \"angelic figures have been painted often enough.\" It is unclear what meaning the painter is trying to convey with this painting.",
+                    Year = 2017,
+                    ArtistId = 9,
+                    StyleId = 6,
+                    ImageId = 27,
+                    ThumbnailId = 27
+                },
+                new Painting()
+                {
+                    Id = 28,
+                    Name = "The Fair Queen",
+                    Description = "This large drawing by Lucien Delacroix is ​​titled \"The Fair Queen.\" The artwork is in black and white, a style familiar to the artist. The drawing depicts a woman with various jewelry in her hair, ears, and upon her chest. The background is likely a stained-glass window. Art critic John Ruskin III Junior stated that \"this work is devoid of meaning\" and considered it \"only a mere image from a naive fantasy realm common to the Old School Revivalism movement\".",
+                    Year = 2016,
+                    ArtistId = 10,
+                    StyleId = 6,
+                    ImageId = 28,
+                    ThumbnailId = 28
+                },
+                new Painting()
+                {
+                    Id = 29,
+                    Name = "Four Elemental Birds",
+                    Description = "In this painting, artist Cédric Fournier depicts four birds representing the four elements — air, earth, fire, and water. The birds depicted are drawn from the realm of fantasy. Art critic John Ruskin III Junior has a negative opinion of this artwork, arguing that \"the four elements are sufficiently incorporated into Renaissance art\" and therefore \"this work of art is nothing special.\"",
+                    Year = 2016,
+                    ArtistId = 11,
+                    StyleId = 6,
+                    ImageId = 29,
+                    ThumbnailId = 29
+                },
+                new Painting()
+                {
+                    Id = 30,
+                    Name = "Beyond the Mirror",
+                    Description = "This painting depicts a woman and a man in a corridor and appears to be a worldly scene. But the viewer's attention is quickly drawn to the mirror in the woman's hand. Where is her reflection? And to whom is she actually holding a mirror? An additional mystical dimension is added by the fact that both figures are dressed in white and there are candles in the corridor. One possible meaning is that truth lies beyond the mirror, but most people would not dare to go that far and stay focused on the reflection in the mirror. This is the only painting from the \"Old School Revivalism\" movement that art critic John Ruskin III Junior praised for its \"possible meaning.\"",
+                    Year = 2017,
+                    ArtistId = 12,
+                    StyleId = 6,
+                    ImageId = 30,
+                    ThumbnailId = 30
+                },
             };
         }
 
