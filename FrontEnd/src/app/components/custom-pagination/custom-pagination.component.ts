@@ -3,6 +3,7 @@ import { AllMatModules } from '../../all-mat-modules.module';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { PaginatedData } from '../../models/paginated-list/paginated-list.interface';
 import { BehaviorSubject } from 'rxjs';
+import { defaultPagination } from '../constants/shared-default-pagination.constants';
 
 @Component({
   selector: 'app-custom-pagination',
@@ -21,16 +22,7 @@ export class CustomPaginationComponent implements OnInit {
   // References to the paginator and sort components
   readonly paginator: Signal<MatPaginator> = viewChild.required<MatPaginator>(MatPaginator);
 
-  private _defaultPagination: PaginatedData = {
-    currentPage: 1,
-    from: 0,
-    pageSize: 25,
-    to: 0,
-    totalCount: 0,
-    totalPages: 0,
-    hasPreviousPage: false,
-    hasNextPage: false, 
-  };
+  private _defaultPagination: PaginatedData = defaultPagination;
 
   protected pagination: WritableSignal<PaginatedData> = signal(this._defaultPagination);
   protected pageSize: WritableSignal<number> = signal(25);

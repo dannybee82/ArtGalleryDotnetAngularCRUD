@@ -11,6 +11,7 @@ import { PaginatedData, PaginatedList } from '../../models/paginated-list/pagina
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { defaultPagination } from '../../components/constants/shared-default-pagination.constants';
 
 @Component({
   selector: 'app-all-paintings',
@@ -30,16 +31,7 @@ export class AllPaintingsComponent implements OnInit {
   allPaintings$?: Observable<Painting[]>;
   protected amount: WritableSignal<number> = signal(0);
 
-  paginationData: BehaviorSubject<PaginatedData> = new BehaviorSubject<PaginatedData>({
-    currentPage: 1,
-    from: 0,
-    pageSize: 25,
-    to: 0,
-    totalCount: 0,
-    totalPages: 0,
-    hasPreviousPage: false,
-    hasNextPage: false, 
-  });
+  paginationData: BehaviorSubject<PaginatedData> = new BehaviorSubject<PaginatedData>(defaultPagination);
   
   private _filterData: WritableSignal<FilterData | undefined> = signal<FilterData | undefined>(undefined);
 

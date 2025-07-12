@@ -72,3 +72,5 @@ _July 2025_
 \- Using _smooth_ scrolling for scroll to top.
 
 \- Added Pager and Pagination.
+
+\- Added a separate file for a shared constant.
