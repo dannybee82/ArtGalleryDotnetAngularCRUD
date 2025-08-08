@@ -18,6 +18,8 @@ import { RouterLink } from '@angular/router';
 import { DeleteDialogData } from '../../models/dialogs/delete-dialog-data.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from '../../components/delete-dialog/delete-dialog.component';
+import { FilterStore } from '../../stores/filter.store';
+import { PaginationStore } from '../../stores/pagination.store';
 
 @Component({
   selector: 'app-create-painting',
@@ -61,6 +63,8 @@ export class CreatePaintingComponent implements OnInit {
   private stylesService = inject(StylesService);
   private thumbnailsService = inject(ThumbnailsService);
   public dialog = inject(MatDialog);
+  private readonly filterStore = inject(FilterStore);
+  private readonly paginationStore = inject(PaginationStore);
 
   ngOnInit(): void {
     this.activeRoute.params.pipe(
@@ -122,6 +126,14 @@ export class CreatePaintingComponent implements OnInit {
     if(!this.isUpdateMode()) {
       this.getData();
     }
+
+    this._sharedObserver.getRefresh().subscribe((isRefresh: boolean) => {
+      if(isRefresh && !this.isUpdateMode()) {
+        //Reset pagination and pager.
+        this.filterStore.reset();
+        this.paginationStore.reset();
+      }
+    });
   }
 
   submit(): void {
@@ -181,6 +193,9 @@ export class CreatePaintingComponent implements OnInit {
       result$.subscribe({
         next: () => {
           this.toastr.success('Painting successfully deleted');
+          
+          //Reset pagination.
+          this.paginationStore.reset();          
           this.router.navigate(['/']);
         },
         error: () => {

@@ -49,6 +49,28 @@ _ng s --o_
 
 ### **Changelog:**
 
+_August 2025_
+
+**Backend changes:**
+
+\- Added more works of art.
+
+\- Updated package _SixLabors.ImageSharp_
+
+**Frontend changes:**
+
+\- Fixed some typing errors.
+
+\- Moved the (collapsable) menu to the left side.
+
+\- Updated packages.
+
+\- Changed the scroller.
+
+\- Added _NgRx signalStore_.
+
+\- Moved a folder and various minor changes.
+
 _July 2025_
 
 **Backend changes:**
@@ -57,7 +79,7 @@ _July 2025_
 
 \- Added an Endpoint, Service and Repository that returns a paged list.
 
-**Frontend changes:** 
+**Frontend changes:**
 
 \- Upgrade to Angular 20.
 

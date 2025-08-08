@@ -47,6 +47,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 16px;
 }
 
+.ps-1 {
+    padding-left: 16px;
+}
+
 .mt-half {
     margin-top: 8px;
 }
@@ -91,4 +95,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-mdc-paginator-range-label {
   display: none;
+}
+
+//Fix for sidenav.
+mat-sidenav-container {    
+  height: 100%;    
+}    
+    
+mat-sidenav {    
+  transition: width 0.3s ease-in-out;    
+}    
+    
+mat-sidenav.collapsed {    
+  width: 68px !important; // Match the template value  
+}    
+    
+mat-sidenav-content {    
+  transition: margin-left 0.3s ease-in-out;  
 }

@@ -23,7 +23,7 @@ export const routes: Routes = [
                 component: PaintingDetailsComponent
             },
             {
-                path: 'upload-images',
+                path: 'upload-image',
                 component: UploadImageComponent
             },
             {

@@ -9,7 +9,7 @@
             </app-custom-pagination>
     </div>
 </div>
-<h3 class="p-1">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
+<h3 class="ps-1">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
 <div class="card-grid">
     @if(this.allPaintings$ | async; as allPaintings) {        
         @for(painting of allPaintings; track $index) {
@@ -23,20 +23,21 @@
                 </mat-card-header>
                 <mat-card-content>
                     <p><strong>Style:</strong> {{ painting.style ? painting.style.name : 'Unknown' }}</p>
-                    <p><strong>Year:</strong> {{ painting.year }}</p>
+                    <div class="row fx-space-between">
+                        <div class="col w-50">
+                            <p><strong>Year:</strong> {{ painting.year }}</p>
+                        </div>                        
+                        <div class="bottom-row w-50">
+                            <button type="button" mat-icon-button color="accent" matTooltip="Show details" [routerLink]="['/painting-details', painting.id ?? 0]">
+                                <mat-icon>visibility</mat-icon>                        
+                            </button>
+                            <button type="button" mat-icon-button color="accent" matTooltip="Edit Painting" [routerLink]="['/create-or-update-painting', painting.id ?? 0]">
+                                <mat-icon>edit</mat-icon>                        
+                            </button>
+                        </div>       
+                    </div>
                 </mat-card-content>
-                <mat-card-actions>
-                    <div class="bottom-row">
-                        <button type="button" mat-icon-button color="accent" matTooltip="Show details" [routerLink]="['/painting-details', painting.id ?? 0]">
-                            <mat-icon>visibility</mat-icon>                        
-                        </button>
-                        <button type="button" mat-icon-button color="accent" matTooltip="Edit Painting" [routerLink]="['/create-or-update-painting', painting.id ?? 0]">
-                            <mat-icon>edit</mat-icon>                        
-                        </button>
-                    </div>                    
-                </mat-card-actions>
             </mat-card>
         }
     }
 </div>
-<app-scroll-to-top></app-scroll-to-top>

@@ -110,6 +110,46 @@ namespace RepositoryLayer.DummyData
                     YearOfBirth = 1996,
                     YearOfDeath = null
                 },
+                new Artist()
+                {
+                    Id = 13,
+                    Name = "Gabriel Grandartista",
+                    Description = "Grandartista’s vibrant scenes depict the intersection of religion, festivities, and the everyday lives of the common folk. His paintings are populated by enigmatic figures against the backdrop of medieval history. A longing for the nostalgic past infuse his art with a haunting and timeless quality.",
+                    YearOfBirth = 1997,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 14,
+                    Name = "Pietro Picobello",
+                    Description = "Picobello’s brush brings to life the festive spirit of medieval towns, where common folk gather beneath towering churches. His art is rich with religious symbolism, mystical seers and enigmatic healers. A sense of nostalgic past pervades his work, inviting viewers to lose themselves in the mysteries of history.",
+                    YearOfBirth = 1998,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 15,
+                    Name = "Fabian Paravicini",
+                    Description = "Paravicini’s paintings are steeped in the nostalgia of a bygone era, where religion and the rhythms of the common folk intertwine. He populates the scenes with enigmatic and mystical figures. Festivities and sacred rituals unfold around ancient artifacts, imbuing his work with a sense of mystery and reverence.",
+                    YearOfBirth = 1997,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 16,
+                    Name = "Marciano Miglio",
+                    Description = "Miglio’s art is a tribute to the spirit of the common folk, set against the backdrop of crumbling medieval buildings. He explores the intersection of religion and folklore. His enigmatic figures, often clutching mysterious artifacts, hint at hidden histories. The artworks of the artist Marciano Miglio often make use of light and dark effects.",
+                    YearOfBirth = 1998,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 17,
+                    Name = "Giovanni Bellarosa",
+                    Description = "Bellarosa’s canvases evoke a nostalgic past, capturing the mystical with a medieval atmosphere.\r\nHis works often intertwine religion and the enigmatic, blending sacred rituals with vibrant gatherings.",
+                    YearOfBirth = 1997,
+                    YearOfDeath = null
+                },
             };
         }
 

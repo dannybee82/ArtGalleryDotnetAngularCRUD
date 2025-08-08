@@ -1,5 +1,11 @@
 @if(this.painting$ | async; as painting) {
-    <div class="column p-1">
+    <div 
+        class="column p-1"
+        appScrollToTop  
+        [scrollThreshold]="150"  
+        (scrollStateChange)="onScrollStateChange($event)"  
+        (scrollPosition)="onScrollPosition($event)"
+        #topOfDiv>
         @if(painting.image) {
             <div class="row fx-center">
                 <img mat-card-image [src]="painting.image.base64" [alt]="painting.name"/>
@@ -53,4 +59,6 @@
         }              
     </div>
 }
-<app-scroll-to-top></app-scroll-to-top>
+@if(this.isScrollToTopVisible()) {
+    <app-scroll-to-top></app-scroll-to-top>
+}

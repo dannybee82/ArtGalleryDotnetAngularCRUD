@@ -49,7 +49,19 @@ namespace RepositoryLayer.DummyData
                     Id = 6,
                     Name = "Old School Revivalism",
                     Description = "Art critics often give names to art movements. This is also the case with \"Old School Revivalism\". During an exhibition, art critic John Ruskin III Junior noted that the art was not new, outdated, had been seen before, and was reminiscent of the 'old masters' and thus claiming that it was \"Old School Revivalism.\" The artists themselves could not come up with a name for their art, but adopted this name from Ruskin Junior. The paintings and other works of art are often without any meaning."
-                }
+                },
+                new Style()
+                {
+                    Id = 7,
+                    Name = "Neo Medievalism",
+                    Description = "The art movement \"Neo-Medievalism\" is characterized by the glorification of and longing for a distant and nostalgic past. Recurring themes include: common folk, religion, medieval buildings and festivities. Closely related to this art movement is \"Neo-Mysticism,\" and there is an overlap between the artists of both movements."
+                },
+                new Style()
+                {
+                    Id = 8,
+                    Name = "Neo Mysticism",
+                    Description = "The art movement \"Neo-Mysticism\" often features medieval settings and visual elements. This art movement is closely related to the art movement \"Neo Medievalism,\". There is an overlap between the artists, but the themes vary, such as: mystical seers, healers, enigmatic figures and religious artifacts."
+                }                
             };
         }
 

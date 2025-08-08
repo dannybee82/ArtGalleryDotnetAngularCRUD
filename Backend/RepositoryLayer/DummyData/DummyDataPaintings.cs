@@ -344,6 +344,116 @@ namespace RepositoryLayer.DummyData
                     ImageId = 30,
                     ThumbnailId = 30
                 },
+                new Painting()
+                {
+                    Id = 31,
+                    Name = "Woman taking care of the Sapplings",
+                    Description = "This painting with a medieval atmosphere depicts a woman crouched down and tending young trees. The painting conveys the hope that the trees will soon grow larger. The bucket symbolizes capacity and growth over time—and the growth of the small trees is here depicted as more mysterious.",
+                    Year = 2018,
+                    ArtistId = 13,
+                    StyleId = 7,
+                    ImageId = 31,
+                    ThumbnailId = 31
+                },
+                new Painting()
+                {
+                    Id = 32,
+                    Name = "A Religious Ceremony",
+                    Description = "The painting depicts a medieval religious ceremony in which the four figures are dressed in white. The candles are the classical symbol of light and the continuity of life, death and rebirth. The enigmatic religious ceremony exudes a longing for the past.",
+                    Year = 2019,
+                    ArtistId = 13,
+                    StyleId = 7,
+                    ImageId = 32,
+                    ThumbnailId = 32
+                },
+                new Painting()
+                {
+                    Id = 33,
+                    Name = "A Medieval inn under the Full Moon",
+                    Description = "An early painting by artist Pietro Picobello depicts a medieval inn with its lights burning. A lone figure stands outside the inn. It is clearly nighttime, with the full moon illuminating the cloudy sky. This enigmatic setting carries the message of a distant and nostalgic past.",
+                    Year = 2018,
+                    ArtistId = 14,
+                    StyleId = 7,
+                    ImageId = 33,
+                    ThumbnailId = 33
+                },
+                new Painting()
+                {
+                    Id = 34,
+                    Name = "The Happiness of the People",
+                    Description = "The painting depicts a small festival of the common people in a village. At the center are a man and a woman dancing and having fun. The bystanders clap with their hands and are perhaps singing along. The chickens in the foreground are the classic symbol of fertility and motherhood. The painting can be interpreted as a glorification of the Middle Ages.",
+                    Year = 2019,
+                    ArtistId = 15,
+                    StyleId = 7,
+                    ImageId = 34,
+                    ThumbnailId = 34
+                },
+                new Painting()
+                {
+                    Id = 35,
+                    Name = "Woman directing a Ray of Light",
+                    Description = "This complex painting features various light and dark effects. Standing upright, a woman in a brown polka-dotted cloak captures the viewer's attention. A ray of light shines on the tower she stands on. The woman points her index finger toward the tower, a building symbolizing tradition, conservatism and the structure of society. The painting expresses a deep longing for a nostalgic past.",
+                    Year = 2018,
+                    ArtistId = 16,
+                    StyleId = 7,
+                    ImageId = 35,
+                    ThumbnailId = 35
+                },
+                new Painting()
+                {
+                    Id = 36,
+                    Name = "The Village's Seer",
+                    Description = "The painting depicts a learned woman with knowledge of the past, present and future. Not only common folk, but also the nobility sought her advice and assistance. The open book is a classic symbol of wisdom. This painting is enigmatic and mysterious, enhanced by the fantasy-like castle visible through the window.",
+                    Year = 2018,
+                    ArtistId = 13,
+                    StyleId = 8,
+                    ImageId = 36,
+                    ThumbnailId = 36
+                },
+                new Painting()
+                {
+                    Id = 37,
+                    Name = "The Queen's Royal Healer",
+                    Description = "The painting depicts an iterant monk-healer placing both hands on a queen's head. The monk is trying to heal her. The queen's head is slightly bowed and her hands are clasped. Although the queen possesses considerable material wealth, the monk-healer attends to her spiritual needs.",
+                    Year = 2019,
+                    ArtistId = 16,
+                    StyleId = 8,
+                    ImageId = 37,
+                    ThumbnailId = 37
+                },
+                new Painting()
+                {
+                    Id = 38,
+                    Name = "The Gate of Remembrance",
+                    Description = "A very mysterious painting depicting a frozen gate. In the center, a mysterious figure in green watches over the gate. Behind the figure is a wooden gate decorated with gilding. On either side of the gate are two statues, whose identities remain unknown. One possible meaning is the relationship between the inner and outer worlds, or between sleeping and waking.",
+                    Year = 2018,
+                    ArtistId = 15,
+                    StyleId = 8,
+                    ImageId = 38,
+                    ThumbnailId = 38
+                },
+                new Painting()
+                {
+                    Id = 39,
+                    Name = "The Keepers of the Golden Artifact",
+                    Description = "The painting depicts the interior of a medieval Gothic cathedral. In the center and foreground are three mystical figures dressed in white. These figures are the guardians of an equally enigmatic golden relic that depicts a face. The painting is imbued with medieval religious symbolism. One possible meaning is the separation of body and soul.",
+                    Year = 2019,
+                    ArtistId = 13,
+                    StyleId = 8,
+                    ImageId = 39,
+                    ThumbnailId = 39
+                },
+                new Painting()
+                {
+                    Id = 40,
+                    Name = "Exotic Princess with the Amulet of Light",
+                    Description = "A painting with a medieval and exotic setting. There is in the center a princess sitting in a room decorated with various carpets. Various gold objects lie on the floor and the carpets are adorned with rich patterns. In front of the princess stands a treasure chest containing even more gold. In her hand she holds a luminous amulet. She looks somewhat amazed and sees something the viewer doesn't see. Perhaps she realizes that despite her material wealth, she is missing something spiritually.",
+                    Year = 2018,
+                    ArtistId = 17,
+                    StyleId = 8,
+                    ImageId = 40,
+                    ThumbnailId = 40
+                },
             };
         }
 

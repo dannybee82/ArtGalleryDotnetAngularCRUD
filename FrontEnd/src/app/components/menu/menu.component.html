@@ -1,35 +1,37 @@
-<nav class="container-flex-row ">    
-    <ul>
-        <li>
-            <button type="button" mat-raised-button color="primary" [routerLink]="['/']">
-                <mat-icon>palette</mat-icon>
-                <span>All paintings</span>
-            </button>
-        </li>
-        <li>
-            <button type="button" mat-raised-button color="primary" [routerLink]="['/upload-images']">
-                <mat-icon>upload</mat-icon>
-                <span>Upload Image</span>
-            </button>
-        </li>
-        <li>
-            <button type="button" mat-raised-button color="primary" [routerLink]="['/create-or-update-painting']">
-                <mat-icon>add</mat-icon>
-                <span>Add Painting</span>
-            </button>
-        </li>
-        <li>
-            <button type="button" mat-raised-button color="primary" [routerLink]="['/all-artists']">
-                <mat-icon>person</mat-icon>
-                <span>All Artists</span>
-            </button>
-        </li>
-        <li>
-            <button type="button" mat-raised-button color="primary" [routerLink]="['/all-styles']">
-                <mat-icon>brush</mat-icon>
-                <span>All Styles</span>
-            </button>
-        </li>
-    </ul>
-</nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container>  
+    <mat-sidenav #sidenav [mode]="'side'" opened [style.width.px]="this.isCollapsed() ? 68 : 250" [class.collapsed]="this.isCollapsed()">  
+        <mat-nav-list>                 
+            <a mat-list-item class="mb-1" (click)="this.isCollapsed.set(!this.isCollapsed())">  
+                @if(!this.isCollapsed()) {  
+                    <mat-icon>arrow_left</mat-icon>  
+                } @else {  
+                    <mat-icon>arrow_right</mat-icon>  
+                }  
+                @if(!this.isCollapsed()) {  
+                    <span class="aligned-with-icon">Menu</span>  
+                }                  
+            </a>     
+            <hr>  
+            @for(item of this.menuItems(); track $index) {  
+                <a mat-list-item [routerLink]="[item.url]">  
+                    <mat-icon>{{ item.icon }}</mat-icon>  
+                    @if(!this.isCollapsed()) {  
+                        <span class="aligned-with-icon">{{ item.text }}</span>      
+                    }                      
+                </a>  
+            }     
+        </mat-nav-list>  
+    </mat-sidenav>  
+    <mat-sidenav-content         
+        [style.margin-left.px]="this.isCollapsed() ? 68 : 250" 
+        appScrollToTop  
+        [scrollThreshold]="150"  
+        (scrollStateChange)="onScrollStateChange($event)"  
+        (scrollPosition)="onScrollPosition($event)"
+        #sidenavContent>   
+            <router-outlet></router-outlet>  
+            @if(this.isScrollToTopVisible()) {
+                <app-scroll-to-top (toTop)="scrollToTop($event)"></app-scroll-to-top>     
+            }            
+    </mat-sidenav-content>  
+</mat-sidenav-container>

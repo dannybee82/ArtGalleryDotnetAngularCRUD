@@ -3,7 +3,6 @@ import { PaintingsService } from '../../services/paintings/paintings.service';
 import { Painting } from '../../models/painting/painting.interface';
 import { AllMatModules } from '../../all-mat-modules.module';
 import { RouterLink } from '@angular/router';
-import { ScrollToTopComponent } from '../../components/scroll-to-top/scroll-to-top.component';
 import { FilterData } from '../../models/filters/filter-data.interface';
 import { FiltersComponent } from '../../components/filters/filters.component';
 import { CustomPaginationComponent } from '../../components/custom-pagination/custom-pagination.component';
@@ -11,14 +10,15 @@ import { PaginatedData, PaginatedList } from '../../models/paginated-list/pagina
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-import { defaultPagination } from '../../components/constants/shared-default-pagination.constants';
+import { defaultPagination } from '../../constants/shared-default-pagination.constants';
+import { FilterStore } from '../../stores/filter.store';
+import { PaginationStore } from '../../stores/pagination.store';
 
 @Component({
   selector: 'app-all-paintings',
   imports: [
     AllMatModules,
-    RouterLink,    
-    ScrollToTopComponent,
+    RouterLink,
     FiltersComponent,
     CustomPaginationComponent,
     AsyncPipe
@@ -37,6 +37,8 @@ export class AllPaintingsComponent implements OnInit {
 
   private paintingsService = inject(PaintingsService);
   private toastr = inject(ToastrService);
+  private readonly paginationStore = inject(PaginationStore);
+  private readonly filterStore = inject(FilterStore);
 
   ngOnInit(): void {
     this.getAllPaintings();
@@ -45,15 +47,22 @@ export class AllPaintingsComponent implements OnInit {
   filterData($event: FilterData | undefined): void {
     const currentPagination: PaginatedData = this.paginationData.getValue();
     currentPagination.currentPage = 1;
-    this.paginationData.next(currentPagination);
+    this.paginationData.next(currentPagination);    
     
-    this._filterData.set($event);
+    this.filterStore.update({filterOn: $event ? true : false, currentFilters: $event});
+    this.paginationStore.reset();
 
     this.getAllPaintings();
   }
 
   private getAllPaintings(): void {
     const currentPagination: PaginatedData = this.paginationData.getValue();
+    const currentPageIndex: number = this.paginationStore.pageIndex();
+    const currentPagerSize: number = this.paginationStore.pagerSize();
+    currentPagination.currentPage = currentPageIndex + 1;
+    currentPagination.pageSize = currentPagerSize;
+
+    this._filterData.set(this.filterStore.filterOn() ? this.filterStore.currentFilters() : undefined);
 
     const action$ = !this._filterData() ? 
        this.paintingsService.getPagedList(currentPagination.currentPage, currentPagination.pageSize) :
@@ -74,6 +83,10 @@ export class AllPaintingsComponent implements OnInit {
 
   updatePagination($event: PaginatedData): void {
     this.paginationData.next($event);
+
+    this.paginationStore.updatePageIndex($event.currentPage - 1);
+    this.paginationStore.updatePageSize($event.pageSize);
+
     this.getAllPaintings();
   }
 

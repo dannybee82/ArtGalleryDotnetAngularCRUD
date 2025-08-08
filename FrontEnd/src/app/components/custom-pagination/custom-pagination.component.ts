@@ -3,7 +3,7 @@ import { AllMatModules } from '../../all-mat-modules.module';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { PaginatedData } from '../../models/paginated-list/paginated-list.interface';
 import { BehaviorSubject } from 'rxjs';
-import { defaultPagination } from '../constants/shared-default-pagination.constants';
+import { defaultPagination } from '../../constants/shared-default-pagination.constants';
 
 @Component({
   selector: 'app-custom-pagination',

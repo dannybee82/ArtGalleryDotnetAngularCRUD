@@ -6,6 +6,7 @@ import { FilterData } from '../../models/filters/filter-data.interface';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
 import { AllMatModules } from '../../all-mat-modules.module';
+import { FilterStore } from '../../stores/filter.store';
 
 @Component({
   selector: 'app-filters',
@@ -24,6 +25,7 @@ export class FiltersComponent implements OnInit {
   protected filterYears: WritableSignal<FilterItem[]> = signal([]);
   protected currentFilters: WritableSignal<FilterData> = signal({});
   protected isFilterOn: WritableSignal<boolean> = signal(false);
+  private _triggerUpdates: WritableSignal<boolean> = signal(true);
 
   filterForm: UntypedFormGroup = new FormGroup({});
 
@@ -32,6 +34,7 @@ export class FiltersComponent implements OnInit {
   private availableFilterService = inject(AvailableFilterService);
   private toastr = inject(ToastrService);
   private fb = inject(FormBuilder);
+  private readonly filterStore = inject(FilterStore);
 
   ngOnInit(): void {
     this.filterForm = this.fb.group({
@@ -41,10 +44,12 @@ export class FiltersComponent implements OnInit {
     });
 
     this.filterForm.valueChanges.subscribe(() => {
-      this.filter();
+      if(this._triggerUpdates()) {
+        this.filter();
+      }      
     });
 
-    this.getAvaiableFilters();
+    this.getAvailableFilters();
   }
 
   getActiveFilters(): FilterItem[] {
@@ -108,7 +113,7 @@ export class FiltersComponent implements OnInit {
     this.filterValues.emit(undefined);    
   }
 
-  private getAvaiableFilters(): void {
+  private getAvailableFilters(): void {
     this.filterStyles.set([]);
     this.filterArtists.set([]);
     this.filterYears.set([]);
@@ -121,6 +126,9 @@ export class FiltersComponent implements OnInit {
       },
       error: () => {
         this.toastr.error('Can\'t fetch Filters');
+      },
+      complete: () => {
+        this.setCurrentFilters();
       }
     });
   }
@@ -138,7 +146,7 @@ export class FiltersComponent implements OnInit {
       this.currentFilters.set({});
     }
 
-    this.getAvaiableFilters();
+    this.getAvailableFilters();
   }
 
   private getCurrentFilters() : FilterData {
@@ -157,6 +165,33 @@ export class FiltersComponent implements OnInit {
     }
 
     return filterData;
+  }
+
+  private setCurrentFilters(): void {    
+    if(this.filterStore.filterOn()) {
+      const currentFilters: FilterData | undefined = this.filterStore.currentFilters();
+
+      if(currentFilters) {
+        this._triggerUpdates.set(false);
+
+        if(currentFilters.styles) {
+          this.filterForm.controls['styles'].setValue(currentFilters.styles);          
+        }
+
+        if(currentFilters.artists) {
+          this.filterForm.controls['artists'].setValue(currentFilters.artists);
+        }
+
+        if(currentFilters.years) {
+          this.filterForm.controls['years'].setValue(currentFilters.years);
+        }
+
+        this.currentFilters.set(currentFilters);
+        this._triggerUpdates.set(true);
+      }
+
+      this.isFilterOn.set(currentFilters ? true : false);
+    }
   }
 
 }
