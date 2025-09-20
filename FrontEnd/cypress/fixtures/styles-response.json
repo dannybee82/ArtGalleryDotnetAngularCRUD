@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Dummy Style 1",
+        "description": "Dummy Style 1 description"
+    },
+    {
+        "id": 2,
+        "name": "Dummy Style 2",
+        "description": "Dummy Style 2 description"
+    },
+    {
+        "id": 3,
+        "name": "Dummy Style 3",
+        "description": "Dummy Style 3 description"
+    }
+]

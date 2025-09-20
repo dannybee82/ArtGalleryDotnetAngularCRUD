@@ -1,0 +1,23 @@
+[    
+        {
+            "id": 1,
+            "name": "Dummy Artist 1",
+            "description": "Dummy Artist Description 1",
+            "yearOfBirth": 1995,
+            "yearOfDeath": null
+        },
+        {
+            "id": 2,
+            "name": "Dummy Artist 2",
+            "description": "Dummy Artist Description 2",
+            "yearOfBirth": 1996,
+            "yearOfDeath": null
+        },
+        {
+            "id": 3,
+            "name": "Dummy Artist 3",
+            "description": "Dummy Artist Description 3",
+            "yearOfBirth": 1997,
+            "yearOfDeath": null
+        }    
+    ]

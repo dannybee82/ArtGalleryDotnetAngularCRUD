@@ -3,13 +3,13 @@
 	    <div class="row">
             <mat-form-field>
                 <mat-label>Artist Name</mat-label>
-                <input type="text" matInput formControlName="name">
+                <input type="text" matInput formControlName="name" data-cy="style-crud-name">
             </mat-form-field>                        
         </div>
         <div class="row">
             <mat-form-field>
                 <mat-label>Description</mat-label>
-                <textarea matInput formControlName="description" [rows]="5" [cols]="30"></textarea>
+                <textarea matInput formControlName="description" [rows]="5" [cols]="30"  data-cy="style-crud-description"></textarea>
             </mat-form-field>
         </div>
         <div class="row">
@@ -22,11 +22,13 @@
                 <span>Cancel</span>
             </button>
         </div>
-        <div class="row">
-            <button type="button" mat-raised-button color="warn" class="mt-1" matTooltip="Delete style" (click)="deleteStyle()">
-                <mat-icon>delete</mat-icon>
-                <span>Delete Style</span>
-            </button>
-        </div>
+        @if(this.isUpdateMode()) {
+            <div class="row">
+                <button type="button" mat-raised-button color="warn" class="mt-1" matTooltip="Delete style" (click)="deleteStyle()">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete Style</span>
+                </button>
+            </div>
+        }        
     </form>
 </div>

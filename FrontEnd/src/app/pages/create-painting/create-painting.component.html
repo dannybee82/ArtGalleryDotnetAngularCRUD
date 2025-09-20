@@ -6,19 +6,19 @@
                     <div class="row">
                         <mat-form-field>
                             <mat-label>Painting Name</mat-label>
-                            <input type="text" matInput formControlName="name">
+                            <input type="text" matInput formControlName="name" data-cy="form-painting-crud-name">
                         </mat-form-field>                    
                     </div>
                     <div class="row">
                         <mat-form-field>
                             <mat-label>Painting Description</mat-label>
-                            <textarea  matInput formControlName="description" [cols]="30" [rows]="5"></textarea>
+                            <textarea  matInput formControlName="description" [cols]="30" [rows]="5" data-cy="form-painting-crud-description"></textarea>
                         </mat-form-field>
                     </div>
                     <div class="row">
                         <mat-form-field>
                             <mat-label>Painting Year</mat-label>
-                            <input type="number" matInput formControlName="year">
+                            <input type="number" matInput formControlName="year" data-cy="form-painting-crud-year">
                         </mat-form-field>                    
                     </div>
                 </form>
@@ -29,9 +29,9 @@
                         <mat-form-field>
                             <mat-label>Image & Thumbnail</mat-label>
                             <mat-select formControlName="selectedThumbnail" [compareWith]="compareObj">
-                                @for(thumbnail of this.allUnusedThumbnails(); track thumbnail.id; let index = $index) {
+                                @for(thumbnail of this.allUnusedThumbnails(); track $index; let index = $index) {
                                     <mat-option [value]="thumbnail">{{ index + 1 }}</mat-option>
-                                }
+                                }                                                            
                             </mat-select>
                         </mat-form-field>
                     </form>
@@ -42,7 +42,7 @@
                 <div class="row">
                     @if(this.selectedThumbnail()) {
                         <div class="thumbnail-container">
-                            <img class="image-thumbnail" mat-card-image [src]="this.selectedThumbnail()!.base64" alt="Thumbnail" />
+                            <img class="image-thumbnail" mat-card-image [src]="this.selectedThumbnail()!.base64" alt="Thumbnail" data-cy="painting-crud-thumbnail" />
                         </div> 
                     }
                 </div>
@@ -53,9 +53,9 @@
                         <mat-form-field>
                             <mat-label>Artist</mat-label>    
                             <mat-select formControlName="selectedArtist" [compareWith]="compareObj">
-                                @for(artist of this.allArtists(); track artist.id) {
+                                @for(artist of this.allArtists(); track $index) {
                                     <mat-option [value]="artist">{{ artist.name }}</mat-option>
-                                }
+                                }                                
                             </mat-select>
                         </mat-form-field>
                     </form>
@@ -65,9 +65,9 @@
                 </div>
                 <div class="column">
                     @if(this.selectedArtist()) {
-                        <p><strong>{{ this.selectedArtist()?.name }}</strong></p>
-                        <p>{{ this.selectedArtist()?.description }}</p>
-                        <p>{{ this.selectedArtist()?.yearOfBirth }} - {{ this.selectedArtist()?.yearOfDeath ? this.selectedArtist()?.yearOfDeath : '' }}</p>
+                        <p data-cy="selected-artist-name"><strong>{{ this.selectedArtist()?.name }}</strong></p>
+                        <p data-cy="selected-artist-description">{{ this.selectedArtist()?.description }}</p>
+                        <p data-cy="selected-artist-year">{{ this.selectedArtist()?.yearOfBirth }} - {{ this.selectedArtist()?.yearOfDeath ? this.selectedArtist()?.yearOfDeath : '' }}</p>
                     }
                 </div>
             </div>
@@ -77,9 +77,9 @@
                         <mat-form-field>
                             <mat-label>Style</mat-label>
                             <mat-select formControlName="selectedStyle" [compareWith]="compareObj">
-                                @for(style of this.allStyles(); track style.id) {
-                                    <mat-option [value]="style">{{ style.name }}</mat-option>
-                                }
+                                @for(style of this.allStyles(); track $index) {
+                                        <mat-option [value]="style">{{ style.name }}</mat-option>
+                                    }                                
                             </mat-select>
                         </mat-form-field>
                     </form>
@@ -89,8 +89,8 @@
                 </div>
                 <div class="column">
                     @if(this.selectedStyle()) {
-                        <p><strong>{{ this.selectedStyle()?.name }}</strong></p>
-                        <p>{{ this.selectedStyle()?.description }}</p>                        
+                        <p data-cy="selected-style-name"><strong>{{ this.selectedStyle()?.name }}</strong></p>
+                        <p data-cy="selected-style-description">{{ this.selectedStyle()?.description }}</p>                        
                     }
                 </div>
             </div>

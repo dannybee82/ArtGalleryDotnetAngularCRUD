@@ -6,7 +6,8 @@
     for="formFile" 
     (click)="openFile.value = '';openFile.click();" 
     matTooltip="{{this.buttonText()}}" 
-    [disabled]="this.isDisabled()">
+    [disabled]="this.isDisabled()"
+    data-cy="upload-image-button">
         <mat-icon>{{this.matIcon()}}</mat-icon>
         <span>{{this.buttonText()}}</span>
 </button>
@@ -17,4 +18,5 @@
     (change)="onFileSelected($event)" 
     [multiple]="this.allowMultipleSelection()" 
     #openFile
+    data-cy="upload-image-input"
 />

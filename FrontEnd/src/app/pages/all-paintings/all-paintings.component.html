@@ -9,23 +9,25 @@
             </app-custom-pagination>
     </div>
 </div>
-<h3 class="ps-1">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
-<div class="card-grid">
+<h3 class="ps-1" data-cy="paintings-amount">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
+<div class="card-grid" data-cy="paintings-card-grid">
     @if(this.allPaintings$ | async; as allPaintings) {        
         @for(painting of allPaintings; track $index) {
             <mat-card appearance="outlined">
-                <div class="thumbnail-container">
-                    <img class="image-thumbnail" mat-card-image [src]="painting.thumbnail?.base64" [alt]="painting.name" [routerLink]="['/painting-details', painting.id ?? 0]"/>
+                <div class="thumbnail-container" data-cy="paintings-thumbnail-container">
+                    @if(painting.thumbnail?.base64) {
+                        <img class="image-thumbnail" mat-card-image [src]="painting.thumbnail!.base64" [alt]="painting.name" [routerLink]="['/painting-details', painting.id ?? 0]"/>
+                    }                    
                 </div>                
                 <mat-card-header>
-                    <mat-card-title [class]="'card-title-max-height'">{{ painting.name }}</mat-card-title>
-                    <mat-card-subtitle><strong>Painter:</strong> {{ painting.artist ? painting.artist.name : 'Unknown'}}</mat-card-subtitle>                 
+                    <mat-card-title [class]="'card-title-max-height'" data-cy="paintings-card-title">{{ painting.name }}</mat-card-title>
+                    <mat-card-subtitle data-cy="paintings-subtitle"><strong>Painter:</strong> {{ painting.artist ? painting.artist.name : 'Unknown'}}</mat-card-subtitle>                 
                 </mat-card-header>
                 <mat-card-content>
-                    <p><strong>Style:</strong> {{ painting.style ? painting.style.name : 'Unknown' }}</p>
+                    <p data-cy="paintings-style"><strong>Style:</strong> {{ painting.style ? painting.style.name : 'Unknown' }}</p>
                     <div class="row fx-space-between">
                         <div class="col w-50">
-                            <p><strong>Year:</strong> {{ painting.year }}</p>
+                            <p data-cy="paintings-year"><strong>Year:</strong> {{ painting.year }}</p>
                         </div>                        
                         <div class="bottom-row w-50">
                             <button type="button" mat-icon-button color="accent" matTooltip="Show details" [routerLink]="['/painting-details', painting.id ?? 0]">

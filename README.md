@@ -49,6 +49,16 @@ _ng s --o_
 
 ### **Changelog:**
 
+_September 2025_
+
+**Frontend changes:**
+
+\- Added Cypress end-to-end testing.
+
+\- Updated packages.
+
+\- Various minor changes in templates + added data-cy attributes.
+
 _August 2025_
 
 **Backend changes:**
