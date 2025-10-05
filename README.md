@@ -47,6 +47,9 @@ or shorter:
 
 _ng s --o_
 
+**Command to run Cypress e2e (end-to-end) testing**  
+_ng e2e_
+
 ### **Changelog:**
 
 _September 2025_
