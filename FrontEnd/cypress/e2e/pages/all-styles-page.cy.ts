@@ -54,7 +54,8 @@ describe('All Styles Page', () => {
             'Dummy Style 3',
             'edit',
         ];
-
+        cy.wait(3000);
+        
         cy.byTestId('styles-cell').each(td$ => {
             expect(td$.text()).to.equal(expectations[counter]);
             counter++; 

@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<Features>experimental-data-section-string-literals</Features>
+	  <Features>experimental-data-section-string-literals</Features>
   </PropertyGroup>
 
   <ItemGroup>

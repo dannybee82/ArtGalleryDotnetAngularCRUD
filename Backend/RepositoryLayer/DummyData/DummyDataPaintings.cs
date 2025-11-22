@@ -62,7 +62,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 5,
                     Name = "Saskia des Esseintes in the Sacred Garden",
-                    Description = "The second painting of Norbert Nikolaus. The painting shows a young woman in a rich floral landscape. It is probably mid-summer. The castle in the background adds an extra element of mystery.",
+                    Description = "The second painting of Norbert Nikolaus. This painting shows a young woman in a rich floral landscape. It is probably mid-summer. The castle in the background adds an extra element of mystery.",
                     Year = 2000,
                     ArtistId = 2,
                     StyleId = 1,
@@ -106,7 +106,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 9,
                     Name = "A Quiet And Relaxing Moment",
-                    Description = "The dominant green and brown color radiate peace and relaxation. The painting shows a girl sitting with her back against a wall. The painter encourages the viewer to think of a moment of rest.",
+                    Description = "The dominant green and brown color radiate peace and relaxation. The painting shows a girl sitting with her back against a wall. The painter encourages the viewer to think about a moment of rest.",
                     Year = 2017,
                     ArtistId = 3,
                     StyleId = 2,
@@ -183,7 +183,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 16,
                     Name = "The Vanity Of Knowledge",
-                    Description = "A painting in the style of Neo-symbolism. The painting shows classical symbols for knowledge: books and an owl. The hourglass represents the passing of time. But the oil lamp on the left is off and the background consists of a dim landscape. One meaning is that no matter how much one thinks one knows, in the end one knows nothing at all.",
+                    Description = "A painting in the style of Neo-symbolism. The painting shows classical symbols of knowledge: books and an owl. The hourglass represents the passing of time. But the oil lamp on the left is off and the background consists of a dim landscape. One meaning is that no matter how much one thinks one knows, in the end one knows nothing at all.",
                     Year = 2001,
                     ArtistId = 5,
                     StyleId = 4,
@@ -249,7 +249,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 22,
                     Name = "Caroline Convection",
-                    Description = "Known figure located at the grocery shop in the video game 'My Endless Adventures with a Twist'.",
+                    Description = "Known figure located at the grocery store in the video game 'My Endless Adventures with a Twist'.",
                     Year = 2013,
                     ArtistId = 8,
                     StyleId = 5,
@@ -370,7 +370,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 33,
                     Name = "A Medieval inn under the Full Moon",
-                    Description = "An early painting by artist Pietro Picobello depicts a medieval inn with its lights burning. A lone figure stands outside the inn. It is clearly nighttime, with the full moon illuminating the cloudy sky. This enigmatic setting carries the message of a distant and nostalgic past.",
+                    Description = "This early painting by artist Pietro Picobello depicts a medieval inn with its lights burning. A lone figure stands outside the inn. It is clearly nighttime, with the full moon illuminating the cloudy sky. This enigmatic setting carries the message of a distant and nostalgic past.",
                     Year = 2018,
                     ArtistId = 14,
                     StyleId = 7,
@@ -392,7 +392,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 35,
                     Name = "Woman directing a Ray of Light",
-                    Description = "This complex painting features various light and dark effects. Standing upright, a woman in a brown polka-dotted cloak captures the viewer's attention. A ray of light shines on the tower she stands on. The woman points her index finger toward the tower, a building symbolizing tradition, conservatism and the structure of society. The painting expresses a deep longing for a nostalgic past.",
+                    Description = "This complex painting features various light and dark effects. Standing upright, a woman in a brown polka-dotted cloak captures the viewer's attention. A ray of light shines on the tower she stands on. The woman points her index finger toward the other tower at the left, a building symbolizing tradition, conservatism and the structure of society. The painting expresses a deep longing for a nostalgic past.",
                     Year = 2018,
                     ArtistId = 16,
                     StyleId = 7,
@@ -425,7 +425,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 38,
                     Name = "The Gate of Remembrance",
-                    Description = "A very mysterious painting depicting a frozen gate. In the center, a mysterious figure in green watches over the gate. Behind the figure is a wooden gate decorated with gilding. On either side of the gate are two statues, whose identities remain unknown. One possible meaning is the relationship between the inner and outer worlds, or between sleeping and waking.",
+                    Description = "A very mysterious painting depicting a frozen gate. In the center, a mysterious figure in green watches over the gate. Behind the figure is a wooden gate decorated with gilding. On either side of the gate are two statues, whose identities remain unknown. One possible meaning is the relationship between the inner and outer worlds or between sleeping and waking.",
                     Year = 2018,
                     ArtistId = 15,
                     StyleId = 8,
@@ -436,7 +436,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 39,
                     Name = "The Keepers of the Golden Artifact",
-                    Description = "The painting depicts the interior of a medieval Gothic cathedral. In the center and foreground are three mystical figures dressed in white. These figures are the guardians of an equally enigmatic golden relic that depicts a face. The painting is imbued with medieval religious symbolism. One possible meaning is the separation of body and soul.",
+                    Description = "The painting depicts the interior of a medieval Gothic cathedral. In the center and foreground there are three mystical figures dressed in white. These figures are the guardians of an equally enigmatic golden relic that depicts a face. The painting is imbued with medieval religious symbolism. One possible meaning is the separation of body and soul.",
                     Year = 2019,
                     ArtistId = 13,
                     StyleId = 8,
@@ -453,6 +453,116 @@ namespace RepositoryLayer.DummyData
                     StyleId = 8,
                     ImageId = 40,
                     ThumbnailId = 40
+                },
+                new Painting()
+                {
+                    Id = 41,
+                    Name = "The Royal Alchemist tries to make Gold",
+                    Description = "The painting depicts an alchemist working at the royal court. Striking are the glass laboratory vials filled with colorful substances. The alchemist is apparently close to making gold, as he holds a glass vial with a radiant golden hue.<BR><BR>While gold symbolizes wealth, success, and achievement, the alchemist symbolizes personal growth and self-discovery. The art critic John Ruskin III Junior was enthusiastic about this painting with its striking colours and deeper meaning.",
+                    Year = 2019,
+                    ArtistId = 16,
+                    StyleId = 9,
+                    ImageId = 41,
+                    ThumbnailId = 41
+                },
+                new Painting()
+                {
+                    Id = 42,
+                    Name = "The Royal Archivist delves into the Chronicles",
+                    Description = "In the center, the royal archivist is depicted holding a book or chronicle. On either side are bookcases filled with books. The archivist is intently reading and absorbed in his work.<BR><BR>The symbolism of chronicles is the recording of events and the passage of time. On the other hand, the archive symbolizes a collection of memories, history, and forgotten or hidden knowledge. The art critic John Ruskin III Junior praised this painting for its deeper meaning.",
+                    Year = 2019,
+                    ArtistId = 16,
+                    StyleId = 9,
+                    ImageId = 42,
+                    ThumbnailId = 42
+                },
+                new Painting()
+                {
+                    Id = 43,
+                    Name = "The Royal Diplomat is out for Business",
+                    Description = "At the center of this painting is a diplomat adorned with royal regalia. Diplomats are generally not pleasant individuals, but they are dedicated to conducting business on behalf of those in power.<BR><BR>The royal diplomat symbolizes both the presence and the interests of a country through communication. A relationship is established through negotiation. The art critic John Ruskin III Junior praised this painting for its splendor and regal allure, which captured the world of diplomacy.",
+                    Year = 2019,
+                    ArtistId = 13,
+                    StyleId = 9,
+                    ImageId = 43,
+                    ThumbnailId = 43
+                },
+                new Painting()
+                {
+                    Id = 44,
+                    Name = "The Judgment made by the Three Wise Judges at the King's Court",
+                    Description = "The painting depicts a wooden table with four golden chalices (wealth, status and sacrifice) and three wise elderly royal judges behind it. The three judges are contemplating the facts and weighing certain cases to arrive at a just verdict. A ray of light falls on the man on the right, casting a long shadow (fate).<BR><BR>The court of justice is a classical symbol of justice and order. The art critic John Ruskin III Junior judged that this painting shows the difficulty of arriving at a just verdict. He even suggested that the painting symbolizes reckoning or divine judgment.",
+                    Year = 2019,
+                    ArtistId = 15,
+                    StyleId = 9,
+                    ImageId = 44,
+                    ThumbnailId = 44
+                },
+                new Painting()
+                {
+                    Id = 45,
+                    Name = "The Victorious King",
+                    Description = "The central figure of this painting is a king holding both a sword and a red banner. The dominant red color symbolizes war, destruction, and intense energy on the one hand, and bravery, daring, and victory on the other. The castle in the background in this painting symbolizes protection. The sword symbolizes physical strength, worldly power, and decision-making.<BR><BR>The art critic John Ruskin III Junior praised this painting for its ability to capture the spirit of victory. The art critic commissioned this painting and is proud to own it in his private collection.",
+                    Year = 2019,
+                    ArtistId = 14,
+                    StyleId = 9,
+                    ImageId = 45,
+                    ThumbnailId = 45
+                },
+                new Painting()
+                {
+                    Id = 46,
+                    Name = "The Revised Spirit of the Summit",
+                    Description = "Based on Frederic Leighton's painting \"The Spirit of the Summit\", the artist offers his own revised interpretation. On the mountaintop now sits a modern woman dressed in white, wearing a white pearl necklace, white pearl bracelets, and white high heels. While Leighton's painting conveyed the message that it's \"cold and lonely at the top\", the artist offers a different interpretation: that by reaching the summit, a woman has achieved her fullest potential. In the upper right, the light of a bright star shines on the woman.<BR><BR>Art critic John Ruskin III Junior considered this to be in conflict with the criteria of spectrality, as that is what the title refers to. The artist agreed with this point of criticism and stated that this is more than compensated for by the other two criteria: frigidity (low) and monotonicity (low). The final comment by art critic John Ruskin III Junior was that there is certainly a meaning attached to this painting.",
+                    Year = 2002,
+                    ArtistId = 1,
+                    StyleId = 10,
+                    ImageId = 46,
+                    ThumbnailId = 46
+                },
+                new Painting()
+                {
+                    Id = 47,
+                    Name = "Saskia des Esseintes conveys the Message of World Peace",
+                    Description = "The woman is dressed in a stunning long white dress with a trail, she is adorned with white pearl jewelry and wearing white high heels. For more elegance and peacefulness, white doves have been added to the painting, where the dove is the classic symbol of peace, as well as beauty, innocence, and hope. Peace, in particular, is a theme that transcends borders, cultures, and religions.<BR><BR>The art critic John Ruskin III Junior praised this painting. Not only does the woman refer to the real world, but she also fulfills the three criteria of Glamour-Estheticism where all scores are low. Moreover, the art critic is an ardent proponent of World Peace and fully endorses its message.",
+                    Year = 2003,
+                    ArtistId = 2,
+                    StyleId = 10,
+                    ImageId = 47,
+                    ThumbnailId = 47
+                },
+                new Painting()
+                {
+                    Id = 48,
+                    Name = "Victoria de la Mer in Ancient Egyptian Style",
+                    Description = "The painting depicts a beautiful woman with dark hair and brown eyes. A striking feature is the golden necklace with pendant she wears. The pendant, also made of gold and set with reconstructed turquoise stones, hangs from a golden chain. The pendant depicts the face of a woman — most likely the Egyptian goddess Isis, a central Egyptian goddess of magic, motherhood, healing, and protection — with wings on either side. Turquoise symbolizes\r\nharmony, balance, protection, healing, and spiritual communication.<BR><BR>Art critic John Ruskin III Junior, praised this painting. He wrote in a review that: \"This woman is not only a true muse of the Glamour-Estheticism art movement (...) but also fulfills the three criteria of Glamour-Estheticism (...) and the painting is very original\".",
+                    Year = 2004,
+                    ArtistId = 1,
+                    StyleId = 10,
+                    ImageId = 48,
+                    ThumbnailId = 48
+                },
+                new Painting()
+                {
+                    Id = 49,
+                    Name = "A Musing Muse on the Terrace",
+                    Description = "The painting depicts a woman with brown eyes and brown hair who, while looking at the viewer, is also lost in her own thoughts. A viewer may ask themself: 'What is she thinking about?' The woman wears an asymmetrical dress and a piece of jewelry around her neck and in her hair.<BR><BR>The predominant color the painting is aquamarine: a blend of green and blue. Aquamarine symbolizes tranquility, calmness, and harmony, evoking the serenity of the sea, from which it gets its name. The cup of coffee also refers to connection, sociality, energy, and well-being.<BR><BR>Art critic John Ruskin III Junior criticized this painting as an everyday scene that scored particularly high on the criteria of \"monotonicity.\" The artist countered that it is up to the viewer's imagination to follow the musings of this muse.",
+                    Year = 2005,
+                    ArtistId = 2,
+                    StyleId = 10,
+                    ImageId = 49,
+                    ThumbnailId = 49
+                },
+                new Painting()
+                {
+                    Id = 50,
+                    Name = "Perchance a Dream",
+                    Description = "A controversial painting that sparked discussion. The painting depicts a beautiful woman in an asymmetrical red dress. Red is the color of radiant energies, the color of life and love, vitality, warmth, and passion. The woman wears an exquisite golden necklace with a golden pendant set with a ruby. The precious ruby ​​symbolizes wealth, power, and protection. It is believed to inspire confidence, courage, and emotional strength in its wearer.<BR><BR>The controversy lies in the title, which refers to a dream state. Art critic John Ruskin III Junior considered this as something that goes against the criteria of spectrality. However, the artist objected that the emphasis should be on \"Perchance\" in the title, claiming that he had seen the woman in the real world but could not remember where and when. According to the artist the woman is a true muse albeit from an alternate reality where everything is in order.",
+                    Year = 2006,
+                    ArtistId = 2,
+                    StyleId = 10,
+                    ImageId = 50,
+                    ThumbnailId = 50
                 },
             };
         }

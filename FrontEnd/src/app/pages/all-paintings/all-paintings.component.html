@@ -14,10 +14,12 @@
     @if(this.allPaintings$ | async; as allPaintings) {        
         @for(painting of allPaintings; track $index) {
             <mat-card appearance="outlined">
-                <div class="thumbnail-container" data-cy="paintings-thumbnail-container">
-                    @if(painting.thumbnail?.base64) {
-                        <img class="image-thumbnail" mat-card-image [src]="painting.thumbnail!.base64" [alt]="painting.name" [routerLink]="['/painting-details', painting.id ?? 0]"/>
-                    }                    
+                <div class="thumbnail-container" data-cy="paintings-thumbnail-container" #thumbnailContainer>
+                    @defer (on viewport(thumbnailContainer)) {
+                         @if(painting.thumbnail?.base64) {
+                            <img class="image-thumbnail" mat-card-image [src]="painting.thumbnail!.base64" [alt]="painting.name" [routerLink]="['/painting-details', painting.id ?? 0]"/>
+                        } 
+                    }                                      
                 </div>                
                 <mat-card-header>
                     <mat-card-title [class]="'card-title-max-height'" data-cy="paintings-card-title">{{ painting.name }}</mat-card-title>

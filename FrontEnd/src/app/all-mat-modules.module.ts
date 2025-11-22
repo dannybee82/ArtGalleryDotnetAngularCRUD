@@ -13,6 +13,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
     imports: [
@@ -29,7 +30,9 @@ import { MatListModule } from '@angular/material/list';
         MatTableModule,
         MatPaginatorModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        MatAccordion,
+        MatExpansionModule
     ],
     exports: [
         MatButtonModule,
@@ -45,7 +48,9 @@ import { MatListModule } from '@angular/material/list';
         MatTableModule,
         MatPaginatorModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        MatAccordion,
+        MatExpansionModule
     ]
 })
 export class AllMatModules {}

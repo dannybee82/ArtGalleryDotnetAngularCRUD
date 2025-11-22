@@ -6,25 +6,21 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AsyncPipe } from '@angular/common';
 import { AllMatModules } from '../../all-mat-modules.module';
-import { ScrollToTopComponent } from '../../components/scroll-to-top/scroll-to-top.component';
-import { ScrollToTopDirective } from '../../directives/scroll-to-top.directive';
 
 @Component({
   selector: 'app-painting-details',
   imports: [
     AllMatModules,
-    AsyncPipe,
-    ScrollToTopComponent,
-    ScrollToTopDirective
+    AsyncPipe
   ],
   templateUrl: './painting-details.component.html',
   styleUrl: './painting-details.component.scss'
 })
 export class PaintingDetailsComponent implements OnInit {
 
-  protected isScrollToTopVisible: WritableSignal<boolean> = signal(false);
   private _lastScrollPosition: WritableSignal<number> = signal(0);
   sidenavContent: Signal<ElementRef<HTMLElement>> = viewChild.required<ElementRef<HTMLElement>>('topOfDiv');
+  isPanelCollapsed: WritableSignal<boolean> = signal(false);  
 
   painting$?: Observable<Painting>;
 
@@ -57,23 +53,8 @@ export class PaintingDetailsComponent implements OnInit {
     })
   }
 
-  onScrollStateChange(showButton: boolean): void {
-    this.isScrollToTopVisible.set(this._lastScrollPosition() > 0 ? true : false);
-  }  
-  
-  onScrollPosition(position: number): void {
-    this._lastScrollPosition.set(position);
-  }
-
-  scrollToTop($event: boolean): void {
-    if (this.sidenavContent()) {  
-      const element = this.sidenavContent().nativeElement;
-
-      element.scrollTo({  
-        top: 0,  
-        behavior: 'smooth'  
-      });
-    }
+  togglePanel(): void {  
+    this.isPanelCollapsed.set(!this.isPanelCollapsed());
   }
 
 }

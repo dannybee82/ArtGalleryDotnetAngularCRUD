@@ -23,8 +23,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: space-between;
 }
 
+.fx-align-center {
+    align-items: center;
+}
+
 .w-100 {
     width: 100%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.w-70 {
+    width: 70%;
 }
 
 .w-50 {
@@ -37,6 +49,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .w-15 {
     width: 15%;
+}
+
+.h-100vh {
+    height: 100vh;
 }
 
 .p-0 {

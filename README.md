@@ -52,6 +52,28 @@ _ng e2e_
 
 ### **Changelog:**
 
+_November 2025_
+
+**Backend changes:**
+
+\- Added 10 additional works of art.
+
+\- Renamed files with dummy data.
+
+\- Changed some texts.
+
+**Frontend changes:**
+
+\- Use \[innerHTML\] on specific elements.
+
+\- Changed layout of painting details page.
+
+\- Using @defer for images on all paintings page.
+
+\- Changed the _Cypress tests_ to the new situation.
+
+\- Various other small changes.
+
 _September 2025_
 
 **Frontend changes:**

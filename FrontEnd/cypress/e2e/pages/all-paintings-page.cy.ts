@@ -25,16 +25,16 @@ describe('All Paintings Page', () => {
   });
 
   it('Test images', () => {
-    let counter: number = 0;
+    cy.wait(3000);
 
-    cy.byTestId('paintings-thumbnail-container').each($thumbnail => {
-      if(counter === 0) {
-        expect($thumbnail.html().startsWith('<img')).to.be.false;
+    cy.get('[data-cy=paintings-card-grid]').scrollIntoView();
+
+    cy.byTestId('paintings-thumbnail-container').each(($thumbnail, $index) => {
+      if($index === 0) {
+        cy.wrap($thumbnail).find('img').should('not.exist');        
       } else {
-        expect($thumbnail.html().startsWith('<img')).to.be.true;
+        cy.wrap($thumbnail).find('img').should('exist').and('be.visible');        
       }
-
-      counter++;
     });
   });
 

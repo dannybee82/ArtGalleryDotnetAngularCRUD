@@ -1,65 +1,103 @@
 @if(this.painting$ | async; as painting) {
     <div 
-        class="column p-1"
-        appScrollToTop  
-        [scrollThreshold]="150"  
-        (scrollStateChange)="onScrollStateChange($event)"  
-        (scrollPosition)="onScrollPosition($event)"
-        #topOfDiv
+        class="row fx-space-between"
         data-cy="painting-details-column">
         @if(painting.image) {
-            <div class="row fx-center" >
-                <img mat-card-image [src]="painting.image.base64" [alt]="painting.name"/>
+            <div class="column w-70 fx-center fx-align-center h-100vh">
+                <img [src]="painting.image.base64" [alt]="painting.name" [title]="painting.name" />
             </div>
-        }        
-        <div class="row fx-center">
-            <h3 data-cy="painting-details-name">{{ painting.name }}</h3>
-        </div>
-        <div class="row fx-center">
-            <div class="column w-50">
-                <em data-cy="painting-details-description">{{ painting.description }}</em>
-            </div>            
-        </div>       
-        <div class="row fx-center">
-            <div class="column" data-cy="painting-details-artist-name">
-                <p class="align-center" #paragraphs><strong>Artist</strong></p>
-                {{ painting.artist ? painting.artist.name : 'Unknown' }}
+        }       
+        <div class="details-container">
+            <!-- Collapsible expansion panel container (right side) -->
+            <div class="panel-container" [class.collapsed]="isPanelCollapsed()">
+                <!-- Toggle button -->
+                <button 
+                    mat-icon-button 
+                    class="collapse-toggle"
+                    (click)="togglePanel()"
+                    [attr.aria-label]="isPanelCollapsed() ? 'Expand panel' : 'Collapse panel'">
+                        <mat-icon>{{ isPanelCollapsed() ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+                </button>
+
+                <!-- Expansion panels -->
+                 @if(!isPanelCollapsed()) {
+                    <div class="panels-content">
+                        <mat-accordion [multi]="false">
+                            
+                            <!-- Painting Title - Always visible header -->
+                            <div class="panel-header">
+                            <h3 data-cy="painting-details-name">{{ painting.name }}</h3>
+                            </div>
+
+                            <!-- Painting Description -->
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                    Painting Description
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div data-cy="painting-details-description" [innerHTML]="painting.description"></div>
+                            </mat-expansion-panel>
+
+                            <!-- Other Painting Information -->
+                            <mat-expansion-panel>
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                    Painting Information
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <strong>Artist</strong>
+                                        <p data-cy="painting-details-artist-name">{{ painting.artist ? painting.artist.name : 'Unknown' }}</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Year</strong>
+                                        <p data-cy="painting-details-year">{{ painting.year }}</p>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Style</strong>
+                                        <p data-cy="painting-details-artist-style">{{ painting.style ? painting.style.name : 'Unknown' }}</p>
+                                    </div>
+                                </div>
+                            </mat-expansion-panel>
+                            <!-- Information About the Artist -->
+                            @if(painting.artist) {
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title data-cy="painting-details-artist-about">
+                                        About {{ painting.artist.name }}
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div>
+                                        <p class="artist-years">
+                                        <strong>
+                                            @if(painting.artist.yearOfBirth && painting.artist.yearOfDeath) {
+                                                ({{ painting.artist.yearOfBirth }} - {{ painting.artist.yearOfDeath }})
+                                            } @else {
+                                                ({{ painting.artist.yearOfBirth }})
+                                            }
+                                        </strong>
+                                        </p>
+                                        <p data-cy="painting-details-artist-description">{{ painting.artist.description }}</p>
+                                    </div>
+                                </mat-expansion-panel>
+                            }
+                            <!-- Information About the Art Style -->
+                            @if(painting.style) {
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title data-cy="painting-details-about-style-name">
+                                        About {{ painting.style.name }}
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div data-cy="painting-details-about-style-description" [innerHTML]="painting.style.description"></div>
+                                </mat-expansion-panel>
+                            }
+                        </mat-accordion>
+                    </div>
+                 }                
             </div>
-            <div class="column ms-2"  data-cy="painting-details-year">
-                <p class="align-center" #paragraphs><strong>Year</strong></p>
-                {{ painting.year }}
-            </div>
-            <div class="column ms-2"  data-cy="painting-details-artist-style">
-                <p class="align-center" #paragraphs><strong>Style</strong></p>
-                {{ painting.style ? painting.style.name : 'Unknown' }}
-            </div>
-        </div>
-        @if(painting.artist) {
-            <div class="row fx-center">
-                @if(painting.artist.yearOfBirth && painting.artist.yearOfDeath) {
-                    <h3 data-cy="painting-details-artist-about">{{`About ${painting.artist.name} (${painting.artist.yearOfBirth} - ${painting.artist.yearOfDeath})`}}</h3>
-                } @else {
-                    <h3 data-cy="painting-details-artist-about">{{`About ${painting.artist.name} (${painting.artist.yearOfBirth})`}}</h3>                    
-                }            
-            </div>
-            <div class="row fx-center">
-                <div class="column w-50">
-                    <em data-cy="painting-details-artist-description">{{ painting.artist.description }}</em>
-                </div>            
-            </div>  
-        }   
-        @if(painting.style) {
-            <div class="row fx-center">
-                <h3 data-cy="painting-details-about-style-name">{{`About ${painting.style.name}`}}</h3>
-            </div>
-            <div class="row fx-center mb-2">
-                <div class="column w-50">
-                    <em data-cy="painting-details-about-style-description">{{ painting.style.description }}</em>
-                </div>            
-            </div>  
-        }              
+        </div>     
     </div>
-}
-@if(this.isScrollToTopVisible()) {
-    <app-scroll-to-top></app-scroll-to-top>
 }

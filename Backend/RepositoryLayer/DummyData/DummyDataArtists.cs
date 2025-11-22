@@ -26,7 +26,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 2,
                     Name = "Norbert Nikolaus",
-                    Description = "As a pupil of Jean Millet, Norbert Nikolaus would adopt the style of his master. The themes of his paintings are the same: a colourful flower landscape with captivating women. His enigmatic paintings often contain hidden meanings.",
+                    Description = "As a pupil of Jean Millet, Norbert Nikolaus would adopt the style of his master. The themes of his paintings are the same: captivating women in combination with colourful flower landscapes. His enigmatic paintings often contain hidden meanings.",
                     YearOfBirth = 1974,
                     YearOfDeath = null
                 },
@@ -82,7 +82,7 @@ namespace RepositoryLayer.DummyData
                 {
                     Id = 9,
                     Name = "Édouard Marceau",
-                    Description = "Édouard Marceau is an ardent reader of fantasy books, and he uses this passion in his paintings. His paintings are captivating and striking, featuring impossible scenes placed within a real-world setting. Recurring themes include: beaches, seals, and extraordinary figures.",
+                    Description = "Édouard Marceau is an ardent reader of fantasy books and he uses this passion in his paintings. His paintings are captivating and striking, featuring impossible scenes placed within a real-world setting. Recurring themes include: beaches, seals, and extraordinary figures.",
                     YearOfBirth = 1995,
                     YearOfDeath = null
                 },
@@ -113,8 +113,8 @@ namespace RepositoryLayer.DummyData
                 new Artist()
                 {
                     Id = 13,
-                    Name = "Gabriel Grandartista",
-                    Description = "Grandartista’s vibrant scenes depict the intersection of religion, festivities, and the everyday lives of the common folk. His paintings are populated by enigmatic figures against the backdrop of medieval history. A longing for the nostalgic past infuse his art with a haunting and timeless quality.",
+                    Name = "Gabriel Grandartiste",
+                    Description = "Grandartiste’s vibrant scenes depict the intersection of religion, festivities, and the everyday lives of the common folk. His paintings are populated by enigmatic figures against the backdrop of medieval history. A longing for the nostalgic past infuse his art with a haunting and timeless quality.",
                     YearOfBirth = 1997,
                     YearOfDeath = null
                 },

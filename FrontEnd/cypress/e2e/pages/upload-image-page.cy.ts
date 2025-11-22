@@ -6,7 +6,7 @@ describe('Image Upload Tests', () => {
   
   it('upload an image and display preview', () => {  
     // Prepare a test image file  
-    const fileName = 'test-image.jpg';  
+    const fileName = 'test-image-001.jpg';  
       
     // Upload file using the plugin  
     cy.byTestId('upload-image-input').attachFile(fileName);  
@@ -29,7 +29,7 @@ describe('Image Upload Tests', () => {
   });  
   
   it('upload file via button click', () => {  
-    const fileName = 'test-image.jpg';  
+    const fileName = 'test-image-001.jpg';  
     
     // Force upload on the hidden input  
     cy.byTestId('upload-image-input').attachFile(fileName, { force: true });    
@@ -41,7 +41,7 @@ describe('Image Upload Tests', () => {
     cy.byTestId('upload-image-preview').should('be.visible');  
     //cy.get('.file-name').should('contain', fileName);  
 
-    cy.uploadFormData('/UploadImage/UploadImage', 'test-image.jpg', [], []).then(result => {  
+    cy.uploadFormData('/UploadImage/UploadImage', 'test-image-001.jpg', [], []).then(result => {  
       expect(result.status).to.eq(200);  
       expect(result.response.success).to.be.true;       
     });  
@@ -51,7 +51,7 @@ describe('Image Upload Tests', () => {
 
   it('use remove button', () => {
     // Prepare a test image file  
-    const fileName = 'test-image.jpg';  
+    const fileName = 'test-image-001.jpg';  
       
     // Upload file using the plugin  
     cy.byTestId('upload-image-input').attachFile(fileName);  

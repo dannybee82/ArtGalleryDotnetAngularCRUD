@@ -61,7 +61,19 @@ namespace RepositoryLayer.DummyData
                     Id = 8,
                     Name = "Neo Mysticism",
                     Description = "The art movement \"Neo-Mysticism\" often features medieval settings and visual elements. This art movement is closely related to the art movement \"Neo Medievalism,\". There is an overlap between the artists, but the themes vary, such as: mystical seers, healers, enigmatic figures and religious artifacts."
-                }                
+                },
+                new Style()
+                {
+                    Id = 9,
+                    Name = "Neo Historicism",
+                    Description = "The same artists from the Neo-Medievalism and Neo-Mysticism movements were commissioned by art critic John Ruskin III Junior to create paintings in a Neo-Historicism style. The themes depicted the royal court in the broadest sense, including court employees, diplomats, judges, and the king himself."
+                },
+                new Style()
+                {
+                    Id = 10,
+                    Name = "Glamour-Estheticism",
+                    Description = "The same artists from Flower Art have made the transition to Glamour-Estheticism. Where the latter art movement was seen as more exciting for a wider audience. Glamour-Estheticism also has a more theoretical underpinning that is borrowed from 'philosophical visual thinking' and 'analytical gyneography'.<BR><BR>The three criteria of Glamour-Estheticism are:<BR><strong>1)</strong> Spectrality<br><strong>2)</strong> Frigidity<br><strong>3)</strong> Monotonicity.<BR><BR>Ironically, the true muses of Glamour-Estheticism score low on the three criteria and they are both beautiful and graceful. Not every woman can be a muse of Glamour-Estheticism, so excluded are 'les vaches bleues' ('the blue cows' with non-natural hair colours, tattoos and nose piercings) and adherents of ideologies: both worldly and those that are not good for the general well-being."
+                }
             };
         }
 
