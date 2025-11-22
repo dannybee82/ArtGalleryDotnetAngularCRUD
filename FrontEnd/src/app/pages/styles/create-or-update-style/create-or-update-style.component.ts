@@ -119,7 +119,7 @@ export class CreateOrUpdateStyleComponent implements OnInit {
       result$.subscribe({
         next: () => {
           this.toastr.success('Style successfully deleted');
-          this.router.navigate(['/']);
+          this.router.navigate(['/all-styles']);
         },
         error: () => {
           this.toastr.error('Can\'t delete Style');

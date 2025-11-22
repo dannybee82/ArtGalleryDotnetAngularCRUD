@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 20 application that demonstrates the regular HttpClient with Observables.  
+An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -33,11 +33,13 @@ For more information see the link below:
 
 **Command to install**
 
-_npm install_
+_npm install --force_  
+(--force is needed because @ngrx/store is not updated yet)
 
 or shorter:
 
-_npm i_
+_npm i --force_  
+(--force is needed because @ngrx/store is not updated yet)
 
 **Command to run the application:**
 
@@ -62,7 +64,15 @@ _November 2025_
 
 \- Changed some texts.
 
+\- Bugfix for updating a painting.
+
 **Frontend changes:**
+
+\- Upgrade to _Angular 21_ and upgraded other packages.
+
+*   Removed deprecated _Karma_ and installed _Vitest._
+*   Migrated _Jasmine_ tests to _Vitest_ tests for future use (command: **ng generate refactor-jasmine-vitest**).
+*   HttpClient unchanged (makes use of an interceptor).
 
 \- Use \[innerHTML\] on specific elements.
 

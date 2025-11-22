@@ -137,7 +137,7 @@ export class CreateOrUpdateArtistComponent implements OnInit {
       result$.subscribe({
         next: () => {
           this.toastr.success('Artist successfully deleted');
-          this.router.navigate(['/']);
+          this.router.navigate(['/all-artists']);
         },
         error: () => {
           this.toastr.error('Can\'t delete Artist');

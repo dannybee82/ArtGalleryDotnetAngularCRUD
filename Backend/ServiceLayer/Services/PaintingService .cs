@@ -189,7 +189,27 @@ namespace ServiceLayer.Services
         {
             try
             {
-                await _paintingRepository.Update(PaintingMapper.ToEntity(dto));
+                int targetId = dto.Id ?? 0;
+
+                if(targetId == 0)
+                {
+                    throw new Exception("Invalid Id");
+                }
+
+                var entity = PaintingMapper.ToEntity(dto);
+                
+                //Setup the (parent) Image from the (child) Thumbnail's ParentId.
+                if(entity.ThumbnailId != null)
+                {
+                    var thumbnail = await _thumbnailRepository.GetById(entity.ThumbnailId ?? 0);
+
+                    if(thumbnail != null)
+                    {
+                        entity.ImageId = thumbnail.ParentImageId;
+                    }
+                }
+
+                await _paintingRepository.Update(entity);
             }
             catch (Exception ex)
             {
