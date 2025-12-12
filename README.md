@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0) that demonstrates the regular HttpClient with Observables.  
+An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -53,6 +53,16 @@ _ng s --o_
 _ng e2e_
 
 ### **Changelog:**
+
+_December 2025_
+
+**Frontend changes:**
+
+\- Upgraded packages.
+
+\- More responsiveness.
+
+\- Delete dialog has English texts now.
 
 _November 2025_
 

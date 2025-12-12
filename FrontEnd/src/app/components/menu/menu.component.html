@@ -1,7 +1,7 @@
 <mat-sidenav-container>  
     <mat-sidenav #sidenav [mode]="'side'" opened [style.width.px]="this.isCollapsed() ? 68 : 250" [class.collapsed]="this.isCollapsed()">  
         <mat-nav-list>                 
-            <a mat-list-item class="mb-1" (click)="this.isCollapsed.set(!this.isCollapsed())">  
+            <a mat-list-item class="mb-1" (click)="this.disableResizing() ? null : this.isCollapsed.set(!this.isCollapsed())" [disabled]="this.disableResizing()">  
                 @if(!this.isCollapsed()) {  
                     <mat-icon>arrow_left</mat-icon>  
                 } @else {  

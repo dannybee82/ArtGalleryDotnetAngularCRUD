@@ -1,7 +1,7 @@
 <div class="p-0">
     <form [formGroup]="this.filterForm">
-        <div class="row w-100 p-0 ms-1">
-            <div class="column">
+        <div class="row w-100 p-0 ms-1 responsive-row">
+            <div class="column responsive-ms-1">
                 <mat-form-field>
                     <mat-label>Style</mat-label>
                     <mat-select [multiple]="true" formControlName="styles">
@@ -43,7 +43,7 @@
     </form>
 </div>
 @if(this.isFilterOn()) {
-    <div class="row p-0 ms-1">
+    <div class="row p-0 ms-1 responsive-sm">
         @for(item of this.getActiveFilters(); track $index) {
             <button type="button" mat-stroked-button color="accent" (click)="removeFilter(item.controlname ?? '', item.value)" class="ms-1">
                  <span>{{ `${item.category }: ${item.label}` }}</span>

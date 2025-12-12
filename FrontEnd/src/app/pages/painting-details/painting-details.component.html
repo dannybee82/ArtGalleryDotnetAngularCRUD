@@ -1,9 +1,9 @@
 @if(this.painting$ | async; as painting) {
     <div 
-        class="row fx-space-between"
+        class="row fx-space-between responsive-row"
         data-cy="painting-details-column">
         @if(painting.image) {
-            <div class="column w-70 fx-center fx-align-center h-100vh">
+            <div class="column w-70 fx-center fx-align-center h-100vh responsive-image-container">
                 <img [src]="painting.image.base64" [alt]="painting.name" [title]="painting.name" />
             </div>
         }       

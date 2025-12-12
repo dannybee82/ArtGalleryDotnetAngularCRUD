@@ -1,7 +1,7 @@
 @if(this.isLoaded()) {
-    <div class="column p-1">
-        <div class="row">
-            <div class="column me-1 w-15">
+    <div class="column p-1 responsive-container">
+        <div class="row responsive-row">
+            <div class="column me-1 w-15 responsive-column">
                 <form [formGroup]="paintingForm">
                     <div class="row">
                         <mat-form-field>
@@ -23,7 +23,7 @@
                     </div>
                 </form>
             </div>
-            <div class="column me-1 w-25">
+            <div class="column me-1 w-25 responsive-column">
                 <div class="row">
                     <form [formGroup]="thumbnailForm">
                         <mat-form-field>
@@ -47,7 +47,7 @@
                     }
                 </div>
             </div>
-            <div class="column me-1 w-25">
+            <div class="column me-1 w-25 responsive-column">
                 <div class="row">
                     <form [formGroup]="artistForm">
                         <mat-form-field>
@@ -66,12 +66,12 @@
                 <div class="column">
                     @if(this.selectedArtist()) {
                         <p data-cy="selected-artist-name"><strong>{{ this.selectedArtist()?.name }}</strong></p>
-                        <p data-cy="selected-artist-description">{{ this.selectedArtist()?.description }}</p>
+                        <p data-cy="selected-artist-description" [innerHTML]="this.selectedArtist()?.description"></p>
                         <p data-cy="selected-artist-year">{{ this.selectedArtist()?.yearOfBirth }} - {{ this.selectedArtist()?.yearOfDeath ? this.selectedArtist()?.yearOfDeath : '' }}</p>
                     }
                 </div>
             </div>
-            <div class="column w-25">
+            <div class="column w-25 responsive-column">
                 <div class="row">
                     <form [formGroup]="styleForm">
                         <mat-form-field>
@@ -90,7 +90,7 @@
                 <div class="column">
                     @if(this.selectedStyle()) {
                         <p data-cy="selected-style-name"><strong>{{ this.selectedStyle()?.name }}</strong></p>
-                        <p data-cy="selected-style-description">{{ this.selectedStyle()?.description }}</p>                        
+                        <p data-cy="selected-style-description" [innerHTML]="this.selectedStyle()?.description"></p>                        
                     }
                 </div>
             </div>

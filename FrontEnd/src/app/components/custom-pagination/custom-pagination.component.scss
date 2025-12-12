@@ -21,3 +21,22 @@
 .mt-special {
   vertical-align: bottom;
 }
+
+.responsive-small-screens-show {
+  display: none;
+}
+
+@media (max-width: 860px) {  
+  .custom-paginator {
+    flex-direction: column;
+    justify-items: center;
+  }
+
+  .responsive-small-screens-hide {
+    display: none;
+  }
+
+  .responsive-small-screens-show {
+    display: block;
+  }
+}

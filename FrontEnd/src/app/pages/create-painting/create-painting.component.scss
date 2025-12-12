@@ -13,3 +13,17 @@
     height: auto;
     max-height: 250px;
 }
+
+@media (max-width: 1280px) {
+    .responsive-container {
+        margin-left: 48px!important;
+    }
+
+    .responsive-row {
+        flex-direction: column!important;
+    }
+
+    .responsive-column {
+        width: 100%!important;
+    }
+}
