@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3) that demonstrates the regular HttpClient with Observables.  
+An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -33,13 +33,10 @@ For more information see the link below:
 
 **Command to install**
 
-_npm install --force_  
-(--force is needed because @ngrx/store is not updated yet)
-
+_npm install_  
 or shorter:
 
-_npm i --force_  
-(--force is needed because @ngrx/store is not updated yet)
+_npm i_  
 
 **Command to run the application:**
 
@@ -58,7 +55,9 @@ _December 2025_
 
 **Frontend changes:**
 
-\- Upgraded packages.
+\- Upgraded packages _@ngrx/store_ and _@ngrx/signals_ to version 21 (no _npm i --force_ needed anymore).
+
+\- Upgraded other packages.
 
 \- More responsiveness.
 
