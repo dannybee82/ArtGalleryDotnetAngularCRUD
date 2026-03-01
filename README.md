@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4) that demonstrates the regular HttpClient with Observables.  
+An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -31,6 +31,8 @@ For more information see the link below:
 
 ### **Angular application installation**
 
+**Angular 21** needs a **Node.js** version of at least _20.19.0_
+
 **Command to install**
 
 _npm install_  
@@ -50,6 +52,30 @@ _ng s --o_
 _ng e2e_
 
 ### **Changelog:**
+
+_March 2026_
+
+**Frontend changes:**
+
+-\ Upgraded packages for @angular/cli@21.2.0 and added _Prettier_.
+
+-\ Changed the text 'X paintings found' to 'X Works of Art' found' using the Angular I18nPluralPipe.
+
+-\ Update 1 Cypress test.
+
+-\ Justify text on details page.
+
+-\ Various minor changes in the HTML-templates.
+
+\- Updated the imports of the specification files for _Vitest_ (for future use).
+
+**Backend changes:**
+
+\- Added 5 new works of art.
+
+\- Upgraded some packages.
+
+\- Changed the working of the available filters.
 
 _December 2025_
 

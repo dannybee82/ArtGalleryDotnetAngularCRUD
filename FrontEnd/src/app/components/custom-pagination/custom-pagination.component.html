@@ -1,28 +1,28 @@
 <div class="custom-paginator">
     <div>
-      <mat-paginator [length]="this.pagination().totalCount" 
+      <mat-paginator [length]="pagination().totalCount" 
           [pageSizeOptions]="[5, 10, 15, 20, 25, 50]"
-          [pageSize]="this.pageSize()"
+          [pageSize]="pageSize()"
           aria-label="Select page of Paintings"   
-                        (page)="this.updatePagination($event)"                      
+                        (page)="updatePagination($event)"                      
                         [showFirstLastButtons]="false"
                         [class]="'hide-nav-buttons'">          
       </mat-paginator>      
     </div>
     <div class="responsive-small-screens-hide">
-      {{ `${this.pagination().from} - ${this.pagination().to} of ${this.pagination().totalCount}` }}
+      {{ `${pagination().from} - ${pagination().to} of ${pagination().totalCount}` }}
     </div>
     <div class="button-container">
-      <button mat-icon-button (click)="firstPage()" [disabled]="this.disableFirstButton()">
+      <button mat-icon-button (click)="firstPage()" [disabled]="disableFirstButton()">
         <mat-icon>first_page</mat-icon>
       </button>
-      <button mat-icon-button (click)="previousPage()" [disabled]="this.disablePreviousButton()">
+      <button mat-icon-button (click)="previousPage()" [disabled]="disablePreviousButton()">
         <mat-icon>chevron_left</mat-icon>
       </button>
-      <button mat-icon-button (click)="nextPage()" [disabled]="this.disableNextButton()">
+      <button mat-icon-button (click)="nextPage()" [disabled]="disableNextButton()">
         <mat-icon>chevron_right</mat-icon>
       </button>
-      <button mat-icon-button (click)="lastPage()" [disabled]="this.disableLastButton()">
+      <button mat-icon-button (click)="lastPage()" [disabled]="disableLastButton()">
         <mat-icon>last_page</mat-icon>
       </button>
     </div>

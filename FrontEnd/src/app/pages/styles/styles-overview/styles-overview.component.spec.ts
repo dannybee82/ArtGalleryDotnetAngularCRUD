@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StylesOverviewComponent } from './styles-overview.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('StylesOverviewComponent', () => {
   let component: StylesOverviewComponent;

@@ -73,6 +73,12 @@ namespace RepositoryLayer.DummyData
                     Id = 10,
                     Name = "Glamour-Estheticism",
                     Description = "The same artists from Flower Art have made the transition to Glamour-Estheticism. Where the latter art movement was seen as more exciting for a wider audience. Glamour-Estheticism also has a more theoretical underpinning that is borrowed from 'philosophical visual thinking' and 'analytical gyneography'.<BR><BR>The three criteria of Glamour-Estheticism are:<BR><strong>1)</strong> Spectrality<br><strong>2)</strong> Frigidity<br><strong>3)</strong> Monotonicity.<BR><BR>Ironically, the true muses of Glamour-Estheticism score low on the three criteria and they are both beautiful and graceful. Not every woman can be a muse of Glamour-Estheticism, so excluded are 'les vaches bleues' ('the blue cows' with non-natural hair colours, tattoos and nose piercings) and adherents of ideologies: both worldly and those that are not good for the general well-being."
+                },
+                new Style()
+                {
+                    Id = 11,
+                    Name = "Mystical Mirageism",
+                    Description = "Mystical Mirageism is an enchanting art movement that blends the ethereal with the tangible, creating works that shimmer between reality and dream. Characterized by subdued, harmonious color palettes and the delicate fluidity of watercolors, this style embraces enigmatic narratives steeped in magic and ancient wisdom. The movement deliberately centers non-eurocentric perspectives, celebrating indigenous humans and their profound connection to nature, often set against lush tropical backdrops that evoke both antiquity and timelessness.<BR><BR>A hallmark of Mystical Mirageism is the occasional emergence of luminous sparkling effects — ethereal light that dances across the canvas, suggesting hidden dimensions and the presence of unseen forces. These works invite viewers into contemplative spaces where the boundaries between the material and spiritual worlds dissolve."
                 }
             };
         }

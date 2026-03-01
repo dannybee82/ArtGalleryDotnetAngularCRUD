@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CustomPaginationComponent } from './custom-pagination.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('CustomPaginationComponent', () => {
   let component: CustomPaginationComponent;

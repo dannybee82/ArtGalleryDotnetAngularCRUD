@@ -39,6 +39,14 @@
     max-height: 126px;
 }
 
+.custom-padding-top {
+    padding-top: 12px!important;
+}
+
+.custom-padding-bottom {
+    padding-bottom: 4px!important;
+}
+
 @media (min-width: 1300px) and (max-width: 1599px) {
     .card-grid {
         grid-template-columns: repeat(4, 1fr)!important;    

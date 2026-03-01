@@ -4,14 +4,14 @@
     </div>
     <div class="column w-100 responsive-resize">
         <app-custom-pagination
-            [data]="this.paginationData"
+            [data]="paginationData"
             (emitUpdatePagination)="updatePagination($event)">
         </app-custom-pagination>
     </div>
 </div>
-<h3 class="ps-1" data-cy="paintings-amount">{{`${this.amount()} ${this.amount() === 1 ? 'painting' : 'paintings'} found`}}</h3>
+<h3 class="ps-1 mt-0 mb-0" data-cy="paintings-amount">{{`${amount()} ${amount() | i18nPlural:pluralMap } of Art found`}}</h3>
 <div class="card-grid" data-cy="paintings-card-grid">
-    @if(this.allPaintings$ | async; as allPaintings) {        
+    @if(allPaintings$ | async; as allPaintings) {        
         @for(painting of allPaintings; track $index) {
             <mat-card appearance="outlined">
                 <div class="thumbnail-container" data-cy="paintings-thumbnail-container" #thumbnailContainer>
@@ -21,11 +21,11 @@
                         } 
                     }                                      
                 </div>                
-                <mat-card-header>
+                <mat-card-header class="custom-padding-top">
                     <mat-card-title [class]="'card-title-max-height'" data-cy="paintings-card-title">{{ painting.name }}</mat-card-title>
                     <mat-card-subtitle data-cy="paintings-subtitle"><strong>Painter:</strong> {{ painting.artist ? painting.artist.name : 'Unknown'}}</mat-card-subtitle>                 
                 </mat-card-header>
-                <mat-card-content>
+                <mat-card-content class="custom-padding-bottom">
                     <p data-cy="paintings-style"><strong>Style:</strong> {{ painting.style ? painting.style.name : 'Unknown' }}</p>
                     <div class="row fx-space-between">
                         <div class="col w-50">

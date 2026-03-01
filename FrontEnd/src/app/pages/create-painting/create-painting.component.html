@@ -1,4 +1,4 @@
-@if(this.isLoaded()) {
+@if(isLoaded()) {
     <div class="column p-1 responsive-container">
         <div class="row responsive-row">
             <div class="column me-1 w-15 responsive-column">
@@ -29,20 +29,20 @@
                         <mat-form-field>
                             <mat-label>Image & Thumbnail</mat-label>
                             <mat-select formControlName="selectedThumbnail" [compareWith]="compareObj">
-                                @for(thumbnail of this.allUnusedThumbnails(); track $index; let index = $index) {
+                                @for(thumbnail of allUnusedThumbnails(); track $index; let index = $index) {
                                     <mat-option [value]="thumbnail">{{ index + 1 }}</mat-option>
                                 }                                                            
                             </mat-select>
                         </mat-form-field>
                     </form>
-                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Thumbnails/images" (click)="this.refreshData(1)">
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Thumbnails/images" (click)="refreshData(1)">
                         <mat-icon>refresh</mat-icon>
                     </button>
                 </div>
                 <div class="row">
-                    @if(this.selectedThumbnail()) {
+                    @if(selectedThumbnail()) {
                         <div class="thumbnail-container">
-                            <img class="image-thumbnail" mat-card-image [src]="this.selectedThumbnail()!.base64" alt="Thumbnail" data-cy="painting-crud-thumbnail" />
+                            <img class="image-thumbnail" mat-card-image [src]="selectedThumbnail()!.base64" alt="Thumbnail" data-cy="painting-crud-thumbnail" />
                         </div> 
                     }
                 </div>
@@ -53,21 +53,21 @@
                         <mat-form-field>
                             <mat-label>Artist</mat-label>    
                             <mat-select formControlName="selectedArtist" [compareWith]="compareObj">
-                                @for(artist of this.allArtists(); track $index) {
+                                @for(artist of allArtists(); track $index) {
                                     <mat-option [value]="artist">{{ artist.name }}</mat-option>
                                 }                                
                             </mat-select>
                         </mat-form-field>
                     </form>
-                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Artists" (click)="this.refreshData(2)">
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Artists" (click)="refreshData(2)">
                         <mat-icon>refresh</mat-icon>
                     </button>
                 </div>
                 <div class="column">
-                    @if(this.selectedArtist()) {
-                        <p data-cy="selected-artist-name"><strong>{{ this.selectedArtist()?.name }}</strong></p>
-                        <p data-cy="selected-artist-description" [innerHTML]="this.selectedArtist()?.description"></p>
-                        <p data-cy="selected-artist-year">{{ this.selectedArtist()?.yearOfBirth }} - {{ this.selectedArtist()?.yearOfDeath ? this.selectedArtist()?.yearOfDeath : '' }}</p>
+                    @if(selectedArtist()) {
+                        <p data-cy="selected-artist-name"><strong>{{ selectedArtist()?.name }}</strong></p>
+                        <p data-cy="selected-artist-description" [innerHTML]="selectedArtist()?.description"></p>
+                        <p data-cy="selected-artist-year">{{ selectedArtist()?.yearOfBirth }} - {{ selectedArtist()?.yearOfDeath ? selectedArtist()?.yearOfDeath : '' }}</p>
                     }
                 </div>
             </div>
@@ -77,20 +77,20 @@
                         <mat-form-field>
                             <mat-label>Style</mat-label>
                             <mat-select formControlName="selectedStyle" [compareWith]="compareObj">
-                                @for(style of this.allStyles(); track $index) {
+                                @for(style of allStyles(); track $index) {
                                         <mat-option [value]="style">{{ style.name }}</mat-option>
                                     }                                
                             </mat-select>
                         </mat-form-field>
                     </form>
-                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Styles" (click)="this.refreshData(3)">
+                    <button type="button" mat-icon-button class="mt-half" matTooltip="Refresh Styles" (click)="refreshData(3)">
                         <mat-icon>refresh</mat-icon>
                     </button>
                 </div>
                 <div class="column">
-                    @if(this.selectedStyle()) {
-                        <p data-cy="selected-style-name"><strong>{{ this.selectedStyle()?.name }}</strong></p>
-                        <p data-cy="selected-style-description" [innerHTML]="this.selectedStyle()?.description"></p>                        
+                    @if(selectedStyle()) {
+                        <p data-cy="selected-style-name"><strong>{{ selectedStyle()?.name }}</strong></p>
+                        <p data-cy="selected-style-description" [innerHTML]="selectedStyle()?.description"></p>                        
                     }
                 </div>
             </div>
@@ -98,14 +98,14 @@
         <div class="row">
             <button type="submit" mat-raised-button color="primary" class="me-1" (click)="submit()">
                 <mat-icon>save</mat-icon>
-                <span>{{ this.isUpdateMode() ? 'Update' : 'Create' }}</span>
+                <span>{{ isUpdateMode() ? 'Update' : 'Create' }}</span>
             </button>
             <button type="button" mat-raised-button color="accent" [routerLink]="['/']">
                 <mat-icon>cancel</mat-icon>
                 <span>Cancel</span>
             </button>
         </div>
-        @if(this.isUpdateMode()) {
+        @if(isUpdateMode()) {
             <div class="row mt-2">
                 <button type="button" mat-raised-button color="warn" (click)="deletePainting()">
                     <mat-icon>delete</mat-icon>

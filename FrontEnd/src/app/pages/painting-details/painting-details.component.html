@@ -1,4 +1,4 @@
-@if(this.painting$ | async; as painting) {
+@if(painting$ | async; as painting) {
     <div 
         class="row fx-space-between responsive-row"
         data-cy="painting-details-column">
@@ -36,7 +36,7 @@
                                     Painting Description
                                     </mat-panel-title>
                                 </mat-expansion-panel-header>
-                                <div data-cy="painting-details-description" [innerHTML]="painting.description"></div>
+                                <div data-cy="painting-details-description" [innerHTML]="painting.description" class="text-justify"></div>
                             </mat-expansion-panel>
 
                             <!-- Other Painting Information -->
@@ -79,7 +79,7 @@
                                             }
                                         </strong>
                                         </p>
-                                        <p data-cy="painting-details-artist-description">{{ painting.artist.description }}</p>
+                                        <p data-cy="painting-details-artist-description" class="text-justify">{{ painting.artist.description }}</p>
                                     </div>
                                 </mat-expansion-panel>
                             }
@@ -91,7 +91,7 @@
                                         About {{ painting.style.name }}
                                         </mat-panel-title>
                                     </mat-expansion-panel-header>
-                                    <div data-cy="painting-details-about-style-description" [innerHTML]="painting.style.description"></div>
+                                    <div data-cy="painting-details-about-style-description" [innerHTML]="painting.style.description" class="text-justify"></div>
                                 </mat-expansion-panel>
                             }
                         </mat-accordion>

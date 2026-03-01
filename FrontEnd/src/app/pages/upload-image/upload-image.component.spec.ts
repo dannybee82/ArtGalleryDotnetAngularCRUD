@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UploadImageComponent } from './upload-image.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('UploadImageComponent', () => {
   let component: UploadImageComponent;

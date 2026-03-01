@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PaintingDetailsComponent } from './painting-details.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('PaintingDetailsComponent', () => {
   let component: PaintingDetailsComponent;

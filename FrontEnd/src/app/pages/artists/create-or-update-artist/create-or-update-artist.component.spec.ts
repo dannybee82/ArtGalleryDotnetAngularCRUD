@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CreateOrUpdateArtistComponent } from './create-or-update-artist.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('CreateOrUpdateArtistComponent', () => {
   let component: CreateOrUpdateArtistComponent;

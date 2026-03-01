@@ -17,7 +17,7 @@ describe('All Paintings Page', () => {
 
   it('Test amount of paintings', () => {  
     // Check the UI - adjust based on your actual UI  
-    cy.byTestId('paintings-amount').should('have.text', '2 paintings found'); 
+    cy.byTestId('paintings-amount').should('have.text', '2 Works of Art found'); 
   });  
 
   it('Count mat-cards in grid', () => {

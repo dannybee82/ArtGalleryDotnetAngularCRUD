@@ -67,6 +67,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding-left: 16px;
 }
 
+.mt-0 {
+    margin-top: 0px;
+}
+
 .mt-half {
     margin-top: 8px;
 }
@@ -87,6 +91,18 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-left: 32px;
 }
 
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+.mb-quarter {
+    margin-bottom: 4px;
+}
+
+.mb-half {
+    margin-bottom: 8px;
+}
+
 .mb-1 {
     margin-bottom: 16px;
 }
@@ -101,6 +117,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .align-center {
     align-self: center;
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 //Hide default pagination buttons.

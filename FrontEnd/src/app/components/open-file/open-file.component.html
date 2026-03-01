@@ -5,18 +5,18 @@
     color="primary" 
     for="formFile" 
     (click)="openFile.value = '';openFile.click();" 
-    matTooltip="{{this.buttonText()}}" 
-    [disabled]="this.isDisabled()"
+    [matTooltip]="buttonText()" 
+    [disabled]="isDisabled()"
     data-cy="upload-image-button">
-        <mat-icon>{{this.matIcon()}}</mat-icon>
-        <span>{{this.buttonText()}}</span>
+        <mat-icon>{{matIcon()}}</mat-icon>
+        <span>{{buttonText()}}</span>
 </button>
 <input 
     type="file" 
     id="formFile" 
-    [accept]="this.fileExtensions()"
+    [accept]="fileExtensions()"
     (change)="onFileSelected($event)" 
-    [multiple]="this.allowMultipleSelection()" 
+    [multiple]="allowMultipleSelection()" 
     #openFile
     data-cy="upload-image-input"
 />

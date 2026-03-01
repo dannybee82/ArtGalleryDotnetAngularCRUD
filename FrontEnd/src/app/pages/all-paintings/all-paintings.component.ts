@@ -9,7 +9,7 @@ import { CustomPaginationComponent } from '../../components/custom-pagination/cu
 import { PaginatedData, PaginatedList } from '../../models/paginated-list/paginated-list.interface';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, I18nPluralPipe } from '@angular/common';
 import { defaultPagination } from '../../constants/shared-default-pagination.constants';
 import { FilterStore } from '../../stores/filter.store';
 import { PaginationStore } from '../../stores/pagination.store';
@@ -21,7 +21,8 @@ import { PaginationStore } from '../../stores/pagination.store';
     RouterLink,
     FiltersComponent,
     CustomPaginationComponent,
-    AsyncPipe
+    AsyncPipe,
+    I18nPluralPipe
   ],
   templateUrl: './all-paintings.component.html',
   styleUrl: './all-paintings.component.scss'
@@ -30,6 +31,10 @@ export class AllPaintingsComponent implements OnInit {
 
   allPaintings$?: Observable<Painting[]>;
   protected amount: WritableSignal<number> = signal(0);
+  pluralMap = {
+    "=1": "Work",
+    "other": "Works"
+  };
 
   paginationData: BehaviorSubject<PaginatedData> = new BehaviorSubject<PaginatedData>(defaultPagination);
   

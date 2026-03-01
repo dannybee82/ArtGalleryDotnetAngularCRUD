@@ -8,9 +8,9 @@
             (selectedFile)="loadFile($event)">
         </app-open-file>
     </div>    
-        @if(this.isFileValid() && this.imagePreview() !== '') {
+        @if(isFileValid() && imagePreview() !== '') {
             <div class="row mb-1 w-100">
-                <img class="preview-image" [src]="this.imagePreview()" alt="Preview" title="Preview" data-cy="upload-image-preview">
+                <img class="preview-image" [src]="imagePreview()" alt="Preview" title="Preview" data-cy="upload-image-preview">
             </div>
             <div class="row mb-1 w-100">
                 <div class="column">

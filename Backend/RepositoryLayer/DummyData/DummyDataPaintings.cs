@@ -564,6 +564,61 @@ namespace RepositoryLayer.DummyData
                     ImageId = 50,
                     ThumbnailId = 50
                 },
+                new Painting()
+                {
+                    Id = 51,
+                    Name = "The Elder of Might and Magic",
+                    Description = "An indigenous elder with a white beard stands as a beacon of ancient wisdom, draped in rich green garments that echo the forests surrounding him. In his weathered hand, he grips a magnificent staff crowned with a dragon — a symbol of passion tempered by self-control. Behind him, verdant hills roll gently with some trees, while a majestic mountain rises in the distance, anchoring the composition with timeless grandeur.<BR><BR>The dragon atop the staff represents the duality of passion and restraint, while the elder himself embodies wisdom, guidance, and the preservation of traditional values passed down through generations.<BR><BR>The art critic John Ruskin III Junior praised this painting: \"(...) A striking work that captures the indigenous spirit with remarkable authenticity. The painting radiates an engaging energy, with the elder's presence commanding respect and the dragon staff serving as a powerful focal point. An interesting and culturally resonant piece that celebrates ancestral knowledge.\"",
+                    Year = 2007,
+                    ArtistId = 17,
+                    StyleId = 11,
+                    ImageId = 51,
+                    ThumbnailId = 51
+                },
+                new Painting()
+                {
+                    Id = 52,
+                    Name = "Queen of the Tropical Sea",
+                    Description = "An indigenous woman of regal bearing adorns herself with exquisite jewelry—delicate earrings catching the light, an ornate necklace draped across her chest, and an intricately crafted waist belt that speaks of her sovereignty. Her unique headpiece, infused with exotic flair, crowns her with an air of mystique. Her clothing displays intricate patterns woven in soft light blue, pristine white, and warm beige tones. Behind her, the sea rises in dynamic waves, suggesting both movement and the eternal rhythm of the ocean.<BR><BR>The queen represents intuition and personal growth, while the sea symbolizes the profound connection between the conscious and subconscious mind, the visible and hidden depths of the self.<BR><BR>The painting has been positively received by the art critic John Ruskin III Junior who stated: \"(...) A striking composition with an exotic vibe that captivates the viewer. You can almost feel the waves of the sea emanating from the canvas. The indigenous queen is rendered beautifully, her jewelry and clothing creating a harmonious visual symphony that celebrates both elegance and cultural richness.\"",
+                    Year = 2007,
+                    ArtistId = 17,
+                    StyleId = 11,
+                    ImageId = 52,
+                    ThumbnailId = 52
+                },
+                new Painting()
+                {
+                    Id = 53,
+                    Name = "The Eye of the Griffin",
+                    Description = "A sorceress draped in a purple dress, her dark hair cascading around her shoulders, commands the center of this enigmatic composition. Her form glimmers with exquisite jewelry—ornamental pieces adorning her hair, an elegant necklace, and delicate bracelets that catch the eye. To her left, a magnificent griffin — a fantasy creature of immense presence — stands as her companion and guardian. Above her hand hovers a sparkling diamond, radiating clarity and inner light. Behind her, the weathered ruins of an ancient temple rise from the mists, evoking the mysteries of antiquity.<BR><BR>The sorceress symbolizes the refinement of one's skills and inner power, the griffin represents immense power, courage, and protection, while the sparkling diamond embodies clarity and enlightenment.<BR><BR>The art critic John Ruskin III Junior praised this painting. He wrote in his review: \"(...) An enigmatic and original painting that draws the viewer into its mystical world. The sparkling diamond is particularly striking, standing out brilliantly against the composition and serving as a focal point of spiritual clarity. (...) The interplay between the sorceress, griffin, and ancient temple creates a compelling narrative of power and wisdom.\"",
+                    Year = 2007,
+                    ArtistId = 17,
+                    StyleId = 11,
+                    ImageId = 53,
+                    ThumbnailId = 53
+                },
+                new Painting()
+                {
+                    Id = 54,
+                    Name = "The Seeress Digs Into Memories",
+                    Description = "At the center of this mystical composition stands a Seeress clothed in deep blue garments, her form adorned with luminous golden jewelry—ornamental pieces woven through her hair, encircling her neck, adorning the upper portion of her dress, and gracing her wrists as bracelets. Before her, a rotating golden triskelion spirals with ancient power and symbolism. The background dissolves into an enigmatic abstract realm of deep blue tones, punctuated by geometric cubes that suggest dimensions beyond ordinary perception.<BR><BR>The Seeress embodies vision and spiritual guidance, while the triskelion carries powerful, positive symbolism representing personal growth, transformation, and the eternal cycle of becoming.<BR><BR>The art critic John Ruskin III Junior was positive about this painting and wrote in his review: \"(...) An excellent exploration of color and form. The deep blue palette creates a mystical and mysterious atmosphere that is both captivating and introspective. (...) The non-eurocentric approach to the subject matter is refreshing and culturally significant. The rotating triskelion and abstract background work in harmony to create a truly transcendent painting.\"",
+                    Year = 2007,
+                    ArtistId = 17,
+                    StyleId = 11,
+                    ImageId = 54,
+                    ThumbnailId = 54
+                },
+                new Painting()
+                {
+                    Id = 55,
+                    Name = "Of Past and Present Times",
+                    Description = "A sorceress in a striking purple dress, her dark hair framing her face with mysterious allure, stands as a bridge between epochs. She is adorned with exquisite exotic golden jewelry—ornate earrings, an elaborate necklace, and intricate bracelets that speak of timeless elegance. Mysterious light blue clouds swirl around her legs, ethereal and dreamlike. In her hand, she cradles a luminous sphere that glows with inner radiance, casting soft light across her form. Behind her, the majestic ruins of an ancient temple emerge from the shadows, their weathered stones speaking of spirituality and the passage of ages.<BR><BR>The sorceress symbolizes transformation and the evolution of ambitions through time, the temple represents deep spirituality and the yearning for inner peace, while the luminous sphere embodies profound inner clarity and spiritual enlightenment.<BR><BR>The art critic John Ruskin III Junior considered this painting as the pinnacle of Mystical Mirageism. Het stated: \"(...) A truly enigmatic painting that masterfully weaves together past and present. The mysterious temple from antiquity provides a haunting backdrop, while the striking light blue clouds and luminous sphere create a sense of otherworldly beauty and spiritual depth. (...) The composition is both mysterious and illuminating, inviting contemplation on the nature of transformation and enlightenment.\"",
+                    Year = 2007,
+                    ArtistId = 17,
+                    StyleId = 11,
+                    ImageId = 55,
+                    ThumbnailId = 55
+                },
             };
         }
 

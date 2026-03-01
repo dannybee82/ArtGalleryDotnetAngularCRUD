@@ -53,7 +53,6 @@ export class UploadImageComponent {
     if(this._uploadFile) {      
       this.uploadFileService.uploadFile(this._uploadFile).subscribe({
         next: (data?) => {
-          console.log(data);
           this.toastr.success('File successfully uploaded,');
         },
         error: () => {

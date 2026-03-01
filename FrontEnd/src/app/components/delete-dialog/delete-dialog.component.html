@@ -1,17 +1,17 @@
 <div class="custom-button-theme p-1 pb-1">
-    <h2 class="margin-1rem" mat-dialog-title>{{ this.data.title }}</h2>
+    <h2 class="margin-1rem" mat-dialog-title>{{ data.title }}</h2>
     <div mat-dialog-content class="margin-l-and-r-1rem pb-1">
-        <p class="w800">{{ this.data.message }}</p>
-        @if(this.data.additionalData !== '') {
-            <p class="value-name">"{{this.data.additionalData}}"</p>
+        <p class="w800">{{ data.message }}</p>
+        @if(data.additionalData !== '') {
+            <p class="value-name">"{{data.additionalData}}"</p>
         }
     </div>
     <div class="button-container margin-top-bottom-1rem pb-1">
-        <button class="button-accent width-button" type="button" color="accent" mat-raised-button (click)="this.onCancel()">
+        <button class="button-accent width-button" type="button" color="accent" mat-raised-button (click)="onCancel()">
             <mat-icon>cancel</mat-icon>
             <span>Cancel</span>
         </button>
-        <button class="button-warn" type="button" color="warn" mat-raised-button (click)="this.onDelete()" data-cy="mat-dialog-delete-button">
+        <button class="button-warn" type="button" color="warn" mat-raised-button (click)="onDelete()" data-cy="mat-dialog-delete-button">
             <mat-icon>delete</mat-icon>
             <span>Delete</span>
         </button>

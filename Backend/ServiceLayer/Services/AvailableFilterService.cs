@@ -13,9 +13,14 @@ namespace ServiceLayer.Services
     public class AvailableFilterService : IAvailableFilterService
     {
         private readonly IPaintingRepository _paintingRepository;
-        public AvailableFilterService(IPaintingRepository paintingRepository) 
+        private readonly IStyleRepository _styleRepository;
+
+        public AvailableFilterService(
+            IPaintingRepository paintingRepository,
+            IStyleRepository styleRepository) 
         {
             _paintingRepository = paintingRepository;
+            _styleRepository = styleRepository;
         }
 
         public async Task<FiltersAvailableDto> GetAvailableFilters(FilterDataDto filter)
@@ -34,33 +39,31 @@ namespace ServiceLayer.Services
                     }
                 }
 
-                if (filter.Artists != null)
-                {
-                    if (filter.Artists.Count() > 0)
-                    {
-                        query = query.Where(x => filter.Artists.Contains(x.Artist != null ? x.Artist.Id : 0));
-                    }
-                }
+                // March 2026 changes: commented out sections below to keep available filters.
+                //if (filter.Artists != null)
+                //{
+                //    if (filter.Artists.Count() > 0)
+                //    {
+                //        query = query.Where(x => filter.Artists.Contains(x.Artist != null ? x.Artist.Id : 0));
+                //    }
+                //}
 
-                if (filter.Years != null)
-                {
-                    if (filter.Years.Count() > 0)
-                    {
-                        query = query.Where(x => filter.Years.Contains(x.Year));
-                    }
-                }
+                //if (filter.Years != null)
+                //{
+                //    if (filter.Years.Count() > 0)
+                //    {
+                //        query = query.Where(x => filter.Years.Contains(x.Year));
+                //    }
+                //}
 
-                var uniqueStyles = await query.Select(x => x.Style).Distinct().OrderBy(x => x.Name).ToListAsync().ConfigureAwait(false);
+                // March 2026 changes: Keep all styles, then get unique artists and years.
+                var allStyles = await _styleRepository.GetAll();
                 var uniqueArtists = await query.Select(x => x.Artist).Distinct().OrderBy(x => x.Name).ToListAsync().ConfigureAwait(false);
                 var uniqueYears = await query.Select(x => x.Year).Distinct().OrderBy(x => x).ToListAsync().ConfigureAwait(false);
 
-                List<int> allStyles = filter.Styles != null ? filter.Styles : new List<int>();
-                List<int> allArtists = filter.Artists != null ? filter.Artists : new List<int>();
-                List<int> allYears = filter.Years != null ? filter.Years : new List<int>();
-
                 FiltersAvailableDto activeFilters = new FiltersAvailableDto();
 
-                foreach(var style in uniqueStyles)
+                foreach(var style in allStyles)
                 {
                     if(style != null)
                     {

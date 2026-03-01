@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { OpenFileComponent } from './open-file.component';
+import { describe, beforeEach, it, expect } from 'vitest';
 
 describe('OpenFileComponent', () => {
   let component: OpenFileComponent;
