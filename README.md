@@ -57,15 +57,15 @@ _March 2026_
 
 **Frontend changes:**
 
--\ Upgraded packages for @angular/cli@21.2.0 and added _Prettier_.
+\- Upgraded packages for @angular/cli@21.2.0 and added _Prettier_.
 
--\ Changed the text 'X paintings found' to 'X Works of Art' found' using the Angular I18nPluralPipe.
+\- Changed the text 'X paintings found' to 'X Works of Art' found' using the Angular I18nPluralPipe.
 
--\ Update 1 Cypress test.
+\- Update 1 Cypress test.
 
--\ Justify text on details page.
+\- Justify text on details page.
 
--\ Various minor changes in the HTML-templates.
+\- Various minor changes in the HTML-templates.
 
 \- Updated the imports of the specification files for _Vitest_ (for future use).
 
