@@ -619,6 +619,61 @@ namespace RepositoryLayer.DummyData
                     ImageId = 55,
                     ThumbnailId = 55
                 },
+                new Painting()
+                {
+                    Id = 56,
+                    Name = "The Radiant Golden Key of the Universe",
+                    Description = "At the center of this composition is a radiant golden key, its surface luminous and commanding attention. The key is surrounded by a constellation of stars that seem to orbit around it like planets around a sun. The background is ethereal and nebulous, filled with cosmic imagery that suggests infinite space and possibility. The key itself appears ancient, its unusual design raising questions about its origin and purpose. Viewers are naturally drawn to contemplate which lock this mysterious key might unlock.<br><br>The key represents transition, revelation, and inner freedom — the instrument through which barriers are overcome and new realms accessed. The cosmos symbolizes ordered wholeness and the infinite potential of existence. However, the lock, though absent from the composition, remains a deeply layered symbol that balances protection and restriction, suggesting that access to knowledge and transformation comes with both liberation and constraint. Together, these elements explore humanity's eternal quest to unlock the mysteries of existence.<br><br>The art critic John Ruskin III Junior has acknowledged the distinctive use of bright, radiant colors that distinguish this work from others in the movement. However, they have ultimately concluded that the artwork, like the entire Cosmic Etherialism movement, is devoid of any genuine meaning or artistic substance. The composition has been criticized as more suitable for a science fiction magazine cover than for serious artistic consideration, suggesting that its appeal is primarily visual and commercial rather than intellectually or emotionally profound.",
+                    Year = 2020,
+                    ArtistId = 18,
+                    StyleId = 12,
+                    ImageId = 56,
+                    ThumbnailId = 56
+                },
+                new Painting()
+                {
+                    Id = 57,
+                    Name = "A Portal to Another Dimension",
+                    Description = "This large-format artwork depicts an ancient portal standing open, its archway framing a passage to unknown realms. Through the opening, a swirling cloud formation dominates the view, suggesting turbulent transformation and cosmic energy. A bright sphere of light appears in the upper right and at the bottom of the composition, creating focal points that guide the viewer's gaze through the portal. The portal itself features antique columns adorned with various ornaments and classical details, grounding the fantastical imagery in historical architectural tradition. The overall composition suggests both invitation and warning, drawing viewers toward the threshold while maintaining a sense of mystery.<br><br>A portal in space symbolizes the ultimate threshold between the known and the unknown, representing the boundary where human understanding reaches its limits. It embodies transition and profound metamorphosis, suggesting that passage through such a threshold fundamentally transforms those who dare to cross it. The portal reflects humanity's deep desire to transcend physical limitations and access higher states of consciousness or alternate realities, speaking to our eternal yearning for expansion beyond the material world. The classical architectural elements suggest that this transcendence is not new but rather a timeless human aspiration.<br><br>The art critic John Ruskin III Junior was moderately positive about this artwork, recognizing that it distinguished itself from other works in the movement through greater attention to detail and compositional sophistication. The critic appreciated the more developed visual language and the apparent effort to create a coherent artistic vision. However, even this more favorable assessment was tempered by the critic's inability to discover a possible deeper meaning in the work, suggesting that even the movement's more accomplished pieces ultimately fail to achieve genuine conceptual depth.",
+                    Year = 2020,
+                    ArtistId = 19,
+                    StyleId = 12,
+                    ImageId = 57,
+                    ThumbnailId = 57
+                },
+                new Painting()
+                {
+                    Id = 58,
+                    Name = "Ascending to the Stars",
+                    Description = "This artwork is rendered in very bright, luminous light colors that create an almost blinding radiance throughout the composition. A figure is visible at the bottom center, though its gender remains ambiguous — it could be male or female, human or something more ethereal. This central figure is surrounded by and rendered in equally bright golden colors that seem to emanate from within. The background is dominated by the cosmos, filled with numerous stars that create a sense of infinite space and possibility. The overall effect is one of transcendence and spiritual elevation.<br><br>The symbolism of ascending centers on transcendence, spiritual growth, and the human desire to connect with something greater than oneself. It represents the rising above the material world to attain higher knowledge, enlightenment, and inner liberation, reflecting a fundamental shift from an unconscious, unaware existence to a fully conscious, awakened state. Stars symbolize hope, joy, protection, guidance, and destiny, suggesting that the ascending figure moves toward a predetermined cosmic purpose. Together, these elements celebrate the human potential for spiritual evolution and cosmic connection.<br><br>The art critic John Ruskin III Junior was moderately positive about this artwork, primarily due to the striking and distinctive use of bright colors that create visual impact. However, the assessment was qualified by significant reservations about the composition's limited visual elements and the overly suggestive nature of the title. The critic felt that the title imposed meaning rather than allowing it to emerge organically from the visual elements. Moreover, the critic concluded that no further meaning could be discovered beyond the surface-level suggestion of spiritual ascension, limiting the work's intellectual and artistic significance.",
+                    Year = 2021,
+                    ArtistId = 20,
+                    StyleId = 12,
+                    ImageId = 58,
+                    ThumbnailId = 58
+                },
+                new Painting()
+                {
+                    Id = 59,
+                    Name = "The Cosmos Captured in a Jar",
+                    Description = "In the center of this composition stands a small jar containing a microcosmos of the universe: a moon, stars, and ethereal clouds swirl within the transparent glass. In the background, other moons, planets, and stars are visible, suggesting that the jar contains only a fragment of a much larger cosmic whole. The jar stands on the ground where small spheres of various colors and other luminous stars lie scattered, creating a sense of cosmic abundance and overflow. The contrast between the contained cosmos within the jar and the infinite cosmos surrounding it creates a paradoxical meditation on scale and perspective.<br><br>Jars universally symbolize a vessel for containment, transformation, and preservation, serving as repositories for both tangible and intangible resources. Because of their capacity to hold and protect, jars often represent the human body, motherhood, the ego, or the divine—containers of essence and meaning. The cosmos or universe within the jar represents ordered wholeness, suggesting that infinity can be captured, preserved, and contemplated in miniature. Together, these elements explore the relationship between the infinite and the finite, the universal and the particular, suggesting that all of existence can be found reflected in small, intimate spaces.<br><br>The art critic John Ruskin III Junior was moderately positive about this artwork, recognizing its originality and unusual approach to the themes of the movement. The critic appreciated the bright colors and found the title interesting and evocative. However, the assessment remained qualified by uncertainty about deeper meaning — the critic acknowledged that while a deeper meaning is not immediately clear, it cannot be entirely ruled out either. This ambivalent reception suggests a work that achieves some success in creating visual interest and conceptual intrigue, even if it ultimately resists definitive interpretation.",
+                    Year = 2020,
+                    ArtistId = 21,
+                    StyleId = 12,
+                    ImageId = 59,
+                    ThumbnailId = 59
+                },
+                new Painting()
+                {
+                    Id = 60,
+                    Name = "A Cosmic Library and Apocrypha",
+                    Description = "On the left and right sides of this composition, straight bookcases filled with books create architectural frames that organize the space. More toward the center, bookcases spiral in repeating patterns, creating a sense of infinite recursion and labyrinthine complexity. Above, in the hazy blue sky, various open books swirl and float, their pages seeming to catch cosmic winds. At the bottom center stands a solitary figure, rendered only as an outline visible under white light, suggesting introspection and contemplation. The overall composition creates a sense of vast knowledge surrounding a small, isolated consciousness.<br><br>A library symbolizes the preservation of human memory, the structured architecture of the human mind, and the infinite pursuit of knowledge and understanding. The cosmos or universe represents ordered wholeness, suggesting that knowledge itself is cosmic in scope and significance. A book is a multifaceted symbol representing knowledge, wisdom, learning, and the human journey of transformation—each volume a record of human experience and aspiration. The solitary figure at the center suggests that despite the vastness of accumulated knowledge, the individual consciousness remains isolated and must undertake its own journey of discovery and meaning-making. Together, these elements explore the relationship between individual consciousness and collective human knowledge.<br><br>The art critic John Ruskin III Junior was complimentary about this painting, appreciating the various visual elements that clearly carry symbolic meaning and contribute to a coherent artistic vision. The critic recognized the sophistication of the composition and the intentionality behind each element. However, the assessment was tempered by criticism of the hazy use of color, which the critic felt detracts from the clarity and impact of the meaning. The solitary figure at the bottom center was judged positively, with the critic attributing to it the meaning of introspection and self-reflection. Overall, this work was recognized as one of the movement's more successful attempts at meaningful artistic expression, even if imperfectly realized.",
+                    Year = 2021,
+                    ArtistId = 22,
+                    StyleId = 12,
+                    ImageId = 60,
+                    ThumbnailId = 60
+                },
             };
         }
 

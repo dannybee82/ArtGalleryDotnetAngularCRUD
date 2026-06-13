@@ -73,6 +73,8 @@ _June 2026_
 
 **Backend changes:**
 
+\- Added 5 new Works of Art.
+
 \- Updated some packages.
 
 \- Also allow the _.jpeg_ file extension.

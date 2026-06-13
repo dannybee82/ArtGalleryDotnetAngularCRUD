@@ -79,6 +79,12 @@ namespace RepositoryLayer.DummyData
                     Id = 11,
                     Name = "Mystical Mirageism",
                     Description = "Mystical Mirageism is an enchanting art movement that blends the ethereal with the tangible, creating works that shimmer between reality and dream. Characterized by subdued, harmonious color palettes and the delicate fluidity of watercolors, this style embraces enigmatic narratives steeped in magic and ancient wisdom. The movement deliberately centers non-eurocentric perspectives, celebrating indigenous humans and their profound connection to nature, often set against lush tropical backdrops that evoke both antiquity and timelessness.<BR><BR>A hallmark of Mystical Mirageism is the occasional emergence of luminous sparkling effects — ethereal light that dances across the canvas, suggesting hidden dimensions and the presence of unseen forces. These works invite viewers into contemplative spaces where the boundaries between the material and spiritual worlds dissolve."
+                },
+                new Style()
+                {
+                    Id = 12,
+                    Name = "Cosmic Etherialism",
+                    Description = "Cosmic Etherialism is an artistic and philosophical style that explores the delicate boundary between the seen and unseen realms. Characterized by airy, translucent forms rendered in subdued, hazy colors, this movement embraces the mystery of space through ethereal compositions that often appear devoid of conventional meaning. The style celebrates light in its most subtle manifestations, creating unearthly atmospheres that transcend earthly limitations and invite viewers into contemplative spaces where the cosmic and the intimate converge."
                 }
             };
         }

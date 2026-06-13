@@ -150,6 +150,46 @@ namespace RepositoryLayer.DummyData
                     YearOfBirth = 1997,
                     YearOfDeath = null
                 },
+                new Artist()
+                {
+                    Id = 18,
+                    Name = "Orion Blackthorne",
+                    Description = "After witnessing a meteor shower as a child, Orion became obsessed with the invisible forces shaping the cosmos. His work in Cosmic Etherialism emerged from years studying dark matter through telescopes, translating the unseen gravitational whispers into haunting, translucent compositions. His paintings deliberately obscure conventional forms, inviting viewers to perceive the hidden architecture of the universe through veils of shadow and subtle luminescence.",
+                    YearOfBirth = 1997,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 19,
+                    Name = "Sirius Kane",
+                    Description = "A former astrophysicist turned artist, Sirius abandoned traditional scientific illustration to explore the emotional resonance of alien worlds. Her Cosmic Etherialism pieces blur the boundary between documented exoplanet data and pure imagination, rendering distant landscapes in ethereal hues that suggest both wonder and profound isolation. Each work serves as a meditation on humanity's place within an incomprehensibly vast cosmos.",
+                    YearOfBirth = 1996,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 20,
+                    Name = "Cygnus Drift",
+                    Description = "Born in a remote observatory, Cygnus spent formative years surrounded by the hum of cosmic radiation detectors and the silence of deep space. This unique upbringing inspired his signature style: translucent, weightless compositions that capture the sensation of floating through nebulae. His Cosmic Etherialism works dissolve the boundary between observer and observed, creating immersive experiences where viewers drift through subdued, hazy atmospheres of his own imagining.",
+                    YearOfBirth = 1996,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 21,
+                    Name = "Thane Graviton",
+                    Description = "A theoretical physicist disillusioned with mathematical abstraction, Thane discovered Cosmic Etherialism as a means to visualize the invisible dance of gravitational forces. His ethereal compositions use layered, translucent forms to represent spacetime curvature and the subtle bending of light around massive objects. Through his work, the unseen becomes visible—not as literal representation, but as contemplative invitation into the profound mysteries of physics.",
+                    YearOfBirth = 1995,
+                    YearOfDeath = null
+                },
+                new Artist()
+                {
+                    Id = 22,
+                    Name = "Lyssa Walker",
+                    Description = "Lyssa's journey into Cosmic Etherialism began with lucid dreams of interdimensional travel and encounters with sentient nebulae. Rather than depicting these visions literally, she translates them into delicate, hazy compositions that exist in the liminal space between reality and imagination. Her work celebrates the mystery of the unseen realms, using subdued colors and airy forms to suggest presences and forces that defy conventional understanding or earthly categorization.",
+                    YearOfBirth = 1995,
+                    YearOfDeath = null
+                },
             };
         }
 
