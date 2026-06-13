@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { AvailableFilter } from './available-filter';
+import { UploadFiles } from './upload-files';
 import { describe, beforeEach, it, expect } from 'vitest';
 
-describe('ActiveFilterService', () => {
-  let service: AvailableFilter;
+describe('UploadFilesService', () => {
+  let service: UploadFiles;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AvailableFilter);
+    service = TestBed.inject(UploadFiles);
   });
 
   it('should be created', () => {

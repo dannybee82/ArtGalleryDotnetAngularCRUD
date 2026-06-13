@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { AvailableFilter } from './available-filter';
+import { Artists } from './artists';
 import { describe, beforeEach, it, expect } from 'vitest';
 
-describe('ActiveFilterService', () => {
-  let service: AvailableFilter;
+describe('ArtistsService', () => {
+  let service: Artists;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AvailableFilter);
+    service = TestBed.inject(Artists);
   });
 
   it('should be created', () => {

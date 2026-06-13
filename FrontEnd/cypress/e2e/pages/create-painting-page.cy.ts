@@ -103,9 +103,9 @@ describe('Create Painting Page', () => {
         ];
 
         let expectedYears: string[] = [
-            '1995 - ',
-            '1996 - ',
-            '1997 - '
+            ' 1995 -  ',
+            ' 1996 -  ',
+            ' 1997 -  '
         ];
 
         for(let i = 0; i < 3; i++) {

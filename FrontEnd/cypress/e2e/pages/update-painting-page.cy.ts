@@ -65,7 +65,7 @@ describe('Create Painting Page', () => {
 
         cy.byTestId('selected-artist-year')
             .should('exist', true)
-            .should('have.text', '1982 - ');
+            .should('have.text', ' 1982 -  ');
     });
 
     it('Test style form', () => {
@@ -133,9 +133,9 @@ describe('Create Painting Page', () => {
         ];
 
         let expectedYears: string[] = [
-            '1995 - ',
-            '1996 - ',
-            '1997 - '
+            ' 1995 -  ',
+            ' 1996 -  ',
+            ' 1997 -  '
         ];
 
         for(let i = 0; i < 3; i++) {

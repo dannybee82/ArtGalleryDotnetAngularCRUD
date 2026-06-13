@@ -49,6 +49,11 @@ var allowedFileList = new AllowedFileFormatList()
         },
         new AllowedFileFormat()
         {
+            Extension = "jpeg",
+            FileFormat = FileFormatLocator.GetFormats().OfType<FileSignatures.Formats.Jpeg>()
+        },
+        new AllowedFileFormat()
+        {
             Extension = "png",
             FileFormat = FileFormatLocator.GetFormats().OfType<FileSignatures.Formats.Png>()
         },

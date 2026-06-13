@@ -364,3 +364,20 @@ FodyWeavers.xsd
 
 # ignore redis dir
 redis/
+
+# .NET  
+bin/  
+obj/  
+*.dll  
+*.exe  
+*.pdb  
+*.nupkg  
+packages/  
+  
+# Angular/Node  
+node_modules/  
+dist/  
+.angular/cache/  
+  
+# VS Code  
+.vscode/.history/

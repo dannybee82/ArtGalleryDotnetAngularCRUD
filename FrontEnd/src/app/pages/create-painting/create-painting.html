@@ -1,0 +1,170 @@
+@if (isLoaded()) {
+  <div class="column p-1 responsive-container">
+    <div class="row responsive-row">
+      <div class="column me-1 w-15 responsive-column">
+        <form [formGroup]="paintingForm">
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Painting Name</mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="name"
+                data-cy="form-painting-crud-name"
+              />
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Painting Description</mat-label>
+              <textarea
+                matInput
+                formControlName="description"
+                [cols]="30"
+                [rows]="5"
+                data-cy="form-painting-crud-description"
+              ></textarea>
+            </mat-form-field>
+          </div>
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Painting Year</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="year"
+                data-cy="form-painting-crud-year"
+              />
+            </mat-form-field>
+          </div>
+        </form>
+      </div>
+      <div class="column me-1 w-25 responsive-column">
+        <div class="row">
+          <form [formGroup]="thumbnailForm">
+            <mat-form-field>
+              <mat-label>Image & Thumbnail</mat-label>
+              <mat-select formControlName="selectedThumbnail" [compareWith]="compareObj">
+                @for (thumbnail of allUnusedThumbnails(); track $index; let index = $index) {
+                  <mat-option [value]="thumbnail">{{ index + 1 }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <button
+            type="button"
+            mat-icon-button
+            class="mt-half"
+            matTooltip="Refresh Thumbnails/images"
+            (click)="refreshData(1)"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <div class="row">
+          @if (selectedThumbnail()) {
+            <div class="thumbnail-container">
+              <img
+                class="image-thumbnail"
+                mat-card-image
+                [src]="selectedThumbnail()!.base64"
+                alt="Thumbnail"
+                data-cy="painting-crud-thumbnail"
+              />
+            </div>
+          }
+        </div>
+      </div>
+      <div class="column me-1 w-25 responsive-column">
+        <div class="row">
+          <form [formGroup]="artistForm">
+            <mat-form-field>
+              <mat-label>Artist</mat-label>
+              <mat-select formControlName="selectedArtist" [compareWith]="compareObj">
+                @for (artist of allArtists(); track $index) {
+                  <mat-option [value]="artist">{{ artist.name }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <button
+            type="button"
+            mat-icon-button
+            class="mt-half"
+            matTooltip="Refresh Artists"
+            (click)="refreshData(2)"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <div class="column">
+          @if (selectedArtist()) {
+            <p data-cy="selected-artist-name">
+              <strong>{{ selectedArtist()?.name }}</strong>
+            </p>
+            <p
+              data-cy="selected-artist-description"
+              [innerHTML]="$safeNavigationMigration(selectedArtist()?.description)"
+            ></p>
+            <p data-cy="selected-artist-year">
+              {{ selectedArtist()?.yearOfBirth }} -
+              {{ selectedArtist()?.yearOfDeath ? selectedArtist()?.yearOfDeath : '' }}
+            </p>
+          }
+        </div>
+      </div>
+      <div class="column w-25 responsive-column">
+        <div class="row">
+          <form [formGroup]="styleForm">
+            <mat-form-field>
+              <mat-label>Style</mat-label>
+              <mat-select formControlName="selectedStyle" [compareWith]="compareObj">
+                @for (style of allStyles(); track $index) {
+                  <mat-option [value]="style">{{ style.name }}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <button
+            type="button"
+            mat-icon-button
+            class="mt-half"
+            matTooltip="Refresh Styles"
+            (click)="refreshData(3)"
+          >
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <div class="column">
+          @if (selectedStyle()) {
+            <p data-cy="selected-style-name">
+              <strong>{{ selectedStyle()?.name }}</strong>
+            </p>
+            <p
+              data-cy="selected-style-description"
+              [innerHTML]="$safeNavigationMigration(selectedStyle()?.description)"
+            ></p>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="submit" mat-raised-button color="primary" class="me-1" (click)="submit()">
+        <mat-icon>save</mat-icon>
+        <span>{{ isUpdateMode() ? 'Update' : 'Create' }}</span>
+      </button>
+      <button type="button" mat-raised-button color="accent" [routerLink]="['/']">
+        <mat-icon>cancel</mat-icon>
+        <span>Cancel</span>
+      </button>
+    </div>
+    @if (isUpdateMode()) {
+      <div class="row mt-2">
+        <button type="button" mat-raised-button color="warn" (click)="deletePainting()">
+          <mat-icon>delete</mat-icon>
+          <span>Delete Painting</span>
+        </button>
+      </div>
+    }
+  </div>
+}

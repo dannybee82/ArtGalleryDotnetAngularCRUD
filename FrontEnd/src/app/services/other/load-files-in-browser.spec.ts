@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
-import { AvailableFilter } from './available-filter';
+import { LoadFilesInBrowser } from './load-files-in-browser';
 import { describe, beforeEach, it, expect } from 'vitest';
 
-describe('ActiveFilterService', () => {
-  let service: AvailableFilter;
+describe('LoadFilesInBrowserService', () => {
+  let service: LoadFilesInBrowser;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AvailableFilter);
+    service = TestBed.inject(LoadFilesInBrowser);
   });
 
   it('should be created', () => {

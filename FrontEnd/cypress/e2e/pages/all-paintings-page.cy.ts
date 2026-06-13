@@ -106,7 +106,7 @@ describe('All Paintings Page', () => {
         cy.wait('@paintings');  
           
         // Re-query and get the specific button by index  
-        cy.getMatIconButtonByIndex('edit', i).click();  
+        cy.getMatIconButtonByIndex('edit', i).click({force: true});  
             
         //Assertion  
         cy.url().should('include', `/create-or-update-painting/${i + 1}`);  

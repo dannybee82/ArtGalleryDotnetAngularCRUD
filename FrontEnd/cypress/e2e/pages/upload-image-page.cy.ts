@@ -6,11 +6,11 @@ describe('Image Upload Tests', () => {
   
   it('upload an image and display preview', () => {  
     // Prepare a test image file  
-    const fileName = 'test-image-001.jpg';  
+    const fileName = 'cypress/fixtures/test-image-001.jpg';  
       
-    // Upload file using the plugin  
-    cy.byTestId('upload-image-input').attachFile(fileName);  
-      
+    // Upload file (note: using native Cypress selectFile method)
+    cy.byTestId('upload-image-input').selectFile(fileName, {force: true});  
+    
     // Verify file name is displayed  
     //cy.byTestId('upload-image-button').should('contain', fileName);  
       
@@ -29,10 +29,10 @@ describe('Image Upload Tests', () => {
   });  
   
   it('upload file via button click', () => {  
-    const fileName = 'test-image-001.jpg';  
+    const fileName = 'cypress/fixtures/test-image-001.jpg';  
     
-    // Force upload on the hidden input  
-    cy.byTestId('upload-image-input').attachFile(fileName, { force: true });    
+    // Force upload on the hidden input (note: using native Cypress selectFile method)
+    cy.byTestId('upload-image-input').selectFile(fileName, { force: true });    
 
     // Click the styled button (not the hidden input)  
     cy.byTestId('upload-image-button').click();  
@@ -51,10 +51,11 @@ describe('Image Upload Tests', () => {
 
   it('use remove button', () => {
     // Prepare a test image file  
-    const fileName = 'test-image-001.jpg';  
+    const fileName = 'cypress/fixtures/test-image-001.jpg';  
       
-    // Upload file using the plugin  
-    cy.byTestId('upload-image-input').attachFile(fileName);  
+    // Upload file (note: using native Cypress selectFile method)
+    cy.byTestId('upload-image-input').selectFile(fileName, {force: true});  
+    cy.wait(1000);
 
     // Verify image preview is displayed  
     cy.byTestId('upload-image-preview')  

@@ -1,6 +1,6 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.2.0) that demonstrates the regular HttpClient with Observables.  
+An Angular 22 application (with [Angular CLI](https://github.com/angular/angular-cli) version 22.0.1) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
@@ -31,14 +31,16 @@ For more information see the link below:
 
 ### **Angular application installation**
 
-**Angular 21** needs a **Node.js** version of at least _20.19.0_
+**Angular 22** needs a **Node.js** version of at least _22.22.3_
 
 **Command to install**
 
-_npm install_  
+_npm install --force_  
 or shorter:
 
-_npm i_  
+_npm i --force_
+
+**Note:** _\--force_ is needed because the packages: _@ngrx/signals_, _@ngrx/store_ and _ngx-toastr_ are not updated yet.
 
 **Command to run the application:**
 
@@ -52,6 +54,28 @@ _ng s --o_
 _ng e2e_
 
 ### **Changelog:**
+
+_June 2026_
+
+**Frontend changes:**
+
+\- Upgrade to _Angular 22_ and upgraded other packages.
+
+\- Migrated _@Injectable_ to _@Service_ (Except for 3 services).
+
+\- Using the default: _ChangeDetectionStrategy.OnPush_ in stead of _ChangeDetectionStrategy.Eager_.
+
+\- Using the latest file naming conventions - and deleting the old schematics from _angular.json_
+
+\- Minor changes to _Cypress end-to-end (e2e)_ tests.
+
+\- Removed deprecated _Cypress_ package _cypress-file-upload_ (now using native Cypress _selectFile()_ method).
+
+**Backend changes:**
+
+\- Updated some packages.
+
+\- Also allow the _.jpeg_ file extension.
 
 _March 2026_
 
