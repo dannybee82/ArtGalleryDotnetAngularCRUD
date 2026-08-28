@@ -3,9 +3,9 @@ import { Paintings } from '../../services/paintings/paintings';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Painting } from '../../models/painting/painting.interface';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AsyncPipe } from '@angular/common';
 import { AllMatModules } from '../../all-mat-modules.module';
+import { ToastService } from '../../services/toast/toast-service';
 
 @Component({
   selector: 'app-painting-details',
@@ -13,8 +13,7 @@ import { AllMatModules } from '../../all-mat-modules.module';
   templateUrl: './painting-details.html',
   styleUrl: './painting-details.scss',
 })
-export class PaintingDetails implements OnInit {
-  private _lastScrollPosition: WritableSignal<number> = signal(0);
+export class PaintingDetails implements OnInit {  
   sidenavContent: Signal<ElementRef<HTMLElement>> =
     viewChild.required<ElementRef<HTMLElement>>('topOfDiv');
   isPanelCollapsed: WritableSignal<boolean> = signal(false);
@@ -23,7 +22,7 @@ export class PaintingDetails implements OnInit {
 
   private paintingService = inject(Paintings);
   private activateRoute = inject(ActivatedRoute);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
 
   ngOnInit(): void {
     this.activateRoute.params
@@ -39,7 +38,7 @@ export class PaintingDetails implements OnInit {
           throw new Error('err');
         }),
         catchError((err) => {
-          this.toastr.error("Can't fetch details of painting");
+          this.toastr.show('Can\'t fetch details of painting', 'error');
           return EMPTY;
         }),
       )
@@ -47,7 +46,7 @@ export class PaintingDetails implements OnInit {
         if (id > 0) {
           this.painting$ = this.paintingService.getById(id);
         } else {
-          this.toastr.error("Can't fetch details of painting");
+          this.toastr.show('Can\'t fetch details of painting', 'error');
         }
       });
   }

@@ -1,0 +1,91 @@
+services:
+  angular_app:
+    hostname: angularapp
+    build:
+      dockerfile: Dockerfile
+      context: ./FrontEnd
+    container_name: angular_app
+    restart: unless-stopped
+    networks:
+      - angular-dotnet-sql
+    ports:
+      - "80:80"
+    depends_on:
+      - dotnet_api
+
+  dotnet_api:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: dotnet_api
+    restart: unless-stopped
+    networks:
+      - angular-dotnet-sql
+    environment:
+      ASPNETCORE_ENVIRONMENT: LocalDocker
+      ASPNETCORE_URLS: http://*:5001
+      ConnectionStrings__DefaultConnection: Host=postgresql_database;Port=5432;Password=TestDocker2026;Persist Security Info=True;Username=postgres;Database=ArtGallery
+    ports:
+      - "5001:5001"
+    depends_on:
+      dotnet_migrations:
+        condition: service_completed_successfully
+
+  dotnet_migrations:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.migrations
+    container_name: dotnet_migrations
+    networks:
+      - angular-dotnet-sql
+    environment:
+      ASPNETCORE_ENVIRONMENT: LocalDocker
+      ConnectionStrings__DefaultConnection: >-  
+        Host=postgresql_database;Port=5432;Database=ArtGallery;
+        Username=postgres;Password=TestDocker2026
+    depends_on:
+      postgresql_database:
+        condition: service_healthy
+    restart: "no"
+
+  postgresql_database:
+    image: postgres:17
+    container_name: postgresql_database
+    restart: unless-stopped
+    networks:
+      - angular-dotnet-sql
+    environment:
+      POSTGRES_DB: auctionwoodcutsengravings
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: TestDocker2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d auctionwoodcutsengravings"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  cypress:  
+    image: cypress/included:15.21.1  
+    depends_on:  
+      - angular_app  
+    working_dir: /frontend  
+    volumes:  
+      - ./FrontEnd:/frontend
+    environment:  
+      CYPRESS_baseUrl: http://angularapp:80  
+    shm_size: "2gb"  
+    command: ["--config-file", "cypress.config.ts", "--browser", "chrome"]  
+    profiles: ["e2e"]
+    networks:  
+    - angular-dotnet-sql
+
+networks:
+  angular-dotnet-sql:
+    driver: bridge
+
+volumes:
+  postgresql_data:

@@ -1,0 +1,27 @@
+# backend/Dockerfile.migrations
+FROM mcr.microsoft.com/dotnet/sdk:9.0
+
+WORKDIR /src
+
+# Install dotnet-ef at BUILD TIME — PATH is guaranteed to be set
+RUN dotnet tool install --global dotnet-ef --version 9.0.11
+ENV PATH="${PATH}:/root/.dotnet/tools"
+
+# Copy project files first for better layer caching
+# Copy everything
+COPY ["ArtGalleryWebApi/ArtGalleryWebApi.csproj", "ArtGalleryWebApi/"]  
+COPY ["RepositoryLayer/RepositoryLayer.csproj", "RepositoryLayer/"]  
+COPY ["ServiceLayer/ServiceLayer.csproj", "ServiceLayer/"]  
+
+# Restore NuGet packages
+RUN dotnet restore ./ArtGalleryWebApi/ArtGalleryWebApi.csproj
+
+COPY . .
+
+ENV DOTNET_ROLL_FORWARD=Major
+
+# At container startup: just run the migration
+CMD ["dotnet", "ef", "database", "update", \
+     "--project",         "./RepositoryLayer/RepositoryLayer.csproj", \
+     "--startup-project", "./ArtGalleryWebApi/ArtGalleryWebApi.csproj", \
+     "--verbose"]

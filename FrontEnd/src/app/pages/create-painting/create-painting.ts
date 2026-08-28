@@ -2,7 +2,6 @@ import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { catchError, EMPTY, forkJoin, map, Observable, of, switchMap } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { AllMatModules } from '../../all-mat-modules.module';
 import { Paintings } from '../../services/paintings/paintings';
 import { Artists } from '../../services/artists/artists';
@@ -20,6 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialog } from '../../components/delete-dialog/delete-dialog';
 import { FilterStore } from '../../stores/filter.store';
 import { PaginationStore } from '../../stores/pagination.store';
+import { ToastService } from '../../services/toast/toast-service';
 
 @Component({
   selector: 'app-create-painting',
@@ -51,7 +51,7 @@ export class CreatePainting implements OnInit {
   private fb = inject(FormBuilder);
   private activeRoute = inject(ActivatedRoute);
   private router = inject(Router);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
   private paintingsService = inject(Paintings);
   private artistService = inject(Artists);
   private stylesService = inject(Styles);
@@ -158,7 +158,7 @@ export class CreatePainting implements OnInit {
       this.artistForm.markAllAsTouched();
       this.styleForm.markAllAsTouched();
       this.thumbnailForm.markAllAsTouched();
-      this.toastr.error('Form invalid.');
+      this.toastr.show('Form invalid.', 'error');
     }
   }
 
@@ -195,18 +195,18 @@ export class CreatePainting implements OnInit {
 
       result$.subscribe({
         next: () => {
-          this.toastr.success('Painting successfully deleted');
+          this.toastr.show('Painting successfully deleted', 'success');
 
           //Reset pagination.
           this.paginationStore.reset();
           this.router.navigate(['/']);
         },
         error: () => {
-          this.toastr.error("Can't delete Painting");
+          this.toastr.show("Can't delete Painting", 'error');
         },
       });
     } else {
-      this.toastr.error('There is no Painting loaded.');
+      this.toastr.show('There is no Painting loaded.', 'error');
     }
   }
 
@@ -242,7 +242,7 @@ export class CreatePainting implements OnInit {
           }
         },
         error: () => {
-          this.toastr.error("Can't refresh data.");
+          this.toastr.show('Can\'t refresh data.', 'error');
         },
       });
     }
@@ -267,7 +267,7 @@ export class CreatePainting implements OnInit {
         }
       },
       error: () => {
-        this.toastr.error("Can't fetch all necessary data");
+        this.toastr.show('Can\'t fetch all necessary data', 'error');
       },
       complete: () => {
         if (this._updatePainting()) {

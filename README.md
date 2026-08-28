@@ -1,46 +1,62 @@
 # ArtGalleryDotnetAngularCRUD
 
-An Angular 22 application (with [Angular CLI](https://github.com/angular/angular-cli) version 22.0.1) that demonstrates the regular HttpClient with Observables.  
+An Angular 22 application (with [Angular CLI](https://github.com/angular/angular-cli) version 22.1.6) that demonstrates the regular HttpClient with Observables.  
 It uses a .NET/C# WebAPI as Backend and a PostgreSQL database.  
 The .NET/C# WebAPI stores Paintings/images and thumbnails in the database as base64-strings.
 
 The Angular application can fetch, filter, create, update and delete paintings, styles and artists.  
 This application can upload images to the .NET/C# WebAPI with the use of IFormFile.  
-Using the _SixLabors.ImageSharp library_, uploaded images are resized to thumbnails.  
+Using the _SixLabors.ImageSharp library_, uploaded images are resized to thumbnails.
+
 See the images in the root of this project for examples.
 
-### **PostgreSQL database:**
+## Running the application
 
-See the folder: _Docker\_PostgreSQL_ with the docker-compose file.
+### _1\. Docker Desktop / Docker_
 
-Command to add the _docker container_:
+To see the application in action within a _Docker Container_, use the command from the root of this project:
+
+**docker compose up --build -d**
+
+To see also the (optional) _Cypress e2e tests_ in action within a _Docker Container_, use the command:
+
+**docker compose --profile test up --exit-code-from cypress cypress**
+
+### _2\. Local installation_
+
+**A) PostgreSQL database:**
+
+See in this project the folder: _Docker\_PostgreSQL_ with the docker-compose file for the PostgreSQL database.
+
+Run the command command here below from the folder /_Docker\_PostgreSQL_
 
 **docker-compose up --build -d**
 
-### **Add database migrations**
+**B) Add database migrations**
 
-Install the **dotnet ef-tool** - version: 8.0.11 or above
+Install the **dotnet ef-tool** - version: 8.0.11 or above - see the url: [dotnet EF tool](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
 When the tool is installed, run the command for a _database migration:_
 
 **dotnet ef database update**
 
+Or use the longer command (and replace: \*_YOUR\_WORKSPACE_\*):  
+_dotnet ef database update -p_ \*_YOUR\_WORKSPACE_\*_/ArtGalleryDotnetAngularCRUD/Backend/RepositoryLayer/RepositoryLayer.csproj" --startup-project "_\*_YOUR\_WORKSPACE_\*_/ArtGalleryDotnetAngularCRUD/Backend/ArtGalleryWebApi/ArtGalleryWebApi.csproj"_
+
 For more information see the link below:
 
 [https://learn.microsoft.com/en-us/ef/core/cli/dotnet](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
-### **Angular application installation**
+**C) Angular application installation**
 
 **Angular 22** needs a **Node.js** version of at least _22.22.3_
 
 **Command to install**
 
-_npm install --force_  
+_npm install_  
 or shorter:
 
-_npm i --force_
-
-**Note:** _\--force_ is needed because the packages: _@ngrx/signals_, _@ngrx/store_ and _ngx-toastr_ are not updated yet.
+_npm i_
 
 **Command to run the application:**
 
@@ -53,7 +69,25 @@ _ng s --o_
 **Command to run Cypress e2e (end-to-end) testing**  
 _ng e2e_
 
-### **Changelog:**
+## **Changelog:**
+
+_August 2026_
+
+**General changes:**
+
+\- Dockerized the whole application and added a new _docker-compose.yml_ file for the whole application.
+
+\- Optional run the _Cypress e2e tests_ in a Docker container.
+
+**Backend changes:**
+
+\- Replaced a custom method to get the file extension with: _Path.GetExtension()_.
+
+**Frontend changes:**
+
+\- Updated packages.
+
+\- Removed package _ngx-toastr_ and replaced this with a custom Toastr.
 
 _June 2026_
 

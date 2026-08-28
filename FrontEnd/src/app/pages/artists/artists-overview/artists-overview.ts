@@ -29,7 +29,7 @@ export class ArtistsOverview extends Shared<Artist> implements OnInit {
         this.dataSource.paginator = this.paginator();
       },
       error: () => {
-        this.toastr.error("Can't fetch all Artists.");
+        this.toastr.show('Can\'t fetch all Artists.', 'error');
       },
       complete: () => {
         this.isLoaded.set(true);

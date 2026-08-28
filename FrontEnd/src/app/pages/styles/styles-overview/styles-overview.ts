@@ -28,7 +28,7 @@ export class StylesOverview extends Shared<Style> implements OnInit {
         this.dataSource.paginator = this.paginator();
       },
       error: () => {
-        this.toastr.error("Can't fetch all Styles.");
+        this.toastr.show('Can\'t fetch all Styles.', 'error');
       },
     });
   }

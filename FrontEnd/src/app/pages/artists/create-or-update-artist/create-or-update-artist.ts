@@ -2,7 +2,6 @@ import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { catchError, EMPTY, map, Observable, switchMap } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { AllMatModules } from '../../../all-mat-modules.module';
 import { Artist } from '../../../models/artist/artist.interface';
 import { Artists } from '../../../services/artists/artists';
@@ -12,6 +11,7 @@ import { RouterLink } from '@angular/router';
 import { DeleteDialogData } from '../../../models/dialogs/delete-dialog-data.interface';
 import { DeleteDialog } from '../../../components/delete-dialog/delete-dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastService } from '../../../services/toast/toast-service';
 
 @Component({
   selector: 'app-create-or-update-artist',
@@ -31,7 +31,7 @@ export class CreateOrUpdateArtist implements OnInit {
   private fb = inject(FormBuilder);
   private activeRoute = inject(ActivatedRoute);
   private router = inject(Router);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
   private artistService = inject(Artists);
   public dialog = inject(MatDialog);
 
@@ -83,7 +83,7 @@ export class CreateOrUpdateArtist implements OnInit {
         let parsed: number = parseInt(dod);
 
         if (isNaN(parsed) || parsed < 1200 || parsed > 2050) {
-          this.toastr.error('Invalid year for: Year of Death');
+          this.toastr.show('Invalid year for: Year of Death', 'error');
           return;
         } else {
           artist.yearOfDeath = parsed;
@@ -108,7 +108,7 @@ export class CreateOrUpdateArtist implements OnInit {
       );
     } else {
       this.artistForm.markAllAsTouched();
-      this.toastr.error('Form invalid.');
+      this.toastr.show('Form invalid.', 'error');
     }
   }
 
@@ -137,15 +137,15 @@ export class CreateOrUpdateArtist implements OnInit {
 
       result$.subscribe({
         next: () => {
-          this.toastr.success('Artist successfully deleted');
+          this.toastr.show('Artist successfully deleted', 'success');
           this.router.navigate(['/all-artists']);
         },
         error: () => {
-          this.toastr.error("Can't delete Artist");
+          this.toastr.show('Can\'t delete Artist', 'error');
         },
       });
     } else {
-      this.toastr.error('There is no Artist loaded.');
+      this.toastr.show('There is no Artist loaded.', 'error');
     }
   }
 
@@ -155,7 +155,7 @@ export class CreateOrUpdateArtist implements OnInit {
         this._updateArtist.set(data);
       },
       error: () => {
-        this.toastr.error("Can't fetch Artist Details");
+        this.toastr.show('Can\'t fetch Artist Details', 'error');
       },
       complete: () => {
         if (this._updateArtist()) {

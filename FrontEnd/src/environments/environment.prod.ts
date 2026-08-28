@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  endpoint: '',
+  // Docker endpoint.
+  endpoint: 'http://localhost:5001/api/',
 };

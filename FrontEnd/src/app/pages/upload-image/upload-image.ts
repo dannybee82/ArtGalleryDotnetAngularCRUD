@@ -3,7 +3,7 @@ import { OpenFile } from '../../components/open-file/open-file';
 import { LoadFilesInBrowser } from '../../services/other/load-files-in-browser';
 import { AllMatModules } from '../../all-mat-modules.module';
 import { UploadFiles } from '../../services/upload/upload-files';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '../../services/toast/toast-service';
 
 @Component({
   selector: 'app-upload-image',
@@ -19,7 +19,7 @@ export class UploadImage {
 
   private loadFilesInBrowser = inject(LoadFilesInBrowser);
   private uploadFileService = inject(UploadFiles);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
 
   loadFile($event: File): void {
     this.loadFilesInBrowser.readFile($event).then((result: string | null) => {
@@ -33,9 +33,9 @@ export class UploadImage {
           this._uploadFile = $event;
         } else {
           if (!this.loadFilesInBrowser.isValidDataType(result)) {
-            this.toastr.error('File is invalid');
+            this.toastr.show('File is invalid', 'error');
           } else if (this.loadFilesInBrowser.checkMaximumSize($event.size)) {
-            this.toastr.error('File exceeds 10 MB');
+            this.toastr.show('File exceeds 10 MB', 'error');
           }
         }
       }
@@ -52,17 +52,17 @@ export class UploadImage {
     if (this._uploadFile) {
       this.uploadFileService.uploadFile(this._uploadFile).subscribe({
         next: (data?) => {
-          this.toastr.success('File successfully uploaded,');
+          this.toastr.show('File successfully uploaded,', 'success');
         },
         error: () => {
-          this.toastr.error("Can't upload file.");
+          this.toastr.show('Can\'t upload file.', 'error');
         },
         complete: () => {
           this.removeFile();
         },
       });
     } else {
-      this.toastr.error('No File to upload.');
+      this.toastr.show('No File to upload.', 'error');
     }
   }
 }

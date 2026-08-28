@@ -39,7 +39,7 @@ namespace ServiceLayer.Services
             {
                 var fileStream = file.OpenReadStream();
                 var fileFormat = _fileFormatInspector.DetermineFileFormat(fileStream);
-                var fileExtension = GetFileExtension(file.FileName);
+                var fileExtension = Path.GetExtension(file.FileName).Replace(".", "").ToLower();
 
                 var record = _allowedFileFormatList.AllowedFileList
                     .SingleOrDefault(x => x.Extension.Equals(fileExtension) && x.FileFormat
@@ -103,23 +103,6 @@ namespace ServiceLayer.Services
             {
                 throw new Exception("Something went wrong: " + ex.Message + " - " + ex.InnerException);
             }
-        }
-
-        private string GetFileExtension(string path)
-        {
-            string fileName = GetFileName(path);
-            string[] spltted = fileName.Split('.');
-            int lastPart = spltted.Length - 1;
-
-            return lastPart > -1 ? spltted[lastPart].ToLower() : "";
-        }
-
-        private string GetFileName(string path)
-        {
-            string[] splitted = path.Split('/');
-            int lastPart = splitted.Length - 1;
-
-            return lastPart > -1 ? splitted[lastPart] : "";
         }
 
     }

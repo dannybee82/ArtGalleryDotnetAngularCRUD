@@ -2,7 +2,6 @@ import { Component, OnInit, WritableSignal, inject, signal } from '@angular/core
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { catchError, EMPTY, map, Observable, switchMap } from 'rxjs';
-import { ToastrService } from 'ngx-toastr';
 import { AllMatModules } from '../../../all-mat-modules.module';
 import { Style } from '../../../models/style/style.interface';
 import { Styles } from '../../../services/style/styles';
@@ -12,6 +11,7 @@ import { RouterLink } from '@angular/router';
 import { DeleteDialogData } from '../../../models/dialogs/delete-dialog-data.interface';
 import { DeleteDialog } from '../../../components/delete-dialog/delete-dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastService } from '../../../services/toast/toast-service';
 
 @Component({
   selector: 'app-create-or-update-style',
@@ -30,7 +30,7 @@ export class CreateOrUpdateStyle implements OnInit {
   private fb = inject(FormBuilder);
   private activeRoute = inject(ActivatedRoute);
   private router = inject(Router);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
   private styleService = inject(Styles);
   public dialog = inject(MatDialog);
 
@@ -87,7 +87,7 @@ export class CreateOrUpdateStyle implements OnInit {
       );
     } else {
       this.StyleForm.markAllAsTouched();
-      this.toastr.error('Form invalid.');
+      this.toastr.show('Form invalid.', 'error');
     }
   }
 
@@ -116,15 +116,15 @@ export class CreateOrUpdateStyle implements OnInit {
 
       result$.subscribe({
         next: () => {
-          this.toastr.success('Style successfully deleted');
+          this.toastr.show('Style successfully deleted', 'success');
           this.router.navigate(['/all-styles']);
         },
         error: () => {
-          this.toastr.error("Can't delete Style");
+          this.toastr.show('Can\'t delete Style', 'error');
         },
       });
     } else {
-      this.toastr.error('There is no Style loaded.');
+      this.toastr.show('There is no Style loaded.', 'error');
     }
   }
 
@@ -134,7 +134,7 @@ export class CreateOrUpdateStyle implements OnInit {
         this._updateStyle.set(data);
       },
       error: () => {
-        this.toastr.error("Can't fetch Style Details");
+        this.toastr.show('Can\'t fetch Style Details', 'error');
       },
       complete: () => {
         if (this._updateStyle()) {

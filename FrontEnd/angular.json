@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/art-gallery-demo",
+            "outputPath": {
+              "base": "dist"
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [],
@@ -40,8 +42,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2MB",
+                  "maximumError": "2MB"
                 },
                 {
                   "type": "anyComponentStyle",

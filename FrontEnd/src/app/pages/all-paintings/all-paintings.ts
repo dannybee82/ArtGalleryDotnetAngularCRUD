@@ -7,12 +7,12 @@ import { FilterData } from '../../models/filters/filter-data.interface';
 import { Filters } from '../../components/filters/filters';
 import { CustomPagination } from '../../components/custom-pagination/custom-pagination';
 import { PaginatedData, PaginatedList } from '../../models/paginated-list/paginated-list.interface';
-import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { AsyncPipe, I18nPluralPipe } from '@angular/common';
 import { defaultPagination } from '../../constants/shared-default-pagination.constants';
 import { FilterStore } from '../../stores/filter.store';
 import { PaginationStore } from '../../stores/pagination.store';
+import { ToastService } from '../../services/toast/toast-service';
 
 @Component({
   selector: 'app-all-paintings',
@@ -44,7 +44,7 @@ export class AllPaintings implements OnInit {
   );
 
   private paintingsService = inject(Paintings);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
   private readonly paginationStore = inject(PaginationStore);
   private readonly filterStore = inject(FilterStore);
 
@@ -93,7 +93,7 @@ export class AllPaintings implements OnInit {
         this.amount.set(data.totalCount);
       },
       error: () => {
-        this.toastr.error("Can't fetch Paintings.");
+        this.toastr.show('Can\'t fetch Paintings.', 'error');
       },
     });
   }

@@ -1,23 +1,23 @@
 import { inject } from "@angular/core";
 import { Router } from "@angular/router";
-import { ToastrService } from "ngx-toastr";
 import { Observer, Subject } from "rxjs";
 import { ObserverMessages } from "../models/shared/observer.messages.interface";
+import { ToastService } from "../services/toast/toast-service";
 
 export class SharedObserver {
 
     private _refresh: Subject<boolean> = new Subject<boolean>();
 
-    private toastr = inject(ToastrService);
+    private toastr = inject(ToastService);
     private router = inject(Router);
 
     getObserverSimple(messages: ObserverMessages, redirects?: string[]):  Observer<void> {
         const observer: Observer<void> = {
             next: () => {
-                this.toastr.success(messages.createSucces);
+                this.toastr.show(messages.createSucces, 'success');
             },
             error: () => {
-                this.toastr.error(messages.createError);
+                this.toastr.show(messages.createError, 'error');
             },
             complete: () => {
                 this._refresh.next(true);
@@ -36,10 +36,10 @@ export class SharedObserver {
     getObserver(isUpdate: boolean, messages: ObserverMessages, redirects?: string[]) : Observer<void> {
         const observer: Observer<void> = {
             next: () => {
-                this.toastr.success(isUpdate ? messages.updateSuccess: messages.createSucces);
+                this.toastr.show(isUpdate ? messages.updateSuccess: messages.createSucces, 'success');
             },
             error: () => {
-                this.toastr.error(isUpdate ? messages.updateError : messages.createError);
+                this.toastr.show(isUpdate ? messages.updateError : messages.createError, 'error');
             },
             complete: () => {
                 this._refresh.next(true);

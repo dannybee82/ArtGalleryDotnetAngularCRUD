@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, inject, signal, Signal, viewChild, WritableSignal } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { ToastrService } from 'ngx-toastr';
+import { ToastService } from '../services/toast/toast-service';
 
 @Component({
   template: '',
@@ -13,7 +13,7 @@ export class Shared<T> implements AfterViewInit {
   protected total: WritableSignal<number> = signal(0);
   protected pageSize: WritableSignal<number> = signal(10);
 
-  protected toastr = inject(ToastrService);
+  protected toastr = inject(ToastService);
 
   ngAfterViewInit() {
     if (this.paginator()) {

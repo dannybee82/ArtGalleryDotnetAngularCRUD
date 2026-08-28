@@ -3,16 +3,10 @@ import { AvailableFilter } from '../../services/filters/available-filter';
 import { FiltersAvailable } from '../../models/filters/filters-available.interface';
 import { FilterItem } from '../../models/filters/filter-item.interface';
 import { FilterData } from '../../models/filters/filter-data.interface';
-import { ToastrService } from 'ngx-toastr';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  UntypedFormGroup,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, UntypedFormGroup } from '@angular/forms';
 import { AllMatModules } from '../../all-mat-modules.module';
 import { FilterStore } from '../../stores/filter.store';
+import { ToastService } from '../../services/toast/toast-service';
 
 @Component({
   selector: 'app-filters',
@@ -35,7 +29,7 @@ export class Filters implements OnInit {
   >();
 
   private availableFilterService = inject(AvailableFilter);
-  private toastr = inject(ToastrService);
+  private toastr = inject(ToastService);
   private fb = inject(FormBuilder);
   private readonly filterStore = inject(FilterStore);
 
@@ -134,7 +128,7 @@ export class Filters implements OnInit {
         this.filterYears.set(data.years);
       },
       error: () => {
-        this.toastr.error("Can't fetch Filters");
+        this.toastr.show('Can\'t fetch Filters', 'error');
       },
       complete: () => {
         this.setCurrentFilters();
